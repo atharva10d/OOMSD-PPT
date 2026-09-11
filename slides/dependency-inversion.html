@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>D — Dependency Inversion Principle</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body style="margin:0;padding:0;overflow:hidden;">
+<div class="slide-container" data-screen-label="11 Dependency Inversion" style="position:relative;width:1920px;height:1080px;overflow:hidden;background:linear-gradient(150deg,#EAF6FD 0%,#F8FCFE 48%,#FFF3EA 100%);">
+
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:0px;top:0px;width:1920px;height:8px;background:linear-gradient(90deg,#0077B6 0%,#48A9DC 55%,#FF8C42 100%);z-index:7;"></div>
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:78px;width:900px;z-index:10;">
+    <p class="eyebrow" style="font-size:17px;">Principle 05 · D</p>
+  </div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:108px;width:1700px;z-index:10;">
+    <h2 class="h2" style="font-size:58px;">D — Depend on Abstractions, Not Concrete Tech</h2>
+  </div>
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:96px;top:192px;width:130px;height:5px;border-radius:3px;background:linear-gradient(90deg,#0077B6,#FF8C42);z-index:7;"></div>
+
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:96px;top:222px;width:1728px;height:88px;background:rgba(0,119,182,0.10);border-left:6px solid #0077B6;border-radius:14px;z-index:1;"></div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:138px;top:238px;width:1660px;z-index:10;">
+    <p class="body" style="font-size:24px;font-style:italic;color:#0B132B;line-height:1.36;">"High-level modules and low-level modules should both depend on abstractions."</p>
+  </div>
+
+  <!-- Problem -->
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:96px;top:346px;width:530px;height:602px;background:rgba(255,255,255,0.86);border:1px solid rgba(255,255,255,0.96);border-radius:24px;box-shadow:0 18px 46px rgba(11,19,43,0.10);z-index:1;"></div>
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:96px;top:346px;width:530px;height:8px;border-radius:24px 24px 0 0;background:#FF8C42;z-index:2;"></div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:130px;top:378px;width:462px;z-index:10;">
+    <p class="eyebrow" style="font-size:14px;letter-spacing:2.4px;color:#E4721F;">Problem It Solves</p>
+    <h3 class="h3" style="font-size:28px;margin-top:8px;line-height:1.22;">A concrete API becomes a cage.</h3>
+  </div>
+
+  <div class="code-window di-cage" style="position:absolute;left:130px;top:490px;width:462px;height:190px;z-index:10;">
+    <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#0D1117;border:2px solid rgba(228,114,31,0.5);border-radius:14px;box-shadow:0 12px 28px rgba(11,19,43,0.24);"></div>
+    <div style="position:absolute;left:16px;top:16px;display:flex;gap:6px;">
+      <div style="width:12px;height:12px;border-radius:50%;background:#FF5F56;"></div>
+      <div style="width:12px;height:12px;border-radius:50%;background:#FFBD2E;"></div>
+      <div style="width:12px;height:12px;border-radius:50%;background:#27C93F;"></div>
+    </div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:0;top:28px;width:100%;text-align:center;">
+      <p class="body mono" style="font-size:20px;color:#79C0FF;letter-spacing:1.3px;">ReservationEngine</p>
+      <p class="body mono" style="font-size:14px;color:#FFB07A;margin-top:16px;">─── direct call ───▶</p>
+      <p class="body mono" style="font-size:22px;color:#FF7B72;font-weight:700;margin-top:16px;">HDFCPaymentAPI</p>
+      <p class="body" style="font-size:13px;color:#8B949E;margin-top:6px;">specific bank, hard-coded</p>
+    </div>
+  </div>
+
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:130px;top:700px;width:462px;height:216px;background:rgba(255,140,66,0.10);border-radius:16px;border:1px solid rgba(255,140,66,0.22);z-index:2;"></div>
+  <div data-object="true" data-object-type="icon" style="position:absolute;left:152px;top:722px;width:40px;height:40px;border-radius:10px;background:rgba(255,140,66,0.24);display:flex;align-items:center;justify-content:center;z-index:10;">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B85A15" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 2.5 17.5A2 2 0 0 0 4.2 20.5h15.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v5"/><circle cx="12" cy="17" r="1.1"/></svg>
+  </div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:206px;top:722px;width:370px;z-index:10;">
+    <p class="eyebrow" style="font-size:13px;letter-spacing:2.4px;color:#E4721F;">Consequence</p>
+  </div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:152px;top:786px;width:426px;z-index:10;">
+    <p class="body" style="font-size:20px;line-height:1.42;">Switching to <strong>Stripe</strong> or <strong>PayPal</strong> later means <strong>rewriting core business logic</strong>.</p>
+  </div>
+
+  <!-- Solution -->
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:646px;top:346px;width:1178px;height:602px;background:rgba(255,255,255,0.90);border:1px solid rgba(255,255,255,0.96);border-radius:24px;box-shadow:0 18px 46px rgba(11,19,43,0.12);z-index:1;"></div>
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:646px;top:346px;width:1178px;height:8px;border-radius:24px 24px 0 0;background:#0077B6;z-index:2;"></div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:682px;top:378px;width:1100px;z-index:10;">
+    <p class="eyebrow" style="font-size:14px;letter-spacing:2.4px;">Airline Solution</p>
+    <h3 class="h3" style="font-size:30px;margin-top:8px;">Business logic depends on an abstraction.</h3>
+  </div>
+
+  <!-- Business modules row -->
+  <div class="code-window" style="position:absolute;left:820px;top:490px;width:834px;height:76px;z-index:10;">
+    <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#0D1117;border-radius:14px;border: 1px solid rgba(255,255,255,0.08);box-shadow:0 12px 28px rgba(11,19,43,0.24);"></div>
+    <div style="position:absolute;left:16px;top:16px;display:flex;gap:6px;">
+      <div style="width:10px;height:10px;border-radius:50%;background:#30363D;"></div>
+      <div style="width:10px;height:10px;border-radius:50%;background:#30363D;"></div>
+      <div style="width:10px;height:10px;border-radius:50%;background:#30363D;"></div>
+    </div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:0;top:18px;width:100%;text-align:center;">
+      <p class="body mono" style="font-size:14px;color:#5A6784;letter-spacing:1.4px;margin-bottom:4px;">HIGH-LEVEL MODULES</p>
+      <p class="body mono" style="font-size:18px;color:#C9D1D9;font-weight:700;">ReservationEngine &nbsp;·&nbsp; BookingWorkflow &nbsp;·&nbsp; RefundManager</p>
+    </div>
+  </div>
+
+  <!-- vertical arrow -->
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:1235px;top:566px;width:2px;height:32px;background:rgba(11,19,43,0.15);z-index:2;"></div>
+
+  <!-- Interface -->
+  <div class="di-base-group" style="position:absolute;left:1040px;top:598px;width:392px;height:98px;z-index:11;">
+    <div class="code-window" style="position:absolute;left:0;top:0;width:100%;height:100%;">
+      <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#0D1117;border:2px solid rgba(255,255,255,0.1);border-radius:16px;box-shadow:0 8px 24px rgba(11,19,43,0.15);transition:all 0.3s ease;"></div>
+      <div style="position:absolute;left:16px;top:16px;display:flex;gap:6px;">
+        <div style="width:10px;height:10px;border-radius:50%;background:#FF5F56;"></div>
+        <div style="width:10px;height:10px;border-radius:50%;background:#FFBD2E;"></div>
+        <div style="width:10px;height:10px;border-radius:50%;background:#27C93F;"></div>
+      </div>
+      <div data-object="true" data-object-type="textbox" style="position:absolute;left:0;top:20px;width:100%;text-align:center;">
+        <p class="body mono" style="font-size:16px;color:#C9D1D9;font-weight:700;"><span style="color:#FF7B72;">interface</span> <span style="color:#D2A8FF;">IPaymentGateway</span></p>
+        <p class="body mono" style="font-size:15px;color:#79C0FF;margin-top:6px;"><span style="color:#FF7B72;">+</span> processPayment()</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- connector lines -->
+  <div class="di-connector" data-object="true" data-object-type="shape" style="position:absolute;left:1235px;top:696px;width:2px;height:40px;background:rgba(11,19,43,0.15);z-index:2;transition:all 0.3s ease;"></div>
+  <div class="di-connector" data-object="true" data-object-type="shape" style="position:absolute;left:830px;top:736px;width:812px;height:2px;background:rgba(11,19,43,0.15);z-index:2;transition:all 0.3s ease;"></div>
+  <div class="di-connector" data-object="true" data-object-type="shape" style="position:absolute;left:830px;top:736px;width:2px;height:30px;background:rgba(11,19,43,0.15);z-index:2;transition:all 0.3s ease;"></div>
+  <div class="di-connector" data-object="true" data-object-type="shape" style="position:absolute;left:1235px;top:736px;width:2px;height:30px;background:rgba(11,19,43,0.15);z-index:2;transition:all 0.3s ease;"></div>
+  <div class="di-connector" data-object="true" data-object-type="shape" style="position:absolute;left:1640px;top:736px;width:2px;height:30px;background:rgba(11,19,43,0.15);z-index:2;transition:all 0.3s ease;"></div>
+
+  <!-- Three implementations -->
+  <div class="code-window" style="position:absolute;left:702px;top:766px;width:256px;height:106px;z-index:10;transition:all 0.3s ease;">
+    <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#0D1117;border:1px solid rgba(255,255,255,0.08);border-radius:16px;box-shadow:0 8px 24px rgba(11,19,43,0.15);transition:all 0.3s ease;"></div>
+    <div style="position:absolute;left:12px;top:12px;display:flex;gap:6px;">
+      <div style="width:8px;height:8px;border-radius:50%;background:#30363D;"></div>
+      <div style="width:8px;height:8px;border-radius:50%;background:#30363D;"></div>
+      <div style="width:8px;height:8px;border-radius:50%;background:#30363D;"></div>
+    </div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:0;top:28px;width:100%;text-align:center;">
+      <p class="body mono" style="font-size:20px;color:#79C0FF;font-weight:700;">HDFCPayment</p>
+      <p class="body" style="font-size:13px;color:#8B949E;margin-top:8px;">implements IPaymentGateway</p>
+    </div>
+  </div>
+
+  <div class="code-window" style="position:absolute;left:1107px;top:766px;width:256px;height:106px;z-index:10;transition:all 0.3s ease;">
+    <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#0D1117;border:1px solid rgba(255,255,255,0.08);border-radius:16px;box-shadow:0 8px 24px rgba(11,19,43,0.15);transition:all 0.3s ease;"></div>
+    <div style="position:absolute;left:12px;top:12px;display:flex;gap:6px;">
+      <div style="width:8px;height:8px;border-radius:50%;background:#30363D;"></div>
+      <div style="width:8px;height:8px;border-radius:50%;background:#30363D;"></div>
+      <div style="width:8px;height:8px;border-radius:50%;background:#30363D;"></div>
+    </div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:0;top:28px;width:100%;text-align:center;">
+      <p class="body mono" style="font-size:20px;color:#79C0FF;font-weight:700;">StripePayment</p>
+      <p class="body" style="font-size:13px;color:#8B949E;margin-top:8px;">implements IPaymentGateway</p>
+    </div>
+  </div>
+
+  <div class="code-window" style="position:absolute;left:1512px;top:766px;width:256px;height:106px;z-index:10;transition:all 0.3s ease;">
+    <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#0D1117;border:1px solid rgba(255,255,255,0.08);border-radius:16px;box-shadow:0 8px 24px rgba(11,19,43,0.15);transition:all 0.3s ease;"></div>
+    <div style="position:absolute;left:12px;top:12px;display:flex;gap:6px;">
+      <div style="width:8px;height:8px;border-radius:50%;background:#30363D;"></div>
+      <div style="width:8px;height:8px;border-radius:50%;background:#30363D;"></div>
+      <div style="width:8px;height:8px;border-radius:50%;background:#30363D;"></div>
+    </div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:0;top:28px;width:100%;text-align:center;">
+      <p class="body mono" style="font-size:20px;color:#79C0FF;font-weight:700;">PayPalPayment</p>
+      <p class="body" style="font-size:13px;color:#8B949E;margin-top:8px;">implements IPaymentGateway</p>
+    </div>
+  </div>
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:682px;top:892px;width:1100px;text-align:center;z-index:10;">
+    <p class="body" style="font-size:20px;color:#0B132B;line-height:1.4;"><strong>Payment platform is swapped freely — with zero changes to business logic.</strong></p>
+  </div>
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:1002px;width:900px;z-index:10;">
+    <p class="body" style="font-size:16px;color:#7A88A3;letter-spacing:1.4px;">AIRLINE RESERVATION SYSTEM &nbsp;·&nbsp; OOMSD</p>
+  </div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:1704px;top:1002px;width:120px;text-align:right;z-index:10;">
+    <p class="body mono" style="font-size:17px;color:#0077B6;font-weight:600;">11</p>
+  </div>
+
+</div>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+<script src="../assets/scaler.js"></script><script src="../assets/navigation.js"></script>
+</body>
+</html>

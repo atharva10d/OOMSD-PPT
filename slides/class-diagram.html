@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Modelling — Class Diagram</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body style="margin:0;padding:0;overflow:hidden;">
+<div class="slide-container" data-screen-label="13 Class Diagram" style="position:relative;width:1920px;height:1080px;overflow:hidden;background:linear-gradient(150deg,#EAF6FD 0%,#F8FCFE 48%,#FFF3EA 100%);">
+
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:0px;top:0px;width:1920px;height:8px;background:linear-gradient(90deg,#0077B6 0%,#48A9DC 55%,#FF8C42 100%);z-index:7;"></div>
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:82px;width:1100px;z-index:10;">
+    <p class="eyebrow" style="font-size:17px; background: linear-gradient(90deg, #0077B6, #1489C4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:800; letter-spacing: 3px;">MODELLING CONCEPT</p>
+  </div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:108px;width:1500px;z-index:10;">
+    <h2 class="h2" style="font-size:60px;">Class Diagram</h2>
+  </div>
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:96px;top:192px;width:130px;height:5px;border-radius:3px;background:linear-gradient(90deg,#0077B6,#FF8C42);z-index:7;"></div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:220px;width:1450px;z-index:10;">
+    <p class="body" style="font-size:23px;">A static, structural view of the system — the classes, their data, their behaviour, and how they relate. The blueprint the code will directly follow.</p>
+  </div>
+
+  <!-- Colorful Ambient Background Orbs -->
+  <div style="position:absolute; top:-150px; left:-150px; width:1000px; height:1000px; background:radial-gradient(circle, rgba(0,119,182,0.4) 0%, rgba(0,119,182,0) 70%); filter:blur(80px); z-index:0; pointer-events:none;"></div>
+  <div style="position:absolute; bottom:-150px; right:-200px; width:1100px; height:1100px; background:radial-gradient(circle, rgba(255,140,66,0.3) 0%, rgba(255,140,66,0) 70%); filter:blur(90px); z-index:0; pointer-events:none;"></div>
+  <div style="position:absolute; top:20%; left:40%; width:900px; height:900px; background:radial-gradient(circle, rgba(142,68,173,0.15) 0%, rgba(142,68,173,0) 70%); filter:blur(100px); z-index:0; pointer-events:none;"></div>
+
+  <style>
+    @keyframes floatCard {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+    .creative-card {
+      animation: floatCard 6s ease-in-out infinite;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .creative-card:hover {
+      transform: scale(1.02) translateY(-10px) !important;
+      box-shadow: 0 40px 100px rgba(0,119,182,0.2) !important;
+      border-color: rgba(255,255,255,0.9) !important;
+    }
+    .interactive-box {
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      cursor: default;
+    }
+    .interactive-box:hover {
+      transform: translateX(10px) scale(1.02);
+      background: rgba(255,255,255,0.95) !important;
+      box-shadow: -10px 15px 30px rgba(0,119,182,0.1) !important;
+      border-left: 4px solid #1489C4 !important;
+    }
+    .polaroid-sketch {
+      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transform: rotate(-3deg) scale(0.95);
+      box-shadow: 15px 25px 50px rgba(0,0,0,0.15), 0 0 0 12px white;
+      border-radius: 4px;
+    }
+    .polaroid-sketch:hover {
+      transform: rotate(0deg) scale(1.05);
+      box-shadow: 25px 35px 70px rgba(0,0,0,0.2), 0 0 0 16px white;
+      z-index: 50;
+    }
+  </style>
+
+  <!-- Left column: definition -->
+  <div class="creative-card" data-object="true" data-object-type="shape" style="position:absolute;left:96px;top:302px;width:860px;height:646px;background:rgba(255,255,255,0.45); border:1px solid rgba(255,255,255,0.7); backdrop-filter:blur(30px); -webkit-backdrop-filter:blur(30px); border-radius:24px; box-shadow:0 32px 80px rgba(0,119,182,0.12); z-index:10; display:flex; flex-direction:column; padding:48px 56px; box-sizing:border-box; justify-content:space-between;">
+      
+      <!-- What It Is -->
+      <div>
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+          <div style="width:40px;height:40px;border-radius:10px;background:rgba(0,119,182,0.1);display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0077B6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          </div>
+          <p class="eyebrow" style="font-size:16px;letter-spacing:2.4px;color:#0077B6;margin:0;">What It Is</p>
+        </div>
+        <p class="body" style="font-size:24px;line-height:1.6;color:#434E61;margin-top:0;">Classes appear as <strong>boxes</strong> divided into <em>name / attributes / methods</em>, connected by relationships — <strong>association</strong>, <strong>aggregation</strong>, <strong>inheritance</strong>.</p>
+      </div>
+
+      <div style="width:100%;height:1px;background:linear-gradient(90deg, rgba(11,19,43,0.05), rgba(11,19,43,0.15), rgba(11,19,43,0.05));"></div>
+
+      <!-- Components -->
+      <div>
+        <p class="eyebrow" style="font-size:16px;letter-spacing:2.4px;color:#E4721F;margin-bottom:24px;">In the Airline System</p>
+        
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <!-- Classes -->
+          <div class="interactive-box" style="display:flex;align-items:flex-start;gap:16px;background:rgba(255,255,255,0.65);border:1px solid rgba(255,255,255,0.8);backdrop-filter:blur(12px);border-radius:16px;padding:20px 24px;box-shadow:0 8px 24px rgba(0,119,182,0.06); border-left: 4px solid transparent;">
+            <div style="margin-top:2px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E4721F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            </div>
+            <div style="width:100%;">
+              <p class="body" style="font-size:22px;font-weight:700;color:#0B132B;margin:0;margin-bottom:12px;">Classes</p>
+              <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                <span class="body mono hover-pulse" style="font-size:16px;background:#ffffff;border:1px solid rgba(0,119,182,0.2);color:#0077B6;padding:6px 16px;border-radius:20px;box-shadow:0 4px 12px rgba(0,119,182,0.05);cursor:default;">User</span>
+                <span class="body mono hover-pulse" style="font-size:16px;background:#ffffff;border:1px solid rgba(0,119,182,0.2);color:#0077B6;padding:6px 16px;border-radius:20px;box-shadow:0 4px 12px rgba(0,119,182,0.05);cursor:default;">Passenger</span>
+                <span class="body mono hover-pulse" style="font-size:16px;background:#ffffff;border:1px solid rgba(0,119,182,0.2);color:#0077B6;padding:6px 16px;border-radius:20px;box-shadow:0 4px 12px rgba(0,119,182,0.05);cursor:default;">Flight</span>
+                <span class="body mono hover-pulse" style="font-size:16px;background:#ffffff;border:1px solid rgba(0,119,182,0.2);color:#0077B6;padding:6px 16px;border-radius:20px;box-shadow:0 4px 12px rgba(0,119,182,0.05);cursor:default;">Reservation</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Inheritance -->
+          <div class="interactive-box" style="display:flex;align-items:flex-start;gap:16px;background:rgba(255,255,255,0.65);border:1px solid rgba(255,255,255,0.8);backdrop-filter:blur(12px);border-radius:16px;padding:20px 24px;box-shadow:0 8px 24px rgba(0,119,182,0.06); border-left: 4px solid transparent;">
+            <div style="margin-top:2px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0077B6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V7"/><path d="M5 12l7-7 7 7"/></svg>
+            </div>
+            <div>
+              <p class="body" style="font-size:22px;font-weight:700;color:#0B132B;margin:0;margin-bottom:6px;">Inheritance</p>
+              <p class="body" style="font-size:19px;line-height:1.5;color:#434E61;margin:0;"><span class="mono" style="color:#0077B6;font-weight:600;">User</span> generalises into <span class="mono" style="color:#0077B6;">Passenger</span>, <span class="mono" style="color:#0077B6;">Agent</span> &amp; <span class="mono" style="color:#0077B6;">Admin</span>.</p>
+            </div>
+          </div>
+
+          <!-- Multiplicity -->
+          <div class="interactive-box" style="display:flex;align-items:flex-start;gap:16px;background:rgba(255,255,255,0.65);border:1px solid rgba(255,255,255,0.8);backdrop-filter:blur(12px);border-radius:16px;padding:20px 24px;box-shadow:0 8px 24px rgba(0,119,182,0.06); border-left: 4px solid transparent;">
+            <div style="margin-top:2px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1489C4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            </div>
+            <div>
+              <p class="body" style="font-size:22px;font-weight:700;color:#0B132B;margin:0;margin-bottom:6px;">Multiplicity</p>
+              <p class="body" style="font-size:19px;line-height:1.5;color:#434E61;margin:0;">Passenger <span style="font-weight:600">(1) ↔ (N)</span> Reservation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- User's Class Diagram (Right side - FIXED WIDTH structural grid) -->
+  <div class="image-placeholder" style="position:absolute;left:980px;top:302px;width:844px;height:646px;z-index:20;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.25); border:1px solid rgba(255,255,255,0.5); backdrop-filter:blur(30px); -webkit-backdrop-filter:blur(30px); border-radius:24px; box-shadow:inset 0 0 40px rgba(0,119,182,0.05); padding:24px; position:relative; overflow:visible;">
+      <img src="../class diagram.jpeg" alt="Class Diagram" class="polaroid-sketch" style="width:100%; height:100%; object-fit:scale-down; filter: invert(1) hue-rotate(180deg) contrast(1.2); cursor:pointer;">
+  </div>
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:1002px;width:900px;z-index:10;">
+    <p class="body" style="font-size:16px;color:#7A88A3;letter-spacing:1.4px;">AIRLINE RESERVATION SYSTEM &nbsp;·&nbsp; OOMSD</p>
+  </div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:1704px;top:1002px;width:120px;text-align:right;z-index:10;">
+    <p class="body mono" style="font-size:17px;color:#0077B6;font-weight:600;">13</p>
+  </div>
+
+</div>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+<script src="../assets/scaler.js"></script>
+<style>
+  .hover-pulse:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,119,182,0.15) !important;
+    background: #f0f8ff !important;
+  }
+</style>
+<script>
+  // The Surprise: Interactive 3D Parallax Tilt for the Image Placeholder
+  document.addEventListener('DOMContentLoaded', () => {
+    const card = document.querySelector('.image-placeholder');
+    if (!card) return;
+    
+    // Add 3D perspective to parent
+    card.parentElement.style.perspective = '2000px';
+    
+    document.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      // Check if mouse is actually over the right side of the screen roughly
+      if (e.clientX > rect.left - 200 && e.clientX < rect.right + 200 &&
+          e.clientY > rect.top - 200 && e.clientY < rect.bottom + 200) {
+        
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        // Calculate tilt (-3 to 3 degrees)
+        const rotateX = ((y - centerY) / centerY) * -3;
+        const rotateY = ((x - centerX) / centerX) * 3;
+        
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.01)`;
+        card.style.transition = 'transform 0.1s ease-out';
+      } else {
+        card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+        card.style.transition = 'transform 0.5s ease-out';
+      }
+    });
+    
+    document.addEventListener('mouseleave', () => {
+      card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+      card.style.transition = 'transform 0.5s ease-out';
+    });
+  });
+</script>
+<script src="../assets/navigation.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Database Normalization</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body style="margin:0;padding:0;overflow:hidden;">
+<div class="slide-container" data-screen-label="17 Normalization" style="position:relative;width:1920px;height:1080px;overflow:hidden;background:linear-gradient(150deg,#EAF6FD 0%,#F8FCFE 48%,#FFF3EA 100%);">
+
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:0px;top:0px;width:1920px;height:8px;background:linear-gradient(90deg,#0077B6 0%,#48A9DC 55%,#FF8C42 100%);z-index:7;"></div>
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:78px;width:900px;z-index:10;">
+    <p class="eyebrow" style="font-size:17px;">Data Modelling</p>
+  </div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:108px;width:1500px;z-index:10;">
+    <h2 class="h2" style="font-size:60px;">Database Normalization <span style="color:#0077B6;">(up to 3NF)</span></h2>
+  </div>
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:96px;top:196px;width:130px;height:5px;border-radius:3px;background:linear-gradient(90deg,#0077B6,#FF8C42);z-index:7;"></div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:224px;width:1450px;z-index:10;">
+    <p class="body" style="font-size:24px;">Structuring relational tables to <strong>eliminate data redundancy</strong> and prevent update anomalies.</p>
+  </div>
+
+  <!-- staircase: three ascending blocks -->
+  <!-- Base staircase graphic -->
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:96px;top:754px;width:1728px;height:170px;background:rgba(0,119,182,0.06);border-radius:16px;z-index:1;"></div>
+
+  <!-- Step 1 -->
+  <div class="flip-card" style="position:absolute;left:96px;top:330px;width:570px;height:562px;perspective:2000px;z-index:2;">
+    <div class="flip-card-inner" style="position:relative;width:100%;height:100%;transition:transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);transform-style:preserve-3d;">
+      
+      <!-- FRONT -->
+      <div class="flip-card-front" style="position:absolute;width:100%;height:100%;backface-visibility:hidden;">
+        <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:570px;height:562px;background:rgba(255,255,255,0.60);border:1px solid rgba(255,255,255,0.80);border-radius:24px;box-shadow:0 24px 48px rgba(11,19,43,0.08);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);"></div>
+        <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:570px;height:8px;border-radius:24px 24px 0 0;background:#48A9DC;"></div>
+        <div data-object="true" data-object-type="shape" style="position:absolute;left:44px;top:46px;width:80px;height:80px;border-radius:20px;background:#0077B6;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 22px rgba(0,119,182,0.32);"></div>
+        <div data-object="true" data-object-type="textbox" style="position:absolute;left:44px;top:62px;width:80px;text-align:center;">
+          <p class="body mono" style="font-size:14px;color:#CDE9F7;letter-spacing:1.4px;font-weight:700;">STEP</p>
+          <p class="body" style="font-size:26px;color:#ffffff;font-weight:800;font-family:var(--font-head);margin-top:0;">01</p>
+        </div>
+        <div data-object="true" data-object-type="textbox" style="position:absolute;left:144px;top:60px;width:400px;">
+          <p class="eyebrow" style="font-size:14px;letter-spacing:2.4px;">First Normal Form</p>
+          <h3 class="h3" style="font-size:36px;margin-top:8px;color:#0077B6;">1NF</h3>
+        </div>
+        <div data-object="true" data-object-type="shape" style="position:absolute;left:44px;top:174px;width:490px;height:1px;background:rgba(11,19,43,0.10);"></div>
+        <div data-object="true" data-object-type="textbox" style="position:absolute;left:44px;top:198px;width:490px;">
+          <div style="display:flex;flex-direction:column;gap:22px;">
+            <div style="display:flex;gap:14px;align-items:flex-start;"><span style="flex:0 0 8px;width:8px;height:8px;border-radius:50%;background:#0077B6;margin-top:10px;"></span><p class="body" style="font-size:20px;line-height:1.44;">Flattened the composite <strong>Name</strong> attribute into atomic <span class="mono" style="color:#0077B6;">Fname</span> and <span class="mono" style="color:#0077B6;">Lname</span> columns.</p></div>
+            <div style="display:flex;gap:14px;align-items:flex-start;"><span style="flex:0 0 8px;width:8px;height:8px;border-radius:50%;background:#0077B6;margin-top:10px;"></span><p class="body" style="font-size:20px;line-height:1.44;">Eliminated multi-valued attributes via dedicated intersection tables — <span class="mono" style="color:#0077B6;">TA_Certifications</span>, <span class="mono" style="color:#0077B6;">Crew_Languages</span>, <span class="mono" style="color:#0077B6;">Flight_Days</span>.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BACK -->
+      <div class="flip-card-back" style="position:absolute;width:100%;height:100%;backface-visibility:hidden;background:#F2F9FD;border:2px solid #48A9DC;border-radius:24px;transform:rotateY(180deg);padding:44px;box-sizing:border-box;display:flex;flex-direction:column;box-shadow:0 32px 64px rgba(0,119,182,0.15);">
+        <p class="eyebrow" style="color:#0077B6;font-size:14px;letter-spacing:2.4px;margin-bottom:24px;margin-top:0;">1NF Schema View</p>
+        <div style="font-family:'Courier New', monospace;font-size:16px;color:#0B132B;background:rgba(255,255,255,0.9);padding:24px;border-radius:16px;border:1px solid rgba(0,119,182,0.2);line-height:1.6;box-shadow:inset 0 4px 12px rgba(0,0,0,0.03);">
+          <div style="color:#0077B6;font-weight:bold;margin-bottom:8px;">-- Atomic Columns</div>
+          <div>UserID <span style="color:#5A6784;">|</span> <span style="background:rgba(0,119,182,0.1);padding:2px 6px;border-radius:4px;">Fname</span> <span style="color:#5A6784;">|</span> <span style="background:rgba(0,119,182,0.1);padding:2px 6px;border-radius:4px;">Lname</span></div>
+          <br>
+          <div style="color:#E4721F;font-weight:bold;margin-bottom:8px;">-- Intersection Table</div>
+          <div><span style="color:#0077B6;font-weight:bold;">CREATE TABLE</span> Crew_Languages (</div>
+          <div>&nbsp;&nbsp;UserID INT,</div>
+          <div>&nbsp;&nbsp;LanguageCode VARCHAR(10),</div>
+          <div>&nbsp;&nbsp;<span style="color:#E4721F;font-weight:bold;">PRIMARY KEY</span> (UserID, LanguageCode)</div>
+          <div>);</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="flip-card" style="position:absolute;left:686px;top:302px;width:570px;height:590px;perspective:2000px;z-index:2;">
+    <div class="flip-card-inner" style="position:relative;width:100%;height:100%;transition:transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);transform-style:preserve-3d;">
+      
+      <!-- FRONT -->
+      <div class="flip-card-front" style="position:absolute;width:100%;height:100%;backface-visibility:hidden;">
+        <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:570px;height:590px;background:rgba(255,255,255,0.60);border:1px solid rgba(255,255,255,0.80);border-radius:24px;box-shadow:0 24px 48px rgba(11,19,43,0.08);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);"></div>
+        <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:570px;height:8px;border-radius:24px 24px 0 0;background:#1489C4;"></div>
+        <div data-object="true" data-object-type="shape" style="position:absolute;left:44px;top:46px;width:80px;height:80px;border-radius:20px;background:#1489C4;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 22px rgba(20,137,196,0.32);"></div>
+        <div data-object="true" data-object-type="textbox" style="position:absolute;left:44px;top:62px;width:80px;text-align:center;">
+          <p class="body mono" style="font-size:14px;color:#CDE9F7;letter-spacing:1.4px;font-weight:700;">STEP</p>
+          <p class="body" style="font-size:26px;color:#ffffff;font-weight:800;font-family:var(--font-head);margin-top:0;">02</p>
+        </div>
+        <div data-object="true" data-object-type="textbox" style="position:absolute;left:144px;top:60px;width:400px;">
+          <p class="eyebrow" style="font-size:14px;letter-spacing:2.4px;color:#1489C4;">Second Normal Form</p>
+          <h3 class="h3" style="font-size:36px;margin-top:8px;color:#1489C4;">2NF</h3>
+        </div>
+        <div data-object="true" data-object-type="shape" style="position:absolute;left:44px;top:174px;width:490px;height:1px;background:rgba(11,19,43,0.10);"></div>
+        <div data-object="true" data-object-type="textbox" style="position:absolute;left:44px;top:198px;width:490px;">
+          <div style="display:flex;flex-direction:column;gap:22px;">
+            <div style="display:flex;gap:14px;align-items:flex-start;"><span style="flex:0 0 8px;width:8px;height:8px;border-radius:50%;background:#1489C4;margin-top:10px;"></span><p class="body" style="font-size:20px;line-height:1.44;">Ensured all non-key attributes <strong>fully depend</strong> on the entire primary key.</p></div>
+            <div style="display:flex;gap:14px;align-items:flex-start;"><span style="flex:0 0 8px;width:8px;height:8px;border-radius:50%;background:#1489C4;margin-top:10px;"></span><p class="body" style="font-size:20px;line-height:1.44;">In the <span class="mono" style="color:#1489C4;">Assigned_To</span> table, <span class="mono" style="color:#1489C4;">AssignmentDate</span> depends on the pairing of <span class="mono" style="color:#1489C4;">FlightID</span> + <span class="mono" style="color:#1489C4;">UserID</span> — not just one of them.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BACK -->
+      <div class="flip-card-back" style="position:absolute;width:100%;height:100%;backface-visibility:hidden;background:#F1FAFC;border:2px solid #1489C4;border-radius:24px;transform:rotateY(180deg);padding:44px;box-sizing:border-box;display:flex;flex-direction:column;box-shadow:0 32px 64px rgba(20,137,196,0.15);">
+        <p class="eyebrow" style="color:#1489C4;font-size:14px;letter-spacing:2.4px;margin-bottom:24px;margin-top:0;">2NF Schema View</p>
+        <div style="font-family:'Courier New', monospace;font-size:16px;color:#0B132B;background:rgba(255,255,255,0.9);padding:24px;border-radius:16px;border:1px solid rgba(20,137,196,0.2);line-height:1.6;box-shadow:inset 0 4px 12px rgba(0,0,0,0.03);">
+          <div style="color:#1489C4;font-weight:bold;margin-bottom:8px;">-- Fully dependent on Composite PK</div>
+          <div><span style="color:#1489C4;font-weight:bold;">CREATE TABLE</span> Assigned_To (</div>
+          <div>&nbsp;&nbsp;<span style="text-decoration:underline;">FlightID</span> INT,</div>
+          <div>&nbsp;&nbsp;<span style="text-decoration:underline;">UserID</span> INT,</div>
+          <div>&nbsp;&nbsp;<span style="background:rgba(20,137,196,0.1);padding:2px 6px;border-radius:4px;">AssignmentDate</span> DATE, <span style="color:#7A88A3;font-size:14px;">-- Depends on both</span></div>
+          <div>&nbsp;&nbsp;<span style="color:#E4721F;font-weight:bold;">PRIMARY KEY</span> (FlightID, UserID)</div>
+          <div>);</div>
+          <br>
+          <div style="color:#7A88A3;font-size:14px;font-style:italic;">-- Non-key attributes like 'CrewRole'<br>-- would not go here if they only depend<br>-- on UserID!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="flip-card" style="position:absolute;left:1276px;top:270px;width:548px;height:622px;perspective:2000px;z-index:2;">
+    <div class="flip-card-inner" style="position:relative;width:100%;height:100%;transition:transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);transform-style:preserve-3d;">
+      
+      <!-- FRONT -->
+      <div class="flip-card-front" style="position:absolute;width:100%;height:100%;backface-visibility:hidden;">
+        <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:548px;height:622px;background:rgba(255,255,255,0.60);border:1px solid rgba(255,255,255,0.80);border-radius:24px;box-shadow:0 24px 48px rgba(11,19,43,0.08);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);"></div>
+        <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:548px;height:8px;border-radius:24px 24px 0 0;background:#FF8C42;"></div>
+        <div data-object="true" data-object-type="shape" style="position:absolute;left:44px;top:46px;width:80px;height:80px;border-radius:20px;background:#FF8C42;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 22px rgba(255,140,66,0.36);"></div>
+        <div data-object="true" data-object-type="textbox" style="position:absolute;left:44px;top:62px;width:80px;text-align:center;">
+          <p class="body mono" style="font-size:14px;color:#FFE6D2;letter-spacing:1.4px;font-weight:700;">STEP</p>
+          <p class="body" style="font-size:26px;color:#ffffff;font-weight:800;font-family:var(--font-head);margin-top:0;">03</p>
+        </div>
+        <div data-object="true" data-object-type="textbox" style="position:absolute;left:144px;top:60px;width:380px;">
+          <p class="eyebrow" style="font-size:14px;letter-spacing:2.4px;color:#E4721F;">Third Normal Form</p>
+          <h3 class="h3" style="font-size:36px;margin-top:8px;color:#E4721F;">3NF</h3>
+        </div>
+        <div data-object="true" data-object-type="shape" style="position:absolute;left:44px;top:174px;width:470px;height:1px;background:rgba(11,19,43,0.10);"></div>
+        <div data-object="true" data-object-type="textbox" style="position:absolute;left:44px;top:198px;width:470px;">
+          <div style="display:flex;flex-direction:column;gap:20px;">
+            <div style="display:flex;gap:14px;align-items:flex-start;"><span style="flex:0 0 8px;width:8px;height:8px;border-radius:50%;background:#FF8C42;margin-top:10px;"></span><p class="body" style="font-size:20px;line-height:1.44;">Removed <strong>transitive dependencies</strong> to prevent data corruption.</p></div>
+            <div style="display:flex;gap:14px;align-items:flex-start;"><span style="flex:0 0 8px;width:8px;height:8px;border-radius:50%;background:#FF8C42;margin-top:10px;"></span><p class="body" style="font-size:20px;line-height:1.44;"><span class="mono" style="color:#B85A15;">AvailableSeats</span> is calculated dynamically (TotalSeats − Reservations) rather than stored physically.</p></div>
+            <div style="display:flex;gap:14px;align-items:flex-start;"><span style="flex:0 0 8px;width:8px;height:8px;border-radius:50%;background:#FF8C42;margin-top:10px;"></span><p class="body" style="font-size:20px;line-height:1.44;"><span class="mono" style="color:#B85A15;">TotalCost</span> is locked in <span class="mono" style="color:#B85A15;">Reservation</span> as a <strong>historical fact</strong> — protected from future <span class="mono" style="color:#B85A15;">Flight.Price</span> changes.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BACK -->
+      <div class="flip-card-back" style="position:absolute;width:100%;height:100%;backface-visibility:hidden;background:#FEF7F3;border:2px solid #FF8C42;border-radius:24px;transform:rotateY(180deg);padding:44px;box-sizing:border-box;display:flex;flex-direction:column;box-shadow:0 32px 64px rgba(255,140,66,0.15);">
+        <p class="eyebrow" style="color:#E4721F;font-size:14px;letter-spacing:2.4px;margin-bottom:24px;margin-top:0;">3NF Schema View</p>
+        <div style="font-family:'Courier New', monospace;font-size:16px;color:#0B132B;background:rgba(255,255,255,0.9);padding:24px;border-radius:16px;border:1px solid rgba(228,114,31,0.2);line-height:1.6;box-shadow:inset 0 4px 12px rgba(0,0,0,0.03);">
+          <div style="color:#E4721F;font-weight:bold;margin-bottom:8px;">-- No Transitive Dependencies</div>
+          <div><span style="color:#E4721F;font-weight:bold;">CREATE TABLE</span> Reservation (</div>
+          <div>&nbsp;&nbsp;ResID INT <span style="color:#0077B6;font-weight:bold;">PRIMARY KEY</span>,</div>
+          <div>&nbsp;&nbsp;FlightID INT,</div>
+          <div>&nbsp;&nbsp;<span style="background:rgba(228,114,31,0.1);padding:2px 6px;border-radius:4px;">TotalCost</span> DECIMAL, <span style="color:#7A88A3;font-size:14px;">-- Stored as fact</span></div>
+          <div>&nbsp;&nbsp;<span style="text-decoration:line-through;color:#EF476F;">FlightBasePrice</span> <span style="color:#7A88A3;font-size:14px;">-- Removed!</span></div>
+          <div>);</div>
+          <br>
+          <div style="color:#7A88A3;font-size:14px;font-style:italic;">-- AvailableSeats is NOT stored.<br>-- It is derived dynamically via COUNT()</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- The Surprise: Animated Data Flow connecting the Normalization steps -->
+  <div data-object="true" data-object-type="icon" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;pointer-events:none;z-index:1;">
+    <svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none">
+      <!-- Swooping path connecting the steps behind the glass -->
+      <path id="norm-path" d="M -100 650 Q 300 650, 666 611 T 1256 581 T 2020 500" stroke="rgba(0,119,182,0.4)" stroke-width="4" stroke-dasharray="12 12" class="flow-line"/>
+      <!-- Glowing data packets following the normalization flow -->
+      <circle r="6" fill="#FF8C42" filter="drop-shadow(0 0 12px #FF8C42)">
+        <animateMotion dur="6s" repeatCount="indefinite">
+          <mpath href="#norm-path"/>
+        </animateMotion>
+      </circle>
+      <circle r="6" fill="#0077B6" filter="drop-shadow(0 0 12px #0077B6)">
+        <animateMotion dur="6s" begin="2s" repeatCount="indefinite">
+          <mpath href="#norm-path"/>
+        </animateMotion>
+      </circle>
+      <circle r="6" fill="#1489C4" filter="drop-shadow(0 0 12px #1489C4)">
+        <animateMotion dur="6s" begin="4s" repeatCount="indefinite">
+          <mpath href="#norm-path"/>
+        </animateMotion>
+      </circle>
+    </svg>
+  </div>
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:1002px;width:900px;z-index:10;">
+    <p class="body" style="font-size:16px;color:#7A88A3;letter-spacing:1.4px;">AIRLINE RESERVATION SYSTEM &nbsp;·&nbsp; OOMSD</p>
+  </div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:1704px;top:1002px;width:120px;text-align:right;z-index:10;">
+    <p class="body mono" style="font-size:17px;color:#0077B6;font-weight:600;">17</p>
+  </div>
+
+</div>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+<script src="../assets/scaler.js"></script>
+<style>
+  .flow-line {
+    animation: dashAnim 30s linear infinite;
+  }
+  @keyframes dashAnim {
+    to { stroke-dashoffset: -1000; }
+  }
+  .flip-card {
+    cursor: default;
+  }
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg) scale(1.05);
+  }
+  .flip-card-inner {
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  }
+</style>
+<script src="../assets/navigation.js"></script>
+</body>
+</html>

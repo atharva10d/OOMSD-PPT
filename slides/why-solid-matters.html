@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Why SOLID Matters</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body style="margin:0;padding:0;overflow:hidden;">
+<div class="slide-container" data-screen-label="06 Why SOLID Matters" style="position:relative;width:1920px;height:1080px;overflow:hidden;background:linear-gradient(150deg,#E7F4FD 0%,#F8FCFE 46%,#FFF2E8 100%);">
+
+  <img data-object="true" data-object-type="image" src="../assets/air-network.jpg" alt="Global air traffic network map" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;object-fit:cover;z-index:5;">
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;background:linear-gradient(150deg,rgba(231,244,253,0.95) 0%,rgba(249,252,254,0.93) 48%,rgba(255,242,232,0.95) 100%);z-index:6;"></div>
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:0px;top:0px;width:1920px;height:8px;background:linear-gradient(90deg,#0077B6 0%,#48A9DC 55%,#FF8C42 100%);z-index:7;"></div>
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:82px;width:1100px;z-index:10;">
+    <p class="eyebrow" style="font-size:17px;">Advanced OOP Principles</p>
+  </div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:112px;width:1500px;z-index:10;">
+    <h2 class="h2" style="font-size:60px;">Why SOLID Matters for an Airline System</h2>
+  </div>
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:96px;top:196px;width:130px;height:5px;border-radius:3px;background:linear-gradient(90deg,#0077B6,#FF8C42);z-index:7;"></div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:224px;width:1450px;z-index:10;">
+    <p class="body" style="font-size:25px;">Airline systems integrate massive concurrent bookings, live seat tracking, payment APIs and strict user roles. SOLID principles keep this complex system <strong>maintainable, testable and crash-resistant</strong>.</p>
+  </div>
+
+  <!-- Animated Background Nodes -->
+  <svg data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:1920px;height:1080px;z-index:7;pointer-events:none;" viewBox="0 0 1920 1080">
+    <circle class="bg-node node-1" cx="300" cy="500" r="180" fill="rgba(0,119,182,0.12)" filter="blur(60px)" />
+    <circle class="bg-node node-2" cx="1000" cy="800" r="220" fill="rgba(255,140,66,0.10)" filter="blur(80px)" />
+    <circle class="bg-node node-3" cx="1600" cy="400" r="180" fill="rgba(23,163,152,0.12)" filter="blur(60px)" />
+  </svg>
+
+  <!-- 5 pillars Container -->
+  <div class="solid-pillars-container" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;z-index:10;">
+
+    <!-- Pillar S -->
+    <div data-object="true" data-object-type="group" class="solid-pillar-group" style="position:absolute;left:96px;top:364px;width:334px;height:540px;z-index:2;">
+      <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(255,255,255,0.40);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.70);border-radius:24px;box-shadow:0 18px 46px rgba(11,19,43,0.15);"></div>
+      <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:8px;border-radius:24px 24px 0 0;background:#0077B6;"></div>
+      <div style="position:absolute;left:0;top:80px;width:100%;text-align:center;font-family:var(--font-head);font-size:320px;font-weight:800;color:rgba(0,119,182,0.08);line-height:1;user-select:none;pointer-events:none;z-index:0;">S</div>
+      <div data-object="true" data-object-type="textbox" style="position:absolute;left:40px;top:46px;width:254px;z-index:10;">
+        <p class="h1" style="font-size:78px;color:#0077B6;">S</p>
+        <h3 class="h3" style="font-size:25px;margin-top:10px;line-height:1.24;">Single Responsibility</h3>
+      </div>
+      <div data-object="true" data-object-type="shape" style="position:absolute;left:40px;top:226px;width:70px;height:3px;background:rgba(0,119,182,0.35);z-index:10;"></div>
+      <div data-object="true" data-object-type="textbox" style="position:absolute;left:40px;top:256px;width:254px;z-index:10;">
+        <p class="body" style="font-size:21px;">One job per module — <strong>BookingEngine</strong> only books, <strong>PaymentEngine</strong> only processes funds.</p>
+      </div>
+    </div>
+
+    <!-- Pillar O -->
+    <div data-object="true" data-object-type="group" class="solid-pillar-group" style="position:absolute;left:454px;top:364px;width:334px;height:540px;z-index:2;">
+      <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(255,255,255,0.40);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.70);border-radius:24px;box-shadow:0 18px 46px rgba(11,19,43,0.15);"></div>
+      <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:8px;border-radius:24px 24px 0 0;background:#1489C4;"></div>
+      <div style="position:absolute;left:0;top:80px;width:100%;text-align:center;font-family:var(--font-head);font-size:320px;font-weight:800;color:rgba(20,137,196,0.08);line-height:1;user-select:none;pointer-events:none;z-index:0;">O</div>
+      <div data-object="true" data-object-type="textbox" style="position:absolute;left:40px;top:46px;width:254px;z-index:10;">
+        <p class="h1" style="font-size:78px;color:#1489C4;">O</p>
+        <h3 class="h3" style="font-size:25px;margin-top:10px;line-height:1.24;">Open / Closed</h3>
+      </div>
+      <div data-object="true" data-object-type="shape" style="position:absolute;left:40px;top:226px;width:70px;height:3px;background:rgba(20,137,196,0.35);z-index:10;"></div>
+      <div data-object="true" data-object-type="textbox" style="position:absolute;left:40px;top:256px;width:254px;z-index:10;">
+        <p class="body" style="font-size:21px;">Add new features — new discount tiers or crypto payments — <strong>without touching tested, live core code</strong>.</p>
+      </div>
+    </div>
+
+    <!-- Pillar L -->
+    <div data-object="true" data-object-type="group" class="solid-pillar-group" style="position:absolute;left:812px;top:364px;width:334px;height:540px;z-index:2;">
+      <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(255,255,255,0.40);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.70);border-radius:24px;box-shadow:0 18px 46px rgba(11,19,43,0.15);"></div>
+      <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:8px;border-radius:24px 24px 0 0;background:#3E9BCE;"></div>
+      <div style="position:absolute;left:0;top:80px;width:100%;text-align:center;font-family:var(--font-head);font-size:320px;font-weight:800;color:rgba(62,155,206,0.08);line-height:1;user-select:none;pointer-events:none;z-index:0;">L</div>
+      <div data-object="true" data-object-type="textbox" style="position:absolute;left:40px;top:46px;width:254px;z-index:10;">
+        <p class="h1" style="font-size:78px;color:#2E86B8;">L</p>
+        <h3 class="h3" style="font-size:25px;margin-top:10px;line-height:1.24;">Liskov Substitution</h3>
+      </div>
+      <div data-object="true" data-object-type="shape" style="position:absolute;left:40px;top:226px;width:70px;height:3px;background:rgba(46,134,184,0.35);z-index:10;"></div>
+      <div data-object="true" data-object-type="textbox" style="position:absolute;left:40px;top:256px;width:254px;z-index:10;">
+        <p class="body" style="font-size:21px;">Subtypes like <strong>Passenger</strong> and <strong>Admin</strong> safely replace their base <strong>User</strong> class without breaking workflows.</p>
+      </div>
+    </div>
+
+    <!-- Pillar I -->
+    <div data-object="true" data-object-type="group" class="solid-pillar-group" style="position:absolute;left:1170px;top:364px;width:334px;height:540px;z-index:2;">
+      <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(255,255,255,0.40);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.70);border-radius:24px;box-shadow:0 18px 46px rgba(11,19,43,0.15);"></div>
+      <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:8px;border-radius:24px 24px 0 0;background:#F2924A;"></div>
+      <div style="position:absolute;left:0;top:80px;width:100%;text-align:center;font-family:var(--font-head);font-size:320px;font-weight:800;color:rgba(242,146,74,0.08);line-height:1;user-select:none;pointer-events:none;z-index:0;">I</div>
+      <div data-object="true" data-object-type="textbox" style="position:absolute;left:40px;top:46px;width:254px;z-index:10;">
+        <p class="h1" style="font-size:78px;color:#E4721F;">I</p>
+        <h3 class="h3" style="font-size:25px;margin-top:10px;line-height:1.24;">Interface Segregation</h3>
+      </div>
+      <div data-object="true" data-object-type="shape" style="position:absolute;left:40px;top:226px;width:70px;height:3px;background:rgba(228,114,31,0.35);z-index:10;"></div>
+      <div data-object="true" data-object-type="textbox" style="position:absolute;left:40px;top:256px;width:254px;z-index:10;">
+        <p class="body" style="font-size:21px;">Small, role-specific interfaces: <strong>IBookable</strong>, <strong>IFlightManager</strong>.</p>
+      </div>
+    </div>
+
+    <!-- Pillar D -->
+    <div data-object="true" data-object-type="group" class="solid-pillar-group" style="position:absolute;left:1528px;top:364px;width:334px;height:540px;z-index:2;">
+      <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(255,255,255,0.40);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.70);border-radius:24px;box-shadow:0 18px 46px rgba(11,19,43,0.15);"></div>
+      <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:8px;border-radius:24px 24px 0 0;background:#17A398;"></div>
+      <div style="position:absolute;left:0;top:80px;width:100%;text-align:center;font-family:var(--font-head);font-size:320px;font-weight:800;color:rgba(23,163,152,0.08);line-height:1;user-select:none;pointer-events:none;z-index:0;">D</div>
+      <div data-object="true" data-object-type="textbox" style="position:absolute;left:40px;top:46px;width:254px;z-index:10;">
+        <p class="h1" style="font-size:78px;color:#12867D;">D</p>
+        <h3 class="h3" style="font-size:25px;margin-top:10px;line-height:1.24;">Dependency Inversion</h3>
+      </div>
+      <div data-object="true" data-object-type="shape" style="position:absolute;left:40px;top:226px;width:70px;height:3px;background:rgba(18,134,125,0.35);z-index:10;"></div>
+      <div data-object="true" data-object-type="textbox" style="position:absolute;left:40px;top:256px;width:254px;z-index:10;">
+        <p class="body" style="font-size:21px;">Business logic depends on <strong>abstractions</strong>, not a specific bank's API.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:1000px;width:900px;z-index:10;">
+    <p class="body" style="font-size:16px;color:#7A88A3;letter-spacing:1.4px;">AIRLINE RESERVATION SYSTEM &nbsp;·&nbsp; OOMSD</p>
+  </div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:1704px;top:1000px;width:120px;text-align:right;z-index:10;">
+    <p class="body mono" style="font-size:17px;color:#0077B6;font-weight:600;">06</p>
+  </div>
+
+</div>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+<script src="../assets/scaler.js"></script><script src="../assets/navigation.js"></script>
+</body>
+</html>

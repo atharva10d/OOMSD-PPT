@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>O — Open/Closed Principle</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body style="margin:0;padding:0;overflow:hidden;">
+<div class="slide-container" data-screen-label="08 Open/Closed" style="position:relative;width:1920px;height:1080px;overflow:hidden;background:linear-gradient(150deg,#EAF6FD 0%,#F8FCFE 48%,#FFF3EA 100%);">
+
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:0px;top:0px;width:1920px;height:8px;background:linear-gradient(90deg,#0077B6 0%,#48A9DC 55%,#FF8C42 100%);z-index:7;"></div>
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:78px;width:900px;z-index:10;">
+    <p class="eyebrow" style="font-size:17px;">Principle 02 · O</p>
+  </div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:108px;width:1700px;z-index:10;">
+    <h2 class="h2" style="font-size:58px;">O — Open for Extension, Closed for Modification</h2>
+  </div>
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:96px;top:192px;width:130px;height:5px;border-radius:3px;background:linear-gradient(90deg,#0077B6,#FF8C42);z-index:7;"></div>
+
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:96px;top:222px;width:1728px;height:88px;background:rgba(0,119,182,0.10);border-left:6px solid #0077B6;border-radius:14px;z-index:1;"></div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:138px;top:242px;width:1660px;z-index:10;">
+    <p class="body" style="font-size:26px;font-style:italic;color:#0B132B;line-height:1.34;">"Add new behavior without editing existing, tested code."</p>
+  </div>
+
+  <!-- Problem it solves -->
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:96px;top:346px;width:868px;height:602px;background:rgba(255,255,255,0.86);border:1px solid rgba(255,255,255,0.96);border-radius:24px;box-shadow:0 18px 46px rgba(11,19,43,0.10);z-index:1;"><div class="spaghetti-bg"></div></div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:136px;top:376px;width:790px;z-index:10;">
+    <p class="eyebrow" style="font-size:14px;letter-spacing:2.4px;color:#E4721F;">The Problem It Solves</p>
+    <h3 class="h3" style="font-size:32px;margin-top:8px;">Discount rules never stop growing.</h3>
+  </div>
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:136px;top:490px;width:790px;z-index:10;">
+    <div style="display:flex;gap:22px;align-items:flex-start;">
+      <div style="flex:0 0 88px;width:88px;">
+        <p class="eyebrow" style="font-size:12px;letter-spacing:2.2px;">Today</p>
+        <div style="width:78px;height:3px;background:#0077B6;margin-top:6px;"></div>
+      </div>
+      <p class="body" style="font-size:23px;flex:1;">Standard pricing and infant discounts.</p>
+    </div>
+  </div>
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:136px;top:588px;width:790px;z-index:10;">
+    <div style="display:flex;gap:22px;align-items:flex-start;">
+      <div style="flex:0 0 88px;width:88px;">
+        <p class="eyebrow" style="font-size:12px;letter-spacing:2.2px;color:#E4721F;">Tomorrow</p>
+        <div style="width:88px;height:3px;background:#FF8C42;margin-top:6px;"></div>
+      </div>
+      <p class="body" style="font-size:23px;flex:1;">Airline introduces <strong>Frequent Flyer Miles</strong>, <strong>Corporate Discounts</strong>, or <strong>Holiday Promos</strong>.</p>
+    </div>
+  </div>
+
+  <div class="warning-box" style="position:absolute;left:136px;top:740px;width:790px;height:172px;z-index:2;">
+    <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(255,140,66,0.10);border-radius:16px;border:1px solid rgba(255,140,66,0.22);"></div>
+    <div data-object="true" data-object-type="icon" style="position:absolute;left:22px;top:22px;width:44px;height:44px;border-radius:11px;background:rgba(255,140,66,0.22);display:flex;align-items:center;justify-content:center;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B85A15" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 2.5 17.5A2 2 0 0 0 4.2 20.5h15.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v5"/><circle cx="12" cy="17" r="1.1"/></svg>
+    </div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:86px;top:22px;width:688px;">
+      <p class="body" style="font-size:22px;color:#0B132B;line-height:1.42;">Editing a massive <span class="mono" style="background:rgba(255,140,66,0.14);padding:2px 8px;border-radius:6px;color:#D73A49;">if/else</span> block inside the price calculator risks introducing bugs into standard fare calculations.</p>
+    </div>
+  </div>
+
+  <!-- Airline solution -->
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:988px;top:346px;width:836px;height:602px;background:rgba(255,255,255,0.90);border:1px solid rgba(255,255,255,0.96);border-radius:24px;box-shadow:0 18px 46px rgba(11,19,43,0.12);z-index:1;"></div>
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:988px;top:346px;width:836px;height:8px;border-radius:24px 24px 0 0;background:#0077B6;z-index:2;"></div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:1024px;top:378px;width:770px;z-index:10;">
+    <p class="eyebrow" style="font-size:14px;letter-spacing:2.4px;">Airline Solution</p>
+    <h3 class="h3" style="font-size:32px;margin-top:8px;">Plug in new strategies. Never touch the engine.</h3>
+  </div>
+
+  <!-- interface hub -->
+  <div class="interface-group" style="position:absolute;left:1260px;top:492px;width:296px;height:86px;z-index:10;">
+    <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#0D1117;border-radius:12px;box-shadow:0 12px 28px rgba(11,19,43,0.3);border: 1px solid rgba(255,255,255,0.1);"></div>
+    <div style="position:absolute;left:14px;top:14px;display:flex;gap:6px;">
+      <div style="width:10px;height:10px;border-radius:50%;background:#FF5F56;"></div>
+      <div style="width:10px;height:10px;border-radius:50%;background:#FFBD2E;"></div>
+      <div style="width:10px;height:10px;border-radius:50%;background:#27C93F;"></div>
+    </div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:0;top:38px;width:100%;text-align:center;">
+      <p class="body mono" style="font-size:20px;font-weight:700;color:#C9D1D9;"><span style="color:#FF7B72;">interface</span> IPricingStrategy</p>
+    </div>
+  </div>
+
+  <!-- vertical connectors -->
+  <div class="flow-line" data-object="true" data-object-type="shape" style="position:absolute;left:1144px;top:578px;width:2px;height:62px;background:rgba(11,19,43,0.2);z-index:2;transition:all 0.3s ease;"></div>
+  <div class="flow-line" data-object="true" data-object-type="shape" style="position:absolute;left:1404px;top:578px;width:2px;height:62px;background:rgba(11,19,43,0.2);z-index:2;transition:all 0.3s ease;"></div>
+  <div class="flow-line" data-object="true" data-object-type="shape" style="position:absolute;left:1664px;top:578px;width:2px;height:62px;background:rgba(11,19,43,0.2);z-index:2;transition:all 0.3s ease;"></div>
+  <div class="flow-line" data-object="true" data-object-type="shape" style="position:absolute;left:1144px;top:578px;width:520px;height:2px;background:rgba(11,19,43,0.2);z-index:2;transition:all 0.3s ease;"></div>
+
+  <!-- three implementations -->
+  <div class="code-window" style="position:absolute;left:1024px;top:640px;width:242px;height:118px;z-index:3;">
+    <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#0D1117;border-radius:12px;box-shadow:0 8px 24px rgba(11,19,43,0.15);border: 1px solid rgba(255,255,255,0.08);"></div>
+    <div style="position:absolute;left:14px;top:14px;display:flex;gap:6px;">
+      <div style="width:10px;height:10px;border-radius:50%;background:#30363D;"></div>
+      <div style="width:10px;height:10px;border-radius:50%;background:#30363D;"></div>
+      <div style="width:10px;height:10px;border-radius:50%;background:#30363D;"></div>
+    </div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:0;top:44px;width:100%;text-align:center;">
+      <p class="body mono" style="font-size:18px;font-weight:700;"><span style="color:#FF7B72;">class</span> <span style="color:#D2A8FF;">StandardPricing</span></p>
+      <p class="body mono" style="font-size:15px;margin-top:12px;color:#79C0FF;">.calculateTotal()</p>
+    </div>
+  </div>
+
+  <div class="code-window" style="position:absolute;left:1284px;top:640px;width:242px;height:118px;z-index:3;">
+    <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#0D1117;border-radius:12px;box-shadow:0 8px 24px rgba(11,19,43,0.15);border: 1px solid rgba(255,255,255,0.08);"></div>
+    <div style="position:absolute;left:14px;top:14px;display:flex;gap:6px;">
+      <div style="width:10px;height:10px;border-radius:50%;background:#30363D;"></div>
+      <div style="width:10px;height:10px;border-radius:50%;background:#30363D;"></div>
+      <div style="width:10px;height:10px;border-radius:50%;background:#30363D;"></div>
+    </div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:0;top:44px;width:100%;text-align:center;">
+      <p class="body mono" style="font-size:18px;font-weight:700;"><span style="color:#FF7B72;">class</span> <span style="color:#D2A8FF;">FreqFlyerPricing</span></p>
+      <p class="body mono" style="font-size:15px;margin-top:12px;color:#79C0FF;">.calculateTotal()</p>
+    </div>
+  </div>
+
+  <div class="code-window plugin-animation" style="position:absolute;left:1544px;top:640px;width:242px;height:118px;z-index:3;">
+    <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#0D1117;border-radius:12px;box-shadow:0 8px 24px rgba(11,19,43,0.15);border: 1px solid rgba(255,255,255,0.08);"></div>
+    <div style="position:absolute;left:14px;top:14px;display:flex;gap:6px;">
+      <div style="width:10px;height:10px;border-radius:50%;background:#30363D;"></div>
+      <div style="width:10px;height:10px;border-radius:50%;background:#30363D;"></div>
+      <div style="width:10px;height:10px;border-radius:50%;background:#30363D;"></div>
+    </div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:0;top:44px;width:100%;text-align:center;">
+      <p class="body mono" style="font-size:18px;font-weight:700;"><span style="color:#FF7B72;">class</span> <span style="color:#D2A8FF;">CorporatePricing</span></p>
+      <p class="body mono" style="font-size:15px;margin-top:12px;color:#79C0FF;">.calculateTotal()</p>
+    </div>
+  </div>
+
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:1024px;top:800px;width:762px;height:114px;background:rgba(0,119,182,0.08);border-radius:16px;border:1px solid rgba(0,119,182,0.18);z-index:2;"></div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:1044px;top:820px;width:722px;z-index:10;">
+    <p class="body" style="font-size:22px;line-height:1.45;">A new promotional strategy is just <strong>added as a new class</strong>. The core booking engine code is <strong>never touched</strong>.</p>
+  </div>
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:1002px;width:900px;z-index:10;">
+    <p class="body" style="font-size:16px;color:#7A88A3;letter-spacing:1.4px;">AIRLINE RESERVATION SYSTEM &nbsp;·&nbsp; OOMSD</p>
+  </div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:1704px;top:1002px;width:120px;text-align:right;z-index:10;">
+    <p class="body mono" style="font-size:17px;color:#0077B6;font-weight:600;">08</p>
+  </div>
+
+</div>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+<script src="../assets/scaler.js"></script><script src="../assets/navigation.js"></script>
+</body>
+</html>

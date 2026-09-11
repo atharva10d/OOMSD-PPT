@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Modelling — Sequence Diagram</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body style="margin:0;padding:0;overflow:hidden;">
+<div class="slide-container" data-screen-label="15 Sequence Diagram" style="position:relative;width:1920px;height:1080px;overflow:hidden;background:linear-gradient(150deg,#EAF6FD 0%,#F8FCFE 48%,#FFF3EA 100%);">
+
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:0px;top:0px;width:1920px;height:8px;background:linear-gradient(90deg,#0077B6 0%,#48A9DC 55%,#FF8C42 100%);z-index:7;"></div>
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:78px;width:1100px;z-index:10;">
+    <p class="eyebrow" style="font-size:17px; background: linear-gradient(90deg, #0077B6, #1489C4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:800; letter-spacing: 3px;">MODELLING CONCEPT</p>
+  </div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:108px;width:1500px;z-index:10;">
+    <h2 class="h2" style="font-size:60px;">Sequence Diagram</h2>
+  </div>
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:96px;top:192px;width:130px;height:5px;border-radius:3px;background:linear-gradient(90deg,#0077B6,#FF8C42);z-index:7;"></div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:220px;width:1450px;z-index:10;">
+    <p class="body" style="font-size:23px;">A dynamic view — how objects <strong>talk to each other</strong>, in what order, for one specific scenario.</p>
+  </div>
+
+  <!-- Colorful Ambient Background Orbs -->
+  <div style="position:absolute; top:-150px; left:-150px; width:1000px; height:1000px; background:radial-gradient(circle, rgba(0,119,182,0.4) 0%, rgba(0,119,182,0) 70%); filter:blur(80px); z-index:0; pointer-events:none;"></div>
+  <div style="position:absolute; bottom:-150px; right:-200px; width:1100px; height:1100px; background:radial-gradient(circle, rgba(255,140,66,0.3) 0%, rgba(255,140,66,0) 70%); filter:blur(90px); z-index:0; pointer-events:none;"></div>
+  <div style="position:absolute; top:20%; left:40%; width:900px; height:900px; background:radial-gradient(circle, rgba(142,68,173,0.15) 0%, rgba(142,68,173,0) 70%); filter:blur(100px); z-index:0; pointer-events:none;"></div>
+
+  <!-- Scenario Box -->
+  <style>
+    @keyframes floatCard {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-4px); }
+      100% { transform: translateY(0px); }
+    }
+    .scenario-box {
+      animation: floatCard 6s ease-in-out infinite;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .scenario-box:hover {
+      transform: scale(1.01) translateY(-6px) !important;
+      box-shadow: 0 20px 60px rgba(0,119,182,0.15) !important;
+      background: rgba(255,255,255,0.7) !important;
+      border-color: rgba(255,255,255,1) !important;
+    }
+  </style>
+  <div class="scenario-box" data-object="true" data-object-type="shape" style="position:absolute;left:96px;top:300px;width:1728px;height:74px;background:rgba(255,255,255,0.45); border:1px solid rgba(255,255,255,0.7); backdrop-filter:blur(30px); -webkit-backdrop-filter:blur(30px); border-radius:14px; box-shadow:0 12px 32px rgba(0,119,182,0.1); z-index:10; display:flex; align-items:center;">
+    <div style="width:184px;padding-left:34px;box-sizing:border-box;">
+      <p class="eyebrow" style="font-size:13px;letter-spacing:2.4px;margin:0;line-height:1;">Scenario</p>
+    </div>
+    <div style="flex:1;">
+      <p class="body type-effect-target" style="font-size:22px;color:#0B132B;margin:0;line-height:1;"><strong>Passenger successfully reserves a flight seat.</strong></p>
+    </div>
+  </div>
+
+  <!-- Sequence Diagram Layout Grid -->
+  <div style="position:absolute;left:96px;top:398px;width:1728px;height:552px;z-index:20;display:flex;gap:24px;">
+      
+      <!-- Left Sidebar: Key Participants -->
+      <div class="scenario-box" style="width:360px; height:100%; box-sizing:border-box; background:rgba(255,255,255,0.45); backdrop-filter:blur(30px); -webkit-backdrop-filter:blur(30px); border-radius:24px; box-shadow:0 32px 80px rgba(0,119,182,0.12); border:1px solid rgba(255,255,255,0.7); padding:32px 24px; display:flex; flex-direction:column; gap:16px;">
+          <p class="eyebrow" style="font-size:15px;letter-spacing:2px;color:#0077B6;margin:0;margin-bottom:8px;">Key Participants</p>
+          
+          <div class="interactive-box" style="display:flex; align-items:center; gap:16px; background:rgba(255,255,255,0.6); padding:12px; border-radius:16px; border:1px solid rgba(255,255,255,0.9); box-shadow:0 4px 12px rgba(0,119,182,0.05); transition:transform 0.2s, box-shadow 0.2s;">
+              <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg, #0077B6, #1489C4);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 16px rgba(0,119,182,0.2);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <p class="body" style="font-size:18px;font-weight:700;color:#0B132B;margin:0;">Customer</p>
+          </div>
+          
+          <div class="interactive-box" style="display:flex; align-items:center; gap:16px; background:rgba(255,255,255,0.6); padding:12px; border-radius:16px; border:1px solid rgba(255,255,255,0.9); box-shadow:0 4px 12px rgba(0,119,182,0.05); transition:transform 0.2s, box-shadow 0.2s;">
+              <div style="width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,0.9);display:flex;align-items:center;justify-content:center;border:1px solid rgba(0,119,182,0.15);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E4721F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <p class="body" style="font-size:18px;font-weight:600;color:#0B132B;margin:0;">Reservation System</p>
+          </div>
+
+          <div class="interactive-box" style="display:flex; align-items:center; gap:16px; background:rgba(255,255,255,0.6); padding:12px; border-radius:16px; border:1px solid rgba(255,255,255,0.9); box-shadow:0 4px 12px rgba(0,119,182,0.05); transition:transform 0.2s, box-shadow 0.2s;">
+              <div style="width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,0.9);display:flex;align-items:center;justify-content:center;border:1px solid rgba(0,119,182,0.15);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0077B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.54 15H17l-2-5-4 5-8-1 4-4-3-3 8-1 5 7 5 1z"/></svg>
+              </div>
+              <p class="body" style="font-size:18px;font-weight:600;color:#0B132B;margin:0;">Airline System</p>
+          </div>
+
+          <div class="interactive-box" style="display:flex; align-items:center; gap:16px; background:rgba(255,255,255,0.6); padding:12px; border-radius:16px; border:1px solid rgba(255,255,255,0.9); box-shadow:0 4px 12px rgba(0,119,182,0.05); transition:transform 0.2s, box-shadow 0.2s;">
+              <div style="width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,0.9);display:flex;align-items:center;justify-content:center;border:1px solid rgba(0,119,182,0.15);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2E933C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2" ry="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+              </div>
+              <p class="body" style="font-size:18px;font-weight:600;color:#0B132B;margin:0;">Payment Gateway</p>
+          </div>
+      </div>
+
+      <!-- Center: Sequence Diagram Image -->
+      <div style="flex:1; height:100%; box-sizing:border-box; background:rgba(255,255,255,0.45); backdrop-filter:blur(30px); -webkit-backdrop-filter:blur(30px); border-radius:24px; box-shadow:0 32px 80px rgba(0,119,182,0.12); border:1px solid rgba(255,255,255,0.7); padding:24px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
+          <img src="../sequence diagram.png" alt="Sequence Diagram" style="width:100%; height:100%; object-fit:scale-down; mix-blend-mode:multiply; pointer-events:none;">
+      </div>
+
+      <!-- Right Sidebar: Transaction Flow -->
+      <div class="scenario-box" style="width:420px; height:100%; box-sizing:border-box; background:rgba(255,255,255,0.45); backdrop-filter:blur(30px); -webkit-backdrop-filter:blur(30px); border-radius:24px; box-shadow:0 32px 80px rgba(0,119,182,0.12); border:1px solid rgba(255,255,255,0.7); padding:32px 24px; display:flex; flex-direction:column; overflow:hidden; position:relative;">
+          <p class="eyebrow" style="font-size:15px;letter-spacing:2px;color:#E4721F;margin:0;margin-bottom:24px;">Transaction Flow</p>
+          
+          <div style="position:relative; padding-left:28px; flex:1; display:flex; flex-direction:column; justify-content:space-between; margin-bottom:12px;">
+              <!-- Vertical Line -->
+              <div style="position:absolute; left:9px; top:12px; bottom:20px; width:2px; background:linear-gradient(180deg, #0077B6, #E4721F, #2E933C);"></div>
+
+              <div class="interactive-box" style="position:relative; padding:12px; border-radius:12px; transition:background 0.2s; cursor:default; margin-left:-12px; margin-right:-12px;">
+                  <div style="position:absolute; left:-18px; top:16px; width:12px; height:12px; border-radius:50%; background:#0077B6; border:3px solid #fff; box-shadow:0 0 0 1px #0077B6, 0 4px 8px rgba(0,119,182,0.3);"></div>
+                  <p class="body" style="font-size:18px;font-weight:700;color:#0B132B;margin:0;">1. Flight Search</p>
+                  <p class="body" style="font-size:15px;color:#434E61;margin:6px 0 0 0;line-height:1.4;">Customer requests flights; System checks Airline DB.</p>
+              </div>
+
+              <div class="interactive-box" style="position:relative; padding:12px; border-radius:12px; transition:background 0.2s; cursor:default; margin-left:-12px; margin-right:-12px;">
+                  <div style="position:absolute; left:-18px; top:16px; width:12px; height:12px; border-radius:50%; background:#1489C4; border:3px solid #fff; box-shadow:0 0 0 1px #1489C4, 0 4px 8px rgba(20,137,196,0.3);"></div>
+                  <p class="body" style="font-size:18px;font-weight:700;color:#0B132B;margin:0;">2. Seat Verification</p>
+                  <p class="body" style="font-size:15px;color:#434E61;margin:6px 0 0 0;line-height:1.4;">Details are entered, seat availability is confirmed.</p>
+              </div>
+
+              <div class="interactive-box" style="position:relative; padding:12px; border-radius:12px; transition:background 0.2s; cursor:default; margin-left:-12px; margin-right:-12px;">
+                  <div style="position:absolute; left:-18px; top:16px; width:12px; height:12px; border-radius:50%; background:#E4721F; border:3px solid #fff; box-shadow:0 0 0 1px #E4721F, 0 4px 8px rgba(228,114,31,0.3);"></div>
+                  <p class="body" style="font-size:18px;font-weight:700;color:#0B132B;margin:0;">3. Payment Processing</p>
+                  <p class="body" style="font-size:15px;color:#434E61;margin:6px 0 0 0;line-height:1.4;">Data sent to Gateway. Handles Success/Failure conditions.</p>
+              </div>
+
+              <div class="interactive-box" style="position:relative; padding:12px; border-radius:12px; transition:background 0.2s; cursor:default; margin-left:-12px; margin-right:-12px;">
+                  <div style="position:absolute; left:-18px; top:16px; width:12px; height:12px; border-radius:50%; background:#2E933C; border:3px solid #fff; box-shadow:0 0 0 1px #2E933C, 0 4px 8px rgba(46,147,60,0.3);"></div>
+                  <p class="body" style="font-size:18px;font-weight:700;color:#0B132B;margin:0;">4. Ticket Issued</p>
+                  <p class="body" style="font-size:15px;color:#434E61;margin:6px 0 0 0;line-height:1.4;">On success, booking is confirmed and ticket is verified.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:1002px;width:900px;z-index:10;">
+    <p class="body" style="font-size:16px;color:#7A88A3;letter-spacing:1.4px;">AIRLINE RESERVATION SYSTEM &nbsp;·&nbsp; OOMSD</p>
+  </div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:1704px;top:1002px;width:120px;text-align:right;z-index:10;">
+    <p class="body mono" style="font-size:17px;color:#0077B6;font-weight:600;">15</p>
+  </div>
+
+</div>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+<script src="../assets/scaler.js"></script>
+<style>
+  @keyframes blink { 
+    0%, 100% { border-color: transparent; } 
+    50% { border-color: #0077B6; } 
+  }
+</style>
+<script>
+  // The New Surprise: Animated typing effect for the scenario text
+  document.addEventListener('DOMContentLoaded', () => {
+    const targetWrapper = document.querySelector('.type-effect-target strong');
+    if (!targetWrapper) return;
+    
+    const textToType = targetWrapper.innerText;
+    targetWrapper.innerText = ''; // clear it initially
+    targetWrapper.style.borderRight = "3px solid transparent"; // prep cursor
+    targetWrapper.style.paddingRight = "4px";
+    
+    let charIndex = 0;
+    
+    function typeWriter() {
+      if (charIndex < textToType.length) {
+        // Keep cursor solid while typing
+        targetWrapper.style.borderRight = "3px solid #0077B6"; 
+        targetWrapper.innerHTML += textToType.charAt(charIndex);
+        charIndex++;
+        // Randomize typing speed slightly for realism (30ms to 70ms)
+        const delay = Math.random() * 40 + 30;
+        setTimeout(typeWriter, delay);
+      } else {
+        // Start blinking the cursor once finished typing
+        targetWrapper.style.animation = "blink 1s step-end infinite";
+        // Remove cursor completely after 4 seconds
+        setTimeout(() => {
+          targetWrapper.style.animation = "none";
+          targetWrapper.style.borderRight = "3px solid transparent";
+        }, 4000);
+      }
+    }
+    
+    // Start typing after a short delay (e.g. slide transition)
+    setTimeout(typeWriter, 600);
+  });
+</script>
+<script src="../assets/navigation.js"></script>
+</body>
+</html>

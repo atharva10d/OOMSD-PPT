@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0",
+  "format": "html",
+  "metadata": {
+    "title": "Airline Reservation System — OOMSD",
+    "description": "Object-Oriented Modeling and System Design project presentation: problem, architecture, SOLID principles, and UML modelling for an Airline Reservation System.",
+    "author": "Atharva Zope · Om Kawad · Viraj Deshmukh"
+  },
+  "canvas": {"width": 1920, "height": 1080},
+  "playlist": [
+    "title.html",
+    "real-world-problem.html",
+    "proposed-solution.html",
+    "booking-journey.html",
+    "system-architecture.html",
+    "why-solid-matters.html",
+    "single-responsibility.html",
+    "open-closed.html",
+    "liskov-substitution.html",
+    "interface-segregation.html",
+    "dependency-inversion.html",
+    "crc-cards.html",
+    "class-diagram.html",
+    "use-case-diagram.html",
+    "sequence-diagram.html",
+    "er-diagram.html",
+    "normalization.html",
+    "thank-you.html"
+  ]
+}

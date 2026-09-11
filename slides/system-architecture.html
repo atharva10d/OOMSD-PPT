@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>System Architecture Diagram</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body style="margin:0;padding:0;overflow:hidden;">
+<div class="slide-container" data-screen-label="05 System Architecture" style="position:relative;width:1920px;height:1080px;overflow:hidden;background:linear-gradient(148deg,#EAF6FD 0%,#F8FCFE 50%,#FFF4EC 100%);">
+
+  <img data-object="true" data-object-type="image" src="../assets/radar-data.jpg" alt="Digital flight radar display" style="position:absolute;left:1180px;top:0px;width:740px;height:1080px;object-fit:cover;z-index:5;">
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:1180px;top:0px;width:740px;height:1080px;background:linear-gradient(200deg,rgba(0,119,182,0.20) 0%,rgba(233,245,253,0.62) 45%,rgba(255,140,66,0.16) 100%);z-index:6;"></div>
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:1120px;top:0px;width:260px;height:1080px;background:linear-gradient(90deg,rgba(248,252,254,1) 0%,rgba(248,252,254,0.90) 45%,rgba(248,252,254,0) 100%);z-index:7;"></div>
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:0px;top:0px;width:1920px;height:8px;background:linear-gradient(90deg,#0077B6 0%,#48A9DC 55%,#FF8C42 100%);z-index:8;"></div>
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:80px;width:900px;z-index:10;">
+    <p class="eyebrow" style="font-size:17px;">Architecture</p>
+  </div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:110px;width:1100px;z-index:10;">
+    <h2 class="h2" style="font-size:58px;">System Architecture Diagram</h2>
+  </div>
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:96px;top:188px;width:130px;height:5px;border-radius:3px;background:linear-gradient(90deg,#0077B6,#FF8C42);z-index:9;"></div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:212px;width:1000px;z-index:10;">
+    <p class="body" style="font-size:23px;">A four-layer separation keeps presentation, business logic, third-party integration and persistence independently replaceable.</p>
+  </div>
+
+  <!-- The Data Bus (Tech Stack Connection) -->
+  <svg data-object="true" data-object-type="shape" style="position:absolute;left:82px;top:320px;width:20px;height:600px;z-index:1;pointer-events:none;" viewBox="0 0 20 600">
+    <line x1="10" y1="0" x2="10" y2="600" stroke="rgba(11,19,43,0.1)" stroke-width="4" stroke-linecap="round" />
+    <line class="data-bus-pulse" x1="10" y1="0" x2="10" y2="600" stroke="#0077B6" stroke-width="4" stroke-linecap="round" />
+  </svg>
+
+  <!-- Animated Data Packets (Flying to Map) -->
+  <svg data-object="true" data-object-type="shape" style="position:absolute;left:1060px;top:350px;width:820px;height:600px;z-index:7;pointer-events:none;" viewBox="0 0 820 600">
+    <circle class="data-packet packet-1" cx="0" cy="50" r="4" fill="#0077B6" />
+    <circle class="data-packet packet-2" cx="0" cy="200" r="4" fill="#1489C4" />
+    <circle class="data-packet packet-3" cx="0" cy="400" r="4" fill="#FF8C42" />
+    <circle class="data-packet packet-4" cx="0" cy="500" r="4" fill="#17A398" />
+  </svg>
+
+  <!-- Layer 1 -->
+  <div data-object="true" data-object-type="group" class="arch-layer-group" style="position:absolute;left:96px;top:302px;width:1004px;height:158px;z-index:2;">
+    <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(255,255,255,0.86);border:1px solid rgba(255,255,255,0.96);border-left:7px solid #0077B6;border-radius:20px;box-shadow:0 14px 36px rgba(11,19,43,0.09);"></div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:36px;top:24px;width:250px;">
+      <p class="eyebrow" style="font-size:13px;letter-spacing:2.4px;">Layer 1</p>
+      <h3 class="h3" style="font-size:27px;margin-top:7px;line-height:1.22;">User Interface<br>(UI) Layer</h3>
+    </div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:308px;top:32px;width:668px;">
+      <div style="display:flex;flex-direction:column;gap:11px;">
+        <div style="display:flex;gap:12px;align-items:center;"><span style="flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:#0077B6;"></span><span class="body" style="font-size:21px;"><strong>Passenger Portal</strong> — search, book, check-in</span></div>
+        <div style="display:flex;gap:12px;align-items:center;"><span style="flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:#0077B6;"></span><span class="body" style="font-size:21px;"><strong>Agent Dashboard</strong> — manage multiple client bookings</span></div>
+        <div style="display:flex;gap:12px;align-items:center;"><span style="flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:#0077B6;"></span><span class="body" style="font-size:21px;"><strong>Admin Panel</strong> — inventory, crew and reports</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Layer 2 -->
+  <div data-object="true" data-object-type="group" class="arch-layer-group" style="position:absolute;left:96px;top:476px;width:1004px;height:158px;z-index:2;">
+    <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(255,255,255,0.86);border:1px solid rgba(255,255,255,0.96);border-left:7px solid #1489C4;border-radius:20px;box-shadow:0 14px 36px rgba(11,19,43,0.09);"></div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:36px;top:24px;width:250px;">
+      <p class="eyebrow" style="font-size:13px;letter-spacing:2.4px;color:#1489C4;">Layer 2</p>
+      <h3 class="h3" style="font-size:27px;margin-top:7px;line-height:1.22;">Core Booking Engine<br>(Business Logic)</h3>
+    </div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:308px;top:32px;width:668px;">
+      <div style="display:flex;flex-direction:column;gap:11px;">
+        <div style="display:flex;gap:12px;align-items:center;"><span style="flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:#1489C4;"></span><span class="body" style="font-size:21px;">Flight Search &amp; Routing Service</span></div>
+        <div style="display:flex;gap:12px;align-items:center;"><span style="flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:#1489C4;"></span><span class="body" style="font-size:21px;">Dynamic Seat Allocation Manager</span></div>
+        <div style="display:flex;gap:12px;align-items:center;"><span style="flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:#1489C4;"></span><span class="body" style="font-size:21px;">Pricing &amp; Refund Calculator</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Layer 3 -->
+  <div data-object="true" data-object-type="group" class="arch-layer-group" style="position:absolute;left:96px;top:650px;width:1004px;height:128px;z-index:2;">
+    <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(255,255,255,0.86);border:1px solid rgba(255,255,255,0.96);border-left:7px solid #FF8C42;border-radius:20px;box-shadow:0 14px 36px rgba(11,19,43,0.09);"></div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:36px;top:28px;width:250px;">
+      <p class="eyebrow" style="font-size:13px;letter-spacing:2.4px;color:#E4721F;">Layer 3</p>
+      <h3 class="h3" style="font-size:27px;margin-top:7px;line-height:1.22;">External<br>Integration Layer</h3>
+    </div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:308px;top:42px;width:668px;">
+      <div style="display:flex;flex-direction:column;gap:11px;">
+        <div style="display:flex;gap:12px;align-items:center;"><span style="flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:#FF8C42;"></span><span class="body" style="font-size:21px;">Payment Gateway Service</span></div>
+        <div style="display:flex;gap:12px;align-items:center;"><span style="flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:#FF8C42;"></span><span class="body" style="font-size:21px;">Email / SMS Notification Service</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Layer 4 -->
+  <div data-object="true" data-object-type="group" class="arch-layer-group" style="position:absolute;left:96px;top:794px;width:1004px;height:158px;z-index:2;">
+    <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(255,255,255,0.86);border:1px solid rgba(255,255,255,0.96);border-left:7px solid #17A398;border-radius:20px;box-shadow:0 14px 36px rgba(11,19,43,0.09);"></div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:36px;top:32px;width:250px;">
+      <p class="eyebrow" style="font-size:13px;letter-spacing:2.4px;color:#12867D;">Layer 4</p>
+      <h3 class="h3" style="font-size:27px;margin-top:7px;line-height:1.22;">Data Storage<br>Layer</h3>
+    </div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:308px;top:32px;width:668px;">
+      <div style="display:flex;flex-direction:column;gap:11px;">
+        <div style="display:flex;gap:12px;align-items:center;"><span style="flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:#17A398;"></span><span class="body" style="font-size:21px;">Flight Inventory DB</span></div>
+        <div style="display:flex;gap:12px;align-items:center;"><span style="flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:#17A398;"></span><span class="body" style="font-size:21px;">User &amp; Authentication DB</span></div>
+        <div style="display:flex;gap:12px;align-items:center;"><span style="flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:#17A398;"></span><span class="body" style="font-size:21px;">Transaction &amp; Reservation Logs</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Design Payoff (Glassmorphism) -->
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:1264px;top:806px;width:572px;height:148px;background:rgba(255,255,255,0.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.85);border-radius:22px;box-shadow:0 18px 46px rgba(11,19,43,0.12);z-index:8;"></div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:1300px;top:836px;width:500px;z-index:10;">
+    <p class="eyebrow" style="font-size:14px;letter-spacing:2.6px;color:#0077B6;">Design Payoff</p>
+    <p class="h3" style="font-size:25px;margin-top:10px;line-height:1.3;">Any layer can be swapped without recompiling the layers above it.</p>
+  </div>
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:1000px;width:900px;z-index:10;">
+    <p class="body" style="font-size:16px;color:#7A88A3;letter-spacing:1.4px;">AIRLINE RESERVATION SYSTEM &nbsp;·&nbsp; OOMSD</p>
+  </div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:1704px;top:1000px;width:120px;text-align:right;z-index:10;">
+    <p class="body mono" style="font-size:17px;color:#ffffff;font-weight:600;">05</p>
+  </div>
+
+</div>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+<script src="../assets/scaler.js"></script><script src="../assets/navigation.js"></script>
+</body>
+</html>

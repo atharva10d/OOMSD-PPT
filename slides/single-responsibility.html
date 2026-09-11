@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>S — Single Responsibility Principle</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body style="margin:0;padding:0;overflow:hidden;">
+<div class="slide-container" data-screen-label="07 Single Responsibility" style="position:relative;width:1920px;height:1080px;overflow:hidden;background:linear-gradient(150deg,#EAF6FD 0%,#F8FCFE 48%,#FFF3EA 100%);">
+
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:0px;top:0px;width:1920px;height:8px;background:linear-gradient(90deg,#0077B6 0%,#48A9DC 55%,#FF8C42 100%);z-index:7;"></div>
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:78px;width:900px;z-index:10;">
+    <p class="eyebrow" style="font-size:17px;">Principle 01 · S</p>
+  </div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:108px;width:1500px;z-index:10;">
+    <h2 class="h2" style="font-size:60px;">S — Each Class Does One Job</h2>
+  </div>
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:96px;top:192px;width:130px;height:5px;border-radius:3px;background:linear-gradient(90deg,#0077B6,#FF8C42);z-index:7;"></div>
+
+  <div data-object="true" data-object-type="shape" style="position:absolute;left:96px;top:222px;width:1728px;height:88px;background:rgba(0,119,182,0.10);border-left:6px solid #0077B6;border-radius:14px;z-index:1;"></div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:138px;top:242px;width:1660px;z-index:10;">
+    <p class="body" style="font-size:26px;font-style:italic;color:#0B132B;line-height:1.34;">"A class should have only one reason to change."</p>
+  </div>
+
+  <!-- BAD design (left) - Monolith Box -->
+  <div class="monolith-box" style="position:absolute;left:96px;top:346px;width:854px;height:602px;z-index:2;">
+    <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(255,245,237,0.90);border:1px solid rgba(255,140,66,0.4);border-radius:24px;box-shadow:0 18px 46px rgba(11,19,43,0.10);"></div>
+    <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:80px;border-radius:24px 24px 0 0;background:linear-gradient(90deg,#FF8C42 0%,#FFB07A 100%);"></div>
+    <div data-object="true" data-object-type="icon" style="position:absolute;left:34px;top:20px;width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,0.30);display:flex;align-items:center;justify-content:center;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:90px;top:24px;width:700px;">
+      <p class="eyebrow" style="font-size:14px;letter-spacing:2.4px;color:#ffffff;">Bad Design — Before</p>
+      <h3 class="h3" style="font-size:26px;margin-top:5px;color:#ffffff;font-family:monospace;">class ReservationManager { ... }</h3>
+    </div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:40px;top:116px;width:770px;">
+      <p class="body" style="font-size:23px;">A single "God Class" handles <strong>every</strong> concern:</p>
+    </div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:40px;top:166px;width:770px;">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;gap:14px;align-items:center;background:rgba(255,140,66,0.15);border:1px solid rgba(255,140,66,0.3);border-radius:12px;padding:12px 16px;"><span class="mono" style="font-size:20px;color:#E4721F;font-weight:700;">01</span><span class="body" style="font-size:21px;">Querying flights</span></div>
+        <div style="display:flex;gap:14px;align-items:center;background:rgba(255,140,66,0.15);border:1px solid rgba(255,140,66,0.3);border-radius:12px;padding:12px 16px;"><span class="mono" style="font-size:20px;color:#E4721F;font-weight:700;">02</span><span class="body" style="font-size:21px;">Calculating taxes</span></div>
+        <div style="display:flex;gap:14px;align-items:center;background:rgba(255,140,66,0.15);border:1px solid rgba(255,140,66,0.3);border-radius:12px;padding:12px 16px;"><span class="mono" style="font-size:20px;color:#E4721F;font-weight:700;">03</span><span class="body" style="font-size:21px;">Saving to the database</span></div>
+        <div style="display:flex;gap:14px;align-items:center;background:rgba(255,140,66,0.15);border:1px solid rgba(255,140,66,0.3);border-radius:12px;padding:12px 16px;"><span class="mono" style="font-size:20px;color:#E4721F;font-weight:700;">04</span><span class="body" style="font-size:21px;">Processing credit cards</span></div>
+        <div style="display:flex;gap:14px;align-items:center;background:rgba(255,140,66,0.15);border:1px solid rgba(255,140,66,0.3);border-radius:12px;padding:12px 16px;"><span class="mono" style="font-size:20px;color:#E4721F;font-weight:700;">05</span><span class="body" style="font-size:21px;">Generating the PDF boarding pass</span></div>
+      </div>
+    </div>
+    <div data-object="true" data-object-type="shape" style="position:absolute;left:40px;top:496px;width:770px;height:84px;background:rgba(255,0,0,0.08);border-left:5px solid #FF3333;border-radius:14px;"></div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:58px;top:510px;width:740px;">
+      <p class="body" style="font-size:20px;color:#D82222;line-height:1.4;"><strong>Risk:</strong> Changing the payment gateway logic risks breaking the seat allocation code.</p>
+    </div>
+  </div>
+
+  <!-- Animated Glowing Refactor Arrow -->
+  <div class="refactor-arrow" style="position:absolute;left:930px;top:600px;width:60px;height:60px;z-index:5;display:flex;justify-content:center;align-items:center;">
+    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#48A9DC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 8px rgba(72,169,220,0.8));"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </div>
+
+  <!-- GOOD design (right) - Microservices -->
+  <div style="position:absolute;left:970px;top:346px;width:854px;height:602px;z-index:2;">
+    <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(255,255,255,0.86);border:1px solid rgba(255,255,255,0.96);border-radius:24px;box-shadow:0 18px 46px rgba(11,19,43,0.10);"></div>
+    <div data-object="true" data-object-type="shape" style="position:absolute;left:0;top:0;width:100%;height:80px;border-radius:24px 24px 0 0;background:linear-gradient(90deg,#0077B6 0%,#48A9DC 100%);"></div>
+    <div data-object="true" data-object-type="icon" style="position:absolute;left:34px;top:20px;width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,0.30);display:flex;align-items:center;justify-content:center;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+    </div>
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:90px;top:24px;width:700px;">
+      <p class="eyebrow" style="font-size:14px;letter-spacing:2.4px;color:#ffffff;">Airline Design — After</p>
+      <h3 class="h3" style="font-size:26px;margin-top:5px;color:#ffffff;">Four specialised services</h3>
+    </div>
+
+    <div data-object="true" data-object-type="textbox" style="position:absolute;left:40px;top:116px;width:770px;z-index:10;">
+      <div style="display:flex;flex-direction:column;gap:18px;">
+
+        <div class="microservice-box" style="position:relative;background:rgba(0,119,182,0.06);border-radius:16px;padding:18px 22px;border:1px solid rgba(0,119,182,0.14);">
+          <div style="display:flex;gap:14px;align-items:center;"><span class="mono" style="font-size:22px;color:#0077B6;font-weight:700;">→</span><p class="h3" style="font-size:22px;color:#0077B6;font-family:monospace;">class FlightSearchEngine { }</p></div>
+          <p class="body" style="font-size:20px;margin-top:6px;padding-left:36px;color:#555;">strictly queries available routes</p>
+        </div>
+
+        <div class="microservice-box" style="position:relative;background:rgba(20,137,196,0.06);border-radius:16px;padding:18px 22px;border:1px solid rgba(20,137,196,0.16);">
+          <div style="display:flex;gap:14px;align-items:center;"><span class="mono" style="font-size:22px;color:#1489C4;font-weight:700;">→</span><p class="h3" style="font-size:22px;color:#1489C4;font-family:monospace;">class SeatAllocationService { }</p></div>
+          <p class="body" style="font-size:20px;margin-top:6px;padding-left:36px;color:#555;">only handles seat locking</p>
+        </div>
+
+        <div class="microservice-box" style="position:relative;background:rgba(62,155,206,0.06);border-radius:16px;padding:18px 22px;border:1px solid rgba(62,155,206,0.20);">
+          <div style="display:flex;gap:14px;align-items:center;"><span class="mono" style="font-size:22px;color:#2E86B8;font-weight:700;">→</span><p class="h3" style="font-size:22px;color:#2E86B8;font-family:monospace;">class PaymentProcessor { }</p></div>
+          <p class="body" style="font-size:20px;margin-top:6px;padding-left:36px;color:#555;">exclusively manages financial transactions</p>
+        </div>
+
+        <div class="microservice-box" style="position:relative;background:rgba(23,163,152,0.06);border-radius:16px;padding:18px 22px;border:1px solid rgba(23,163,152,0.16);">
+          <div style="display:flex;gap:14px;align-items:center;"><span class="mono" style="font-size:22px;color:#12867D;font-weight:700;">→</span><p class="h3" style="font-size:22px;color:#12867D;font-family:monospace;">class TicketGenerator { }</p></div>
+          <p class="body" style="font-size:20px;margin-top:6px;padding-left:36px;color:#555;">focuses solely on creating the final E-Ticket</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:96px;top:1002px;width:900px;z-index:10;">
+    <p class="body" style="font-size:16px;color:#7A88A3;letter-spacing:1.4px;">AIRLINE RESERVATION SYSTEM &nbsp;·&nbsp; OOMSD</p>
+  </div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:1704px;top:1002px;width:120px;text-align:right;z-index:10;">
+    <p class="body mono" style="font-size:17px;color:#0077B6;font-weight:600;">07</p>
+  </div>
+
+</div>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+<script src="../assets/scaler.js"></script><script src="../assets/navigation.js"></script>
+</body>
+</html>
