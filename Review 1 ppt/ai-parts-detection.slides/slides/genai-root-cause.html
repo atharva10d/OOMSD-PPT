@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Generative AI Integration Layer</title>
+<link rel="stylesheet" href="../assets/theme.css">
+<style>
+  html,body{margin:0;padding:0;overflow:hidden;}
+
+  /* Premium Glass Panel */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    box-shadow: 0 35px 80px rgba(11,33,67,0.1), inset 0 0 0 2px rgba(255,255,255,0.8);
+    border-radius: 32px;
+  }
+
+  /* Animated AI Scanner Line over Image */
+  @keyframes scanSweep {
+    0% { top: 0%; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
+  .scanner-line {
+    position: absolute; left: 0; width: 100%; height: 4px;
+    background: var(--coral);
+    box-shadow: 0 0 20px var(--coral), 0 0 40px var(--coral), 0 20px 30px rgba(239, 107, 87, 0.3);
+    animation: scanSweep 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    z-index: 10;
+  }
+
+  /* Flowing Data Stream connecting panels */
+  @keyframes streamFlow {
+    0% { background-position: 0px 0; }
+    100% { background-position: 40px 0; }
+  }
+  .data-stream {
+    position: absolute; left: 880px; top: 620px; width: 80px; height: 6px;
+    background-image: linear-gradient(90deg, var(--emerald) 40%, transparent 40%);
+    background-size: 20px 100%;
+    animation: streamFlow 1s linear infinite;
+    border-radius: 3px; z-index: 5;
+    opacity: 0.7;
+  }
+
+  /* Chat Bubbles */
+  .chat-bubble-user {
+    background: linear-gradient(135deg, var(--cyan-deep), var(--cobalt));
+    color: white;
+    border-radius: 24px 24px 4px 24px;
+    box-shadow: 0 20px 40px rgba(11,33,67,0.15);
+    position: relative; overflow: hidden;
+  }
+  /* Premium Shimmer on User Bubble */
+  @keyframes shimmerSweep {
+    0% { left: -100%; }
+    20%, 100% { left: 200%; }
+  }
+  .chat-bubble-user::after {
+    content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transform: skewX(-20deg); animation: shimmerSweep 6s ease infinite;
+  }
+
+  .chat-bubble-ai {
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(0,0,0,0.05);
+    color: var(--navy);
+    border-radius: 24px 24px 24px 4px;
+    box-shadow: 0 20px 40px rgba(11,33,67,0.06);
+  }
+
+  /* Typing Indicator */
+  @keyframes typingBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .typing-dot {
+    display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+    background: var(--emerald); margin-right: 4px;
+    animation: typingBounce 1.2s infinite;
+  }
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; background: var(--cyan); }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; background: var(--cobalt); }
+
+  /* Premium Background Aurora Orbs */
+  @keyframes floatOrb1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(200px, 150px) scale(1.1); }
+  }
+  @keyframes floatOrb2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-150px, -200px) scale(1.2); }
+  }
+  .bg-orb-1 {
+    position: absolute; width: 1000px; height: 1000px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,188,212,0.18) 0%, transparent 70%);
+    top: 10%; left: 0%; animation: floatOrb1 20s ease-in-out infinite; z-index: 2; pointer-events: none;
+  }
+  .bg-orb-2 {
+    position: absolute; width: 1200px; height: 1200px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(16,185,129,0.12) 0%, transparent 70%);
+    bottom: -10%; right: -5%; animation: floatOrb2 25s ease-in-out infinite; z-index: 2; pointer-events: none;
+  }
+
+</style>
+</head>
+<body>
+<div class="slide-container mesh-light" data-screen-label="09 Generative AI &amp; Root Cause Analysis" style="position:relative;width:1920px;height:1080px;overflow:hidden;">
+
+  <!-- Ambient Background Orbs -->
+  <div class="bg-orb-1"></div>
+  <div class="bg-orb-2"></div>
+
+  <div class="grid-tex" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;z-index:3;"></div>
+
+  <!-- Header (F-Pattern Alignment Fixed) -->
+  <div style="position:absolute;left:96px;top:60px;width:74px;height:8px;z-index:9;border-radius:4px;
+              background:linear-gradient(90deg,var(--emerald),var(--cyan));box-shadow: 0 0 15px var(--emerald);"></div>
+  <div class="a-float" style="position:absolute;left:96px;top:86px;width:1500px;z-index:10;">
+    <p class="kicker" style="color:var(--emerald);font-size:20px;margin:0 0 12px;letter-spacing:.1em;text-transform:uppercase;">Section 07 &bull; Root Cause Analysis</p>
+    <h1 class="ttl" style="font-size:66px;margin:0 0 12px;color:var(--navy);line-height:1.05;">Generative AI Integration Layer</h1>
+    <p class="body" style="font-size:24px;color:var(--slate);line-height:1.45;margin:0;">
+      <strong style="color:var(--navy);">Intelligent Diagnostic Assistant</strong> synthesizes context &nbsp;&middot;&nbsp; 
+      <strong style="color:var(--navy);">Actionable Insights</strong> recommend solutions &nbsp;&middot;&nbsp; 
+      <strong style="color:var(--navy);">Interactive Chatbot</strong> provides natural language assistance
+    </p>
+  </div>
+
+  <!-- Left Panel: Vision Model Output (Light Theme) -->
+  <div class="glass-panel a-float" style="position:absolute;left:96px;top:310px;width:760px;height:700px;z-index:10;animation-delay:.1s;padding:40px;box-sizing:border-box;">
+    
+    <p class="kicker" style="color:var(--slate);font-size:15px;margin:0 0 24px;text-transform:uppercase;font-weight:700;letter-spacing:1px;">Panel 01 &nbsp;/&nbsp; Vision Model Output</p>
+    
+    <!-- Image Container with Scanner -->
+    <div style="position:relative;width:100%;height:360px;border-radius:20px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,0.1);border:1px solid rgba(0,0,0,0.05);">
+      <!-- Light Theme original image -->
+      <img src="../assets/block-qc.jpg" alt="Machined automotive engine component under inspection" style="width:100%;height:100%;object-fit:cover;">
+      
+      <!-- Animated AI Scanner Line -->
+      <div class="scanner-line"></div>
+      
+      <!-- Bounding Box (Premium Coral) -->
+      <div class="a-pop" style="position:absolute;left:194px;top:94px;width:288px;height:216px;z-index:9;border-radius:6px;
+                  border:3px solid var(--coral);box-shadow:0 0 15px rgba(239,107,87,0.5), inset 0 0 15px rgba(239,107,87,0.3);animation-delay:.6s;"></div>
+      
+      <!-- Bounding Box Label -->
+      <div class="a-pop" style="position:absolute;left:194px;top:50px;width:200px;z-index:10;animation-delay:.68s;">
+        <p class="body" style="display:inline-block;font-size:16px;font-weight:700;color:#FFFFFF;letter-spacing:.06em;
+                  background:var(--coral);padding:6px 14px;border-radius:6px;margin:0;box-shadow:0 10px 20px rgba(239,107,87,0.4);">CRACK &nbsp;|&nbsp; 94.2%</p>
+      </div>
+    </div>
+
+    <!-- Severity Strip (Light Theme tags) -->
+    <div class="a-fade" style="display:flex;gap:16px;margin-top:32px;animation-delay:.36s;">
+      <div style="flex:1;border-radius:16px;padding:20px;background:rgba(239,107,87,0.1);border:1px solid rgba(239,107,87,0.3);">
+        <p class="kicker" style="color:var(--coral);font-size:14px;margin:0 0 8px;">Severity</p>
+        <p class="ttl" style="font-size:28px;color:var(--coral);margin:0;">High</p>
+      </div>
+      <div style="flex:1;border-radius:16px;padding:20px;background:rgba(0,188,212,0.1);border:1px solid rgba(0,188,212,0.3);">
+        <p class="kicker" style="color:var(--cyan-deep);font-size:14px;margin:0 0 8px;">Class</p>
+        <p class="ttl" style="font-size:28px;color:var(--navy);margin:0;">Hairline</p>
+      </div>
+      <div style="flex:1;border-radius:16px;padding:20px;background:rgba(240,168,104,0.15);border:1px solid rgba(240,168,104,0.4);">
+        <p class="kicker" style="color:#D9772B;font-size:14px;margin:0 0 8px;">Verdict</p>
+        <p class="ttl" style="font-size:28px;color:#D9772B;margin:0;">Not OK</p>
+      </div>
+    </div>
+    
+    <p class="body a-fade" style="font-size:20px;color:var(--slate);margin:24px 0 0;animation-delay:.44s;">
+      <strong style="color:var(--navy);">Detection output:</strong> Precise location and class identified, but lacks root cause explanation.
+    </p>
+
+  </div>
+
+  <!-- Animated Data Stream connecting the two panels -->
+  <div class="data-stream a-fade" style="animation-delay:.7s; top: 640px;"></div>
+
+  <!-- Right Panel: GenAI Chatbot Mockup (Light Theme) -->
+  <div class="glass-panel a-float" style="position:absolute;left:980px;top:310px;width:844px;height:700px;z-index:10;animation-delay:.24s;padding:40px;box-sizing:border-box;display:flex;flex-direction:column;">
+    
+    <p class="kicker" style="color:var(--slate);font-size:15px;margin:0 0 24px;text-transform:uppercase;font-weight:700;letter-spacing:1px;">Panel 02 &nbsp;/&nbsp; GenAI Diagnostic Assistant</p>
+
+    <div style="flex:1; display:flex; flex-direction:column; gap:20px;">
+      
+      <!-- User Query (Premium Hover Gesture) -->
+      <div class="chat-bubble-user a-pop" style="align-self:flex-end; max-width:80%; padding:20px 28px; animation-delay:.42s; transition: transform 0.3s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.3s ease; cursor:pointer;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 25px 50px rgba(11,33,67,0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 20px 40px rgba(11,33,67,0.15)';">
+        <p class="body" style="font-size:22px;line-height:1.45;margin:0;color:#ffffff !important;">Analyze the detected crack on part #17890 and provide a diagnosis.</p>
+      </div>
+
+      <!-- GenAI Typing Indicator -->
+      <div class="chat-bubble-ai a-pop" style="align-self:flex-start; padding:16px 24px; animation-delay:.5s; margin-bottom:-10px;">
+        <div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>
+      </div>
+
+      <!-- GenAI Response 1: Root Cause (Premium Hover Gesture) -->
+      <div class="chat-bubble-ai a-pop" style="align-self:flex-start; max-width:90%; padding:24px 28px; animation-delay:.6s; transition: transform 0.3s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.3s ease; cursor:pointer;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 25px 50px rgba(11,33,67,0.12)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 20px 40px rgba(11,33,67,0.06)';">
+        <p class="kicker" style="color:var(--cyan-deep);font-size:15px;margin:0 0 8px;font-weight:700;">&#9679; Root Cause Diagnostic</p>
+        <p class="body" style="font-size:22px;line-height:1.5;margin:0;">
+          The hairline crack pattern indicates <strong style="color:var(--cyan-deep);">high thermal stress during casting cooling</strong> — material integrity is compromised at the flange radius.
+        </p>
+      </div>
+
+      <!-- GenAI Response 2: Recommended Action (Premium Hover Gesture) -->
+      <div class="chat-bubble-ai a-pop" style="align-self:flex-start; max-width:90%; padding:24px 28px; animation-delay:.7s; border-left:4px solid var(--emerald); transition: transform 0.3s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.3s ease; cursor:pointer;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 25px 50px rgba(11,33,67,0.12)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 20px 40px rgba(11,33,67,0.06)';">
+        <p class="kicker" style="color:var(--emerald);font-size:15px;margin:0 0 8px;font-weight:700;">&#10003; Recommended Action</p>
+        <p class="body" style="font-size:22px;line-height:1.5;margin:0;">
+          Audit the conveyor cooling speed and mold temperature immediately. Flag this batch for re-inspection.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Chat Input Bar -->
+    <div class="a-fade" style="width:100%;height:72px;border-radius:36px;background:rgba(0,0,0,0.03);border:1px solid rgba(0,0,0,0.08);margin-top:10px;display:flex;align-items:center;padding:0 28px;box-sizing:border-box;animation-delay:.84s; cursor:text; transition: background 0.3s ease;" onmouseover="this.style.background='rgba(0,0,0,0.06)';" onmouseout="this.style.background='rgba(0,0,0,0.03)';">
+      <p class="body" style="font-size:20px;color:var(--slate-light);margin:0;">Ask the assistant about defect trends, batches, or corrective actions&hellip;</p>
+      <div style="margin-left:auto; width:44px; height:44px; border-radius:50%; background:var(--cyan); display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,188,212,0.3); cursor:pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)';" onmouseout="this.style.transform='scale(1)';">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+      </div>
+    </div>
+
+  </div>
+
+  </div>
+
+  <!-- Uniform Slide Number -->
+  <div style="position:absolute;left:1760px;top:1012px;width:64px;z-index:10;text-align:right;">
+    <p class="num" style="font-size:22px;color:var(--slate-light);margin:0;">09</p>
+  </div>
+
+</div>
+<script src="../assets/scaler.js"></script>
+</body>
+</html>

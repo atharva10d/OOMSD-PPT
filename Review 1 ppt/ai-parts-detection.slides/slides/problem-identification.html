@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Problem Identification &amp; Relevance</title>
+<link rel="stylesheet" href="../assets/theme.css">
+<style>html,body{margin:0;padding:0;overflow:hidden;}</style>
+</head>
+<body>
+<div class="slide-container mesh-light" data-screen-label="03 Problem Identification" style="position:relative;width:1920px;height:1080px;overflow:hidden;">
+
+  <div class="grid-tex" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;z-index:1;"></div>
+
+  <style>
+    /* System Glitch Effect */
+    @keyframes textGlitch {
+      0%, 96%, 100% { text-shadow: none; transform: skewX(0deg); }
+      97% { text-shadow: -4px 0 cyan, 4px 0 red; transform: skewX(-15deg); }
+      98% { text-shadow: 4px 0 cyan, -4px 0 red; transform: skewX(15deg); }
+      99% { text-shadow: -4px 0 cyan, 4px 0 red; transform: skewX(-5deg); }
+    }
+    .glitch-text { animation: textGlitch 4s infinite 2s; display: inline-block; }
+
+    /* Terminal Typewriter */
+    .terminal-type {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid var(--cyan);
+      width: 0;
+      animation: typing 2.5s steps(70, end) forwards 1.2s, blink 0.75s step-end infinite;
+    }
+    @keyframes typing { to { width: 100%; } }
+    @keyframes blink { 50% { border-color: transparent; } }
+  </style>
+
+  <!-- Header (Consolidated F-Pattern) -->
+  <div style="position:absolute;left:96px;top:78px;width:74px;height:8px;z-index:9;border-radius:4px;
+              background:linear-gradient(90deg,var(--coral),var(--amber));box-shadow: 0 0 15px var(--coral);"></div>
+  <div class="a-float" style="position:absolute;left:96px;top:104px;width:1000px;z-index:10;">
+    <p class="kicker" style="color:var(--coral);font-size:20px;margin:0 0 14px;letter-spacing:.1em;text-transform:uppercase;">Section 01</p>
+    <h1 class="ttl" style="font-size:72px;margin:0 0 12px;color:var(--navy);line-height:1.05;">Problem Identification<br>&amp; Relevance</h1>
+    <p class="body" style="font-size:26px;color:var(--slate);line-height:1.45;margin:0;">Quality control on the automotive floor is still bottlenecked by human eyes and rigid rules.</p>
+  </div>
+
+  <!-- BOX 1 — manual inspection flaws -->
+  <div class="creative-card a-float rail-cyan" style="position:absolute;left:96px;top:410px;width:552px;height:490px;z-index:1;padding:40px;animation-delay:.10s;box-sizing:border-box;">
+    
+    <div style="position:relative;width:92px;height:92px;margin-bottom:24px;">
+      <div class="a-pop" style="position:absolute;width:100%;height:100%;border-radius:24px;
+                background:linear-gradient(150deg,rgba(0,188,212,.16),rgba(0,188,212,.06));
+                border:1.5px solid rgba(0,188,212,.34);display:flex;align-items:center;justify-content:center;animation-delay:.3s;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#0098B3" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M1.5 12S5 5.5 12 5.5 22.5 12 22.5 12 19 18.5 12 18.5 1.5 12 1.5 12Z"/><circle cx="12" cy="12" r="3.2"/></svg>
+      </div>
+    </div>
+    
+    <p class="body a-fade" style="font-size:20px;color:var(--cyan-deep);font-weight:700;letter-spacing:.04em;margin:0 0 24px;animation-delay:.36s;">Human throughput &amp; attention limited</p>
+    <p class="ttl a-fade" style="font-size:33px;letter-spacing:.02em;margin:0 0 16px;animation-delay:.42s;color:var(--navy);">Manual Inspection<br>Flaws</p>
+    <p class="body a-fade" style="font-size:21px;line-height:1.56;animation-delay:.48s;color:var(--slate);">Quality control relies on manual inspection, which is <span style="color:var(--navy);font-weight:800;">slow and prone to fatigue</span> — consistency drops across long shifts and micro-defects slip through.</p>
+  </div>
+
+  <!-- BOX 2 — legacy / rule-based -->
+  <div class="creative-card a-float rail-cobalt" style="position:absolute;left:684px;top:410px;width:552px;height:490px;z-index:1;padding:40px;animation-delay:.25s;box-sizing:border-box;">
+    
+    <div style="position:relative;width:92px;height:92px;margin-bottom:24px;">
+      <div class="a-pop" style="position:absolute;width:100%;height:100%;border-radius:24px;
+                background:linear-gradient(150deg,rgba(29,78,216,.14),rgba(29,78,216,.05));
+                border:1.5px solid rgba(29,78,216,.30);display:flex;align-items:center;justify-content:center;animation-delay:.45s;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3.1"/><path d="M12 2.2v3M12 18.8v3M2.2 12h3M18.8 12h3M5.1 5.1l2.1 2.1M16.8 16.8l2.1 2.1M18.9 5.1l-2.1 2.1M7.2 16.8l-2.1 2.1"/></svg>
+      </div>
+    </div>
+    
+    <p class="body a-fade" style="font-size:20px;color:var(--cobalt);font-weight:700;letter-spacing:.04em;margin:0 0 24px;animation-delay:.51s;">No adaptation to new conditions</p>
+    <p class="ttl a-fade" style="font-size:33px;letter-spacing:.02em;margin:0 0 16px;animation-delay:.57s;color:var(--navy);">Legacy System<br>Flaws</p>
+    <p class="body a-fade" style="font-size:21px;line-height:1.56;animation-delay:.63s;color:var(--slate);">Rigid rule-based machine vision fails under varying lighting and <span style="color:var(--navy);font-weight:800;">complex geometries</span> — thresholds tuned for one part break on the next.</p>
+  </div>
+
+  <!-- BOX 3 — risk -->
+  <div class="creative-card a-float rail-coral" style="position:absolute;left:1272px;top:410px;width:552px;height:490px;z-index:1;padding:40px;animation-delay:.40s;box-sizing:border-box;">
+    
+    <div style="position:relative;width:92px;height:92px;margin-bottom:24px;">
+      <div class="a-pop" style="position:absolute;width:100%;height:100%;border-radius:24px;
+                background:linear-gradient(150deg,rgba(239,107,87,.18),rgba(239,107,87,.06));
+                border:1.5px solid rgba(239,107,87,.40);display:flex;align-items:center;justify-content:center;animation-delay:.6s;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#EF6B57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3.3 22 20.4H2L12 3.3Z"/><path d="M12 9.4v5.1"/><circle cx="12" cy="17.6" r=".9" fill="#EF6B57" stroke="none"/></svg>
+      </div>
+    </div>
+    
+    <p class="body a-fade" style="font-size:20px;color:var(--coral);font-weight:700;letter-spacing:.04em;margin:0 0 24px;animation-delay:.66s;">Failures reach the end user</p>
+    <p class="ttl a-fade" style="font-size:33px;letter-spacing:.02em;margin:0 0 16px;animation-delay:.72s;color:var(--navy);">Impact &amp;<br>Consequences</p>
+    <p class="body a-fade" style="font-size:21px;line-height:1.56;animation-delay:.78s;color:var(--slate);">Undetected micro-defects — hairline cracks, surface rust — lead to <span class="glitch-text" style="color:var(--coral);font-weight:800;">catastrophic failures</span>, safety hazards and expensive product recalls.</p>
+  </div>
+
+  <!-- missing link strip -->
+  <div class="a-float" style="position:absolute;left:96px;top:940px;width:1728px;height:74px;z-index:9;border-radius:20px;
+              background:linear-gradient(100deg,rgba(11,33,67,.95),rgba(19,49,92,.90));
+              box-shadow:0 14px 34px rgba(11,33,67,.20), 0 0 20px rgba(0,188,212,0.3);animation-delay:.8s;
+              display:flex;align-items:center;padding:0 34px;box-sizing:border-box;overflow:hidden;">
+    
+    <span class="kicker" style="color:var(--cyan);font-size:22px;margin-right:16px;white-space:nowrap;flex-shrink:0;">System Alert &nbsp;[&#9888;]&nbsp;&rarr;&nbsp;</span>
+    <div class="terminal-type">
+      <p class="body" style="font-size:24px;color:rgba(255,255,255,.92);margin:0;font-family:monospace;white-space:nowrap;">
+        Existing automated systems flag defects but lack <span style="color:#FFFFFF;font-weight:700;">"Diagnostic Context"</span> to explain <em>why</em> the defect occurred.
+      </p>
+    </div>
+  </div>
+
+  <!-- Uniform Slide Number -->
+  <div style="position:absolute;left:1760px;top:1012px;width:64px;z-index:10;text-align:right;">
+    <p class="num" style="font-size:22px;color:var(--slate-light);margin:0;">03</p>
+  </div>
+
+</div>
+<script src="../assets/scaler.js"></script>
+</body>
+</html>

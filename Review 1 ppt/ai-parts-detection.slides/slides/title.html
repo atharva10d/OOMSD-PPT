@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AI Based Parts Detection System</title>
+<link rel="stylesheet" href="../assets/theme.css">
+<style>
+  html,body{margin:0;padding:0;overflow:hidden;}
+
+  /* 3D Hover Physics */
+  .hover-3d { transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important; cursor: default; }
+  .hover-3d:hover { transform: translateY(-12px) scale(1.03) !important; }
+  
+  .logo-card:hover {
+    box-shadow: 0 35px 70px rgba(0,188,212,0.2) !important;
+    border-color: rgba(0,188,212,0.4) !important;
+  }
+  
+  .navy-card:hover {
+    box-shadow: 0 40px 80px rgba(11,33,67,0.4), 0 0 40px rgba(0,188,212,0.2) !important;
+    border-color: rgba(0,188,212,0.3) !important;
+  }
+
+  /* Computer Vision Laser Sweep */
+  .scanner-box { position: relative; display: inline-block; padding: 0 20px; }
+  .scanner-line {
+    position: absolute; left: 0; width: 100%; height: 4px;
+    background: var(--cyan); border-radius: 2px;
+    box-shadow: 0 0 25px 5px rgba(0,188,212,0.6);
+    opacity: 0; z-index: 20;
+    animation: scan 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+  @keyframes scan {
+    0% { top: -10px; opacity: 0; }
+    15% { opacity: 1; }
+    50% { top: 110%; opacity: 1; }
+    65% { opacity: 0; }
+    100% { top: 110%; opacity: 0; }
+  }
+
+  /* Title Gradient Hover Sweep */
+  .title-gradient {
+    background: linear-gradient(90deg, var(--navy) 0%, var(--cobalt) 50%, var(--cyan-deep) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    transition: all 0.6s ease;
+  }
+  .title-gradient:hover {
+    background-position: right center;
+    letter-spacing: 0.02em;
+  }
+
+  /* Floating Frosted Glass Geometry */
+  .glass-geom {
+    position: absolute; border-radius: 50%; z-index: 4;
+    border: 1.5px solid rgba(255,255,255,0.7);
+    background: linear-gradient(135deg, rgba(255,255,255,0.5), rgba(255,255,255,0.1));
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 20px 40px rgba(11,33,67,0.04);
+  }
+  .geom-1 { width: 300px; height: 300px; top: -50px; right: 250px; animation: float 14s ease-in-out infinite; }
+  .geom-2 { width: 180px; height: 180px; bottom: 250px; left: 200px; animation: float 18s ease-in-out infinite reverse; border-radius: 30px; transform: rotate(15deg); }
+  .geom-3 { width: 80px; height: 80px; top: 300px; left: 450px; animation: float 10s ease-in-out infinite 2s; border-color: rgba(0,188,212,0.4); }
+
+  @keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-40px) rotate(90deg); }
+    100% { transform: translateY(0) rotate(180deg); }
+  }
+</style>
+</head>
+<body>
+<div class="slide-container mesh-light" data-screen-label="01 Title" style="position:relative;width:1920px;height:1080px;overflow:hidden;">
+
+  <!-- blueprint micro-texture -->
+  <div class="grid-tex" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;z-index:1;opacity:.65;"></div>
+
+  <!-- Floating Background Geometry -->
+  <div class="glass-geom geom-1"></div>
+  <div class="glass-geom geom-2"></div>
+  <div class="glass-geom geom-3"></div>
+
+  <!-- TRON 3D Floor Grid (Light Version) -->
+  <style>
+    @keyframes gridMove {
+      from { transform: rotateX(75deg) translateY(0); }
+      to { transform: rotateX(75deg) translateY(50px); }
+    }
+  </style>
+  <div style="position:absolute;left:0;top:0;width:1920px;height:1080px;z-index:2;overflow:hidden;pointer-events:none;">
+    <div style="position:absolute; bottom:0; left:0; width:100%; height:500px; perspective:800px;">
+      <div style="position:absolute; bottom:-100px; left:-50%; width:200%; height:200%;
+                  background-image: linear-gradient(rgba(29,78,216,0.15) 1.5px, transparent 1.5px),
+                                    linear-gradient(90deg, rgba(29,78,216,0.15) 1.5px, transparent 1.5px);
+                  background-size: 50px 50px;
+                  transform-origin: bottom center;
+                  animation: gridMove 2.5s linear infinite;
+                  mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 60%);
+                  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 60%);"></div>
+    </div>
+  </div>
+  <!-- END BACKGROUND -->
+
+  <!-- logo plate: left (PCCOE) -->
+  <div class="a-zoom hover-3d logo-card" style="position:absolute;left:80px;top:60px;width:200px;height:200px;z-index:8;border-radius:30px;
+              background:rgba(255,255,255,.95);border:1px solid rgba(255,255,255,.9);
+              box-shadow:0 24px 50px rgba(0,0,0,.08);">
+    <img src="../assets/logo-pccoe.png" alt="PCCOE logo" style="width:100%;height:100%;object-fit:scale-down;padding:20px;box-sizing:border-box;">
+  </div>
+
+  <!-- logo plate: right (PCET) -->
+  <div class="a-zoom hover-3d logo-card" style="position:absolute;left:1640px;top:60px;width:200px;height:200px;z-index:8;border-radius:30px;
+              background:rgba(255,255,255,.95);border:1px solid rgba(255,255,255,.9);
+              box-shadow:0 24px 50px rgba(0,0,0,.08);animation-delay:.12s;">
+    <img src="../assets/logo-pcet.png" alt="PCET logo" style="width:100%;height:100%;object-fit:scale-down;padding:20px;box-sizing:border-box;">
+  </div>
+
+  <!-- institution header -->
+  <div class="a-fade" style="position:absolute;left:0;top:90px;width:100%;z-index:10;display:flex;justify-content:center;pointer-events:none;">
+    <div style="text-align:center;">
+      <p class="body" style="color:var(--slate);font-size:28px;letter-spacing:.08em;margin:0 0 10px;text-transform:uppercase;">Pimpri Chinchwad Education Trust's</p>
+      <p class="ttl" style="color:var(--navy);font-size:46px;letter-spacing:.03em;margin:0 0 10px;">Pimpri Chinchwad College of Engineering (PCCOE)</p>
+      <p class="body" style="color:var(--cobalt);font-size:28px;font-weight:600;letter-spacing:.04em;margin:0;">Department of Computer Engineering (Regional Language)</p>
+    </div>
+  </div>
+
+  <!-- capstone badge -->
+  <div class="a-pop hover-3d" style="position:absolute;left:0;top:300px;width:100%;z-index:9;animation-delay:.3s;display:flex;justify-content:center;">
+    <div style="padding:10px 30px;border-radius:30px;
+                background:rgba(255,255,255,0.95); backdrop-filter:blur(10px);
+                border:1px solid rgba(11,33,67,0.08); box-shadow: 0 12px 24px rgba(11,33,67,0.06);
+                display:flex;align-items:center;justify-content:center;">
+      <div style="width:8px;height:8px;border-radius:50%;background:var(--cyan);margin-right:12px;box-shadow:0 0 10px var(--cyan);animation:blink-caret 1.5s infinite;"></div>
+      <p class="eyebrow" style="color:var(--navy);font-size:16px;font-weight:800;margin:0;letter-spacing:0.15em;">CAPSTONE PROJECT</p>
+    </div>
+  </div>
+
+  <!-- main title -->
+  <div class="a-float" style="position:absolute;left:0;top:400px;width:100%;z-index:10;animation-delay:.18s;display:flex;justify-content:center;">
+    <div class="scanner-box">
+      <div class="scanner-line"></div>
+      <h1 class="ttl" style="font-size:120px;font-weight:900;letter-spacing:.01em;line-height:1.05;text-align:center;">
+        <span style="color:var(--navy);">AI Based</span><br>
+        <span class="title-gradient">Parts Detection System</span>
+      </h1>
+    </div>
+  </div>
+
+  <!-- tagline -->
+  <div class="a-fade" style="position:absolute;left:0;top:710px;width:100%;z-index:10;animation-delay:.5s;display:flex;justify-content:center;">
+    <div style="background:rgba(255,255,255,0.8);backdrop-filter:blur(12px);padding:14px 40px;border-radius:100px;border:1px solid rgba(11,33,67,0.05);box-shadow:0 15px 30px rgba(11,33,67,0.03);">
+      <p class="body" style="color:var(--slate);font-size:28px;font-weight:600;letter-spacing:.03em;margin:0;text-align:center;">
+        Computer Vision Defect Localization <span style="color:var(--cyan-deep);font-weight:800;margin:0 12px;">&times;</span> Generative AI Root Cause Analysis
+      </p>
+    </div>
+  </div>
+
+  <!-- members + guide card (DARK NAVY THEME) -->
+  <div class="a-float" style="position:absolute;left:0;top:815px;width:100%;z-index:8;animation-delay:.58s;display:flex;justify-content:center;">
+    <div class="hover-3d navy-card" style="width:1160px;height:220px;display:flex;flex-direction:column;justify-content:center;align-items:center;
+                background:var(--navy); 
+                border-radius:36px; border:1px solid rgba(255,255,255,0.1);
+                box-shadow: 0 24px 60px rgba(11,33,67,0.25), inset 0 2px 10px rgba(255,255,255,0.1);">
+      
+      <div style="display:flex;justify-content:space-between;align-items:center;width:960px;margin-bottom:24px;">
+        
+        <!-- Student 1 -->
+        <div style="text-align:center; flex:1;">
+          <p class="body" style="color:#ffffff;font-size:26px;font-weight:700;margin:0 0 6px;">Atharva Zope</p>
+          <p class="body" style="color:var(--cyan);font-size:20px;font-weight:600;letter-spacing:0.08em;margin:0;">123B1D067</p>
+        </div>
+
+        <div style="width:1px;height:44px;background:rgba(255,255,255,0.15);"></div>
+        
+        <!-- Student 2 -->
+        <div style="text-align:center; flex:1;">
+          <p class="body" style="color:#ffffff;font-size:26px;font-weight:700;margin:0 0 6px;">Om Kawad</p>
+          <p class="body" style="color:var(--cyan);font-size:20px;font-weight:600;letter-spacing:0.08em;margin:0;">124B2D007</p>
+        </div>
+
+        <div style="width:1px;height:44px;background:rgba(255,255,255,0.15);"></div>
+        
+        <!-- Student 3 -->
+        <div style="text-align:center; flex:1;">
+          <p class="body" style="color:#ffffff;font-size:26px;font-weight:700;margin:0 0 6px;">Viraj Deshmukh</p>
+          <p class="body" style="color:var(--cyan);font-size:20px;font-weight:600;letter-spacing:0.08em;margin:0;">124B2D009</p>
+        </div>
+
+      </div>
+
+      <div style="width:860px;height:1px;background:rgba(255,255,255,0.1);margin-bottom:20px;"></div>
+
+      <div style="display:flex; flex-direction:column; align-items:center;">
+        <p class="body" style="color:var(--cyan);font-size:16px;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;margin:0 0 6px;">Under the guidance of</p>
+        <p class="ttl" style="color:#ffffff;font-size:34px;font-weight:900;letter-spacing:0.02em;margin:0;text-shadow:0 0 20px rgba(0,188,212,0.4);">Dr. Puja Pohakar</p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<script src="../assets/scaler.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>System Architecture &amp; Automated Reporting</title>
+<link rel="stylesheet" href="../assets/theme.css">
+<style>
+  html,body{margin:0;padding:0;overflow:hidden;}
+
+  /* Premium Glass Panel */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    box-shadow: 0 35px 80px rgba(11,33,67,0.1), inset 0 0 0 2px rgba(255,255,255,0.8);
+    border-radius: 32px;
+    transition: transform 0.4s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.4s ease;
+  }
+  
+  /* Hover Gestures */
+  .glass-panel:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 45px 100px rgba(11,33,67,0.15), inset 0 0 0 2px rgba(255,255,255,1);
+  }
+
+  @keyframes pulse-live {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(14, 159, 110, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(14, 159, 110, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(14, 159, 110, 0); }
+  }
+
+  @keyframes scan-sweep {
+    0% { transform: translateY(-100%); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(800px); opacity: 0; }
+  }
+
+  @keyframes orb-float {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(80px, -60px) scale(1.1); }
+    66% { transform: translate(-40px, 60px) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
+  }
+
+  .interactive-chip {
+    transition: transform 0.3s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.3s ease, background 0.3s ease;
+    cursor: pointer;
+  }
+  .interactive-chip:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(11,33,67,0.1) !important;
+    background: rgba(255,255,255,1) !important;
+  }
+
+  /* Premium Background Aurora Orbs */
+  @keyframes floatOrb1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(200px, 150px) scale(1.1); }
+  }
+  @keyframes floatOrb2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-150px, -200px) scale(1.2); }
+  }
+  .bg-orb-1 {
+    position: absolute; width: 1000px; height: 1000px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,188,212,0.18) 0%, transparent 70%);
+    top: 10%; left: 0%; animation: floatOrb1 20s ease-in-out infinite; z-index: 2; pointer-events: none;
+  }
+  .bg-orb-2 {
+    position: absolute; width: 1200px; height: 1200px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(16,185,129,0.12) 0%, transparent 70%);
+    bottom: -10%; right: -5%; animation: floatOrb2 25s ease-in-out infinite; z-index: 2; pointer-events: none;
+  }
+  
+  /* Light Frame for Dark Image */
+  .light-frame {
+    background: #ffffff;
+    padding: 16px;
+    border-radius: 40px;
+    box-shadow: 0 40px 80px rgba(11,33,67,0.15), inset 0 0 0 1px rgba(0,0,0,0.05);
+  }
+</style>
+</head>
+<body>
+<div class="slide-container mesh-warm" data-screen-label="10 System Architecture &amp; Reporting" style="position:relative;width:1920px;height:1080px;overflow:hidden;">
+
+  <!-- Ambient Background Orbs -->
+  <div class="bg-orb-1"></div>
+  <div class="bg-orb-2"></div>
+
+  <div class="grid-tex" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;z-index:3;"></div>
+
+  <!-- Header (F-Pattern Alignment Fixed) -->
+  <div style="position:absolute;left:96px;top:70px;width:74px;height:8px;z-index:9;border-radius:4px;
+              background:linear-gradient(90deg,var(--emerald),var(--cyan));box-shadow: 0 0 15px var(--emerald);"></div>
+  <div class="a-float" style="position:absolute;left:96px;top:96px;width:1700px;z-index:10;">
+    <p class="kicker" style="color:var(--emerald);font-size:20px;margin:0 0 12px;letter-spacing:.1em;text-transform:uppercase;">Section 08 &bull; Hardware, Software &amp; Reporting</p>
+    <h1 class="ttl" style="font-size:56px;margin:0;color:var(--navy);line-height:1.1;white-space:nowrap;">System Architecture &amp; Automated Reporting</h1>
+  </div>
+
+  <!-- Ambient Glowing Data Orbs (Premium Vercel/Stripe Effect) -->
+  <div style="position:absolute;left:150px;top:300px;width:500px;height:500px;background:rgba(14,159,110,0.15);filter:blur(80px);border-radius:50%;z-index:1;animation:orb-float 12s ease-in-out infinite alternate;pointer-events:none;"></div>
+  <div style="position:absolute;left:450px;top:550px;width:400px;height:400px;background:rgba(0,188,212,0.12);filter:blur(80px);border-radius:50%;z-index:1;animation:orb-float 15s ease-in-out infinite alternate-reverse;pointer-events:none;"></div>
+
+  <!-- left column: architecture and analytics -->
+  <div style="position:absolute;left:96px;top:230px;width:860px;display:flex;flex-direction:column;gap:32px;z-index:10;">
+    
+    <!-- Layer 01 -->
+    <div class="glass-panel" style="width:100%;padding:40px;box-sizing:border-box;animation-delay:.1s;">
+      <p class="kicker" style="color:var(--slate);font-size:15px;margin:0 0 12px;text-transform:uppercase;font-weight:700;letter-spacing:1px;">Layer 01</p>
+      <p class="ttl" style="font-size:36px;letter-spacing:.02em;margin:0 0 16px;color:var(--navy);">Hardware &amp; Software Architecture</p>
+      <p class="body" style="font-size:24px;line-height:1.5;margin:0 0 32px;color:var(--slate);">Developed with a robust backend and a dynamic frontend dashboard to support deep learning requirements and real-time processing.</p>
+      
+      <!-- tech stack chips -->
+      <div style="display:flex;gap:16px;">
+        <div class="interactive-chip" style="flex:1;border-radius:20px;padding:22px 20px;background:rgba(255,255,255,.60);border:1px solid rgba(11,33,67,.10);
+                    box-shadow:0 8px 20px rgba(11,33,67,.06);text-align:center;">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-deep)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:10px;">
+            <rect x="4" y="4" width="16" height="16" rx="2.4"/><rect x="8.4" y="8.4" width="7.2" height="7.2" rx="1.2"/>
+            <path d="M9 1.8v2.2M15 1.8v2.2M9 20v2.2M15 20v2.2M1.8 9H4M1.8 15H4M20 9h2.2M20 15h2.2"/></svg>
+          <p class="body" style="font-size:19px;font-weight:700;color:var(--navy);margin:0;">GPU Compute</p>
+        </div>
+        <div class="interactive-chip" style="flex:1;border-radius:20px;padding:22px 20px;background:rgba(255,255,255,.60);border:1px solid rgba(11,33,67,.10);
+                    box-shadow:0 8px 20px rgba(11,33,67,.06);text-align:center;">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--cobalt)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:10px;">
+            <path d="m18 16.2 4-4-4-4M6 8.2l-4 4 4 4M14 5.4l-4 13.2"/></svg>
+          <p class="body" style="font-size:19px;font-weight:700;color:var(--navy);margin:0;">Python Backend</p>
+        </div>
+        <div class="interactive-chip" style="flex:1;border-radius:20px;padding:22px 20px;background:rgba(255,255,255,.60);border:1px solid rgba(11,33,67,.10);
+                    box-shadow:0 8px 20px rgba(11,33,67,.06);text-align:center;">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:10px;">
+            <path d="M2.6 8.2A2 2 0 0 1 4.6 6.2h2.8l1.6-2.2h6l1.6 2.2h2.8a2 2 0 0 1 2 2v9.6a2 2 0 0 1-2 2H4.6a2 2 0 0 1-2-2V8.2Z"/>
+            <circle cx="12" cy="12.8" r="3.6"/></svg>
+          <p class="body" style="font-size:19px;font-weight:700;color:var(--navy);margin:0;">Industrial Camera</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer 02 -->
+    <div class="glass-panel" style="width:100%;padding:40px;box-sizing:border-box;animation-delay:.3s;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <p class="kicker" style="color:var(--slate);font-size:15px;margin:0;text-transform:uppercase;font-weight:700;letter-spacing:1px;">Layer 02</p>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--emerald);box-shadow:0 0 10px var(--emerald);animation:pulse-live 1.5s infinite;"></div>
+          <span style="color:var(--emerald);font-size:13px;font-weight:700;letter-spacing:1px;">LIVE</span>
+        </div>
+      </div>
+      <p class="ttl" style="font-size:36px;letter-spacing:.02em;margin:0 0 16px;color:var(--navy);">Real-Time Analytics &amp; Reporting</p>
+      <p class="body" style="font-size:24px;line-height:1.5;margin:0 0 36px;color:var(--slate);">The system dynamically compiles and generates comprehensive <strong style="color:var(--navy);">PDF quality inspection reports</strong> and provides operators with real-time statistics, significantly reducing administrative burden.</p>
+      
+      <!-- Button tags -->
+      <div style="display:flex;gap:14px;">
+        <span class="body interactive-chip" style="font-size:19px;font-weight:700;color:var(--navy);padding:14px 28px;border-radius:999px;background:rgba(14,159,110,.14);border:1px solid rgba(14,159,110,.36);">Defect Log</span>
+        <span class="body interactive-chip" style="font-size:19px;font-weight:700;color:var(--navy);padding:14px 28px;border-radius:999px;background:rgba(0,188,212,.14);border:1px solid rgba(0,188,212,.34);">Confidence Scores</span>
+        <span class="body interactive-chip" style="font-size:19px;font-weight:700;color:var(--navy);padding:14px 28px;border-radius:999px;background:rgba(29,78,216,.12);border:1px solid rgba(29,78,216,.32);">Audit Trail</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- hero image right -->
+  <div class="glass-panel a-float" style="position:absolute;left:980px;top:230px;width:844px;height:730px;z-index:10;animation-delay:.24s;box-sizing:border-box;padding:24px;display:flex;flex-direction:column;">
+    <div style="flex:1;border-radius:16px;overflow:hidden;background:#ffffff;box-shadow:inset 0 0 0 1px rgba(0,0,0,0.05);position:relative;">
+      <img src="../assets/architecture_light.jpg" onerror="this.src='../assets/genai-mockup.png';"
+           alt="System Architecture Diagram"
+           style="width:100%;height:100%;object-fit:cover;">
+      
+      <!-- Unique AI Scanning Sweep -->
+      <div style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:5;">
+        <div style="width:100%;height:120px;background:linear-gradient(to bottom, transparent, rgba(0,188,212,0.15) 80%, rgba(0,188,212,0.6) 100%);
+                    border-bottom: 2px solid rgba(0,188,212,0.8);
+                    animation: scan-sweep 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Uniform Slide Number -->
+  <div style="position:absolute;left:1760px;top:1012px;width:64px;z-index:10;text-align:right;">
+    <p class="num" style="font-size:22px;color:var(--slate-light);margin:0;">10</p>
+  </div>
+
+</div>
+<script src="../assets/scaler.js"></script>
+</body>
+</html>

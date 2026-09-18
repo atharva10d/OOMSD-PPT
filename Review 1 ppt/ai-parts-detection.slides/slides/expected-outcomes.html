@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Expected Conclusions &amp; Outcomes</title>
+<link rel="stylesheet" href="../assets/theme.css">
+<style>
+  html,body{margin:0;padding:0;overflow:hidden;}
+
+  /* Premium Glass Panel with Animated Border */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    box-shadow: 0 35px 80px rgba(11,33,67,0.1), inset 0 0 0 2px rgba(255,255,255,0.8);
+    border-radius: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Animated Glowing Energy Border for Cards */
+  .glass-panel::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 34px;
+    background: conic-gradient(from 0deg, transparent 70%, currentColor 100%);
+    animation: spinBorder 4s linear infinite;
+    z-index: -1;
+    opacity: 0.15;
+  }
+  @keyframes spinBorder {
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Spotlight Group Hover Effect (Fixed Gap Bug) */
+  .metrics-grid:has(.glass-panel:hover) .glass-panel {
+    filter: blur(6px);
+    opacity: 0.35;
+    transform: scale(0.95);
+  }
+  .metrics-grid .glass-panel:hover {
+    filter: blur(0px) !important;
+    opacity: 1 !important;
+    transform: scale(1.05) translateY(-10px) !important;
+    box-shadow: 0 50px 110px rgba(11,33,67,0.2), inset 0 0 0 2px rgba(255,255,255,1) !important;
+    z-index: 20;
+  }
+  .metrics-grid .glass-panel {
+    transition: all 0.5s cubic-bezier(0.2,0.8,0.2,1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* 3D Image Hover */
+  .image-3d-container {
+    transform: rotateY(8deg) rotateX(4deg) scale(1.02);
+    transition: all 0.6s cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .image-3d-container:hover {
+    transform: rotateY(0deg) rotateX(0deg) scale(1.05);
+    box-shadow: 0 50px 120px rgba(11,33,67,0.4), inset 0 0 0 1px rgba(255,255,255,0.2);
+  }
+
+  /* AI Scanning Laser */
+  .scanner-laser {
+    position: absolute;
+    left: 0; width: 100%; height: 4px;
+    background: var(--cyan);
+    box-shadow: 0 0 20px 4px var(--cyan);
+    animation: scanPulse 3s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+    z-index: 15;
+    pointer-events: none;
+    opacity: 0.8;
+  }
+  @keyframes scanPulse {
+    0% { top: 10%; opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { top: 90%; opacity: 0; }
+  }
+
+  /* Targeting Corner Brackets */
+  .target-bracket {
+    position: absolute;
+    width: 40px; height: 40px;
+    border: 3px solid var(--cyan);
+    z-index: 12;
+    animation: pulseBracket 2s infinite alternate;
+  }
+  @keyframes pulseBracket {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(1.1); opacity: 1; }
+  }
+
+  /* Ambient Orbs */
+  @keyframes orb-float {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(80px, -60px) scale(1.1); }
+    66% { transform: translate(-40px, 60px) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
+  }
+</style>
+</head>
+<body>
+<div class="slide-container mesh-light" data-screen-label="13 Expected Outcomes" style="position:relative;width:1920px;height:1080px;overflow:hidden;">
+
+  <div class="grid-tex" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;z-index:1;"></div>
+
+  <!-- Ambient Glowing Data Orbs -->
+  <div style="position:absolute;left:150px;top:300px;width:500px;height:500px;background:rgba(14,159,110,0.15);filter:blur(80px);border-radius:50%;z-index:1;animation:orb-float 12s ease-in-out infinite alternate;pointer-events:none;"></div>
+  <div style="position:absolute;left:1050px;top:450px;width:400px;height:400px;background:rgba(0,188,212,0.12);filter:blur(80px);border-radius:50%;z-index:1;animation:orb-float 15s ease-in-out infinite alternate-reverse;pointer-events:none;"></div>
+
+  <div style="position:absolute;left:96px;top:70px;width:74px;height:8px;z-index:9;border-radius:4px;
+              background:linear-gradient(90deg,var(--emerald),var(--cyan));box-shadow: 0 0 15px var(--emerald);"></div>
+  <div class="a-float" style="position:absolute;left:96px;top:96px;width:1500px;z-index:10;">
+    <p class="kicker" style="color:var(--emerald);font-size:20px;margin:0 0 12px;letter-spacing:.1em;text-transform:uppercase;">Section 08 &bull; Outcomes</p>
+    <h1 class="ttl" style="font-size:56px;color:var(--navy);line-height:1.1;margin:0;white-space:nowrap;">Expected Conclusions &amp; Outcomes</h1>
+  </div>
+
+  <!-- left hero: Industry 4.0 mark (Now as a 3D interactive container) -->
+  <div class="a-float" style="position:absolute;left:96px;top:326px;width:596px;height:688px;z-index:10;perspective:1200px;animation-delay:.1s;">
+    <div class="image-3d-container" style="position:relative;width:100%;height:100%;border-radius:32px;background:linear-gradient(155deg,#0B2143,#071527);box-shadow:-20px 40px 80px rgba(11,33,67,.3);border:1px solid rgba(255,255,255,0.15);overflow:hidden;transform-origin:left center;">
+      <!-- Background Image -->
+      <img src="../assets/qa.jpg" alt="Quality Assurance" style="position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;opacity:0.3;mix-blend-mode:screen;pointer-events:none;">
+      <!-- Grid Texture -->
+      <div class="grid-tex-dark" style="position:absolute;left:0;top:0;width:100%;height:100%;opacity:0.7;pointer-events:none;"></div>
+      
+      <!-- Scanning Laser & Targeting Brackets -->
+      <div class="scanner-laser"></div>
+      <div class="target-bracket" style="top:32px;left:32px;border-bottom:none;border-right:none;"></div>
+      <div class="target-bracket" style="top:32px;right:32px;border-bottom:none;border-left:none;"></div>
+      <div class="target-bracket" style="bottom:32px;left:32px;border-top:none;border-right:none;"></div>
+      <div class="target-bracket" style="bottom:32px;right:32px;border-top:none;border-left:none;"></div>
+      
+      <!-- Content Overlay -->
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px;">
+        <div class="a-pop a-pulse" style="width:172px;height:172px;border-radius:50%;margin-bottom:40px;
+                    background:radial-gradient(circle at 34% 28%, rgba(0,188,212,.42), rgba(0,188,212,.10) 68%);
+                    border:2px solid rgba(125,211,252,.62);display:flex;align-items:center;justify-content:center;animation-delay:.4s;">
+          <svg width="86" height="86" viewBox="0 0 24 24" fill="none" stroke="#7DD3FC" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m4.8 12.6 4.4 4.4 9.8-9.8"/></svg>
+        </div>
+        <p class="kicker" style="color:var(--cyan);font-size:18px;margin:0 0 16px;letter-spacing:2px;text-transform:uppercase;">The Standard</p>
+        <p class="ttl" style="font-size:52px;color:#FFFFFF;line-height:1.06;margin:0 0 22px;">Industry 4.0<br>Quality Assurance</p>
+        <p class="body" style="font-size:21px;color:rgba(255,255,255,.72);line-height:1.5;margin:0;">Bridging precise computer vision with GenAI reasoning delivers a complete, end-to-end smart manufacturing solution.</p>
+      </div>
+      <!-- Glass glare overlay -->
+      <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(120deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 40%);pointer-events:none;"></div>
+    </div>
+  </div>
+
+  <!-- 4 metric cards (Now in a perfect CSS Grid with Spotlight Hover) -->
+  <div class="metrics-grid" style="position:absolute;left:740px;top:326px;width:1084px;height:688px;z-index:10;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:36px;">
+    
+    <div class="glass-panel a-float rail-emerald" style="animation-delay:.2s;color:var(--emerald);">
+      <p class="num" style="font-size:86px;color:var(--emerald);line-height:1;margin:0 0 16px;">100%</p>
+      <p class="ttl" style="font-size:32px;letter-spacing:.02em;margin:0 0 16px;color:var(--navy);">Full Automation</p>
+      <p class="body" style="font-size:22px;line-height:1.48;margin:0;color:var(--slate);">Fully automates the visual inspection pipeline, ensuring consistent, <strong style="color:var(--navy);">24/7 quality assurance</strong>.</p>
+    </div>
+
+    <div class="glass-panel a-float rail-cyan" style="animation-delay:.32s;color:var(--cyan-deep);">
+      <p class="num" style="font-size:86px;color:var(--cyan-deep);line-height:1;margin:0 0 16px;">&gt;95%</p>
+      <p class="ttl" style="font-size:32px;letter-spacing:.02em;margin:0 0 16px;color:var(--navy);">Enhanced Accuracy</p>
+      <p class="body" style="font-size:22px;line-height:1.48;margin:0;color:var(--slate);">Improves micro-defect detection, eliminating <strong style="color:var(--navy);">physical fatigue and subjective errors</strong> of human inspection.</p>
+    </div>
+
+    <div class="glass-panel a-float rail-amber" style="animation-delay:.44s;color:var(--amber);">
+      <p class="num" style="font-size:86px;color:var(--amber);line-height:1;margin:0 0 16px;">30%&darr;</p>
+      <p class="ttl" style="font-size:32px;letter-spacing:.02em;margin:0 0 16px;color:var(--navy);">Cost &amp; Safety Impact</p>
+      <p class="body" style="font-size:22px;line-height:1.48;margin:0;color:var(--slate);">Catching flaws early reduces operational costs, enhances end-user safety and <strong style="color:var(--navy);">prevents product recalls</strong>.</p>
+    </div>
+
+    <div class="glass-panel a-float rail-cobalt" style="animation-delay:.56s;color:var(--cobalt);">
+      <p class="num" style="font-size:86px;color:var(--cobalt);line-height:1;margin:0 0 16px;">360&deg;</p>
+      <p class="ttl" style="font-size:32px;letter-spacing:.02em;margin:0 0 16px;color:var(--navy);">Industry 4.0 Standard</p>
+      <p class="body" style="font-size:22px;line-height:1.48;margin:0;color:var(--slate);">A complete smart-manufacturing loop: <strong style="color:var(--navy);">detect, diagnose, report, act</strong>.</p>
+    </div>
+
+  </div>
+
+  <!-- Uniform Slide Number -->
+  <div style="position:absolute;left:1760px;top:1012px;width:64px;z-index:10;text-align:right;">
+    <p class="num" style="font-size:22px;color:var(--slate-light);margin:0;">13</p>
+  </div>
+
+</div>
+<script src="../assets/scaler.js"></script>
+</body>
+</html>

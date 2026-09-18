@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Discriminative AI: Defect Localization</title>
+<link rel="stylesheet" href="../assets/theme.css">
+<style>
+  html,body{margin:0;padding:0;overflow:hidden;}
+  
+  /* Smooth Breathing Timeline Dots */
+  @keyframes nodePulse {
+    0%, 100% { box-shadow: 0 0 0 6px rgba(255,255,255,0.7), 0 4px 12px rgba(0,0,0,0.1); }
+    50% { box-shadow: 0 0 0 10px rgba(255,255,255,0.2), 0 4px 12px rgba(0,0,0,0.1); }
+  }
+  .timeline-node {
+    position: absolute; left: -37px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px;
+    border-radius: 50%; background: #fff; z-index: 20;
+    animation: nodePulse 2.5s ease-in-out infinite;
+  }
+
+  /* Data Flow on the spine */
+  @keyframes dataFlow {
+    0% { top: 0%; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
+  .data-packet {
+    position: absolute; left: -1px; width: 8px; height: 40px;
+    background: #fff; border-radius: 4px;
+    box-shadow: 0 0 10px #fff, 0 0 20px var(--cyan);
+    animation: dataFlow 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    z-index: 6;
+  }
+
+  /* Ultra-Smooth Premium Card Hover */
+  .creative-card {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    will-change: transform, box-shadow, background;
+  }
+  .creative-card:hover {
+    transform: translateX(12px) scale(1.02);
+    background: rgba(255,255,255,1);
+    box-shadow: 0 30px 60px rgba(11,33,67,0.12), 0 0 0 1px rgba(0,188,212,0.1) inset;
+    z-index: 30;
+  }
+
+  /* Colorful Premium Fluid Border Animation */
+  @keyframes fluidGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .premium-border-container {
+    background: linear-gradient(270deg, var(--cyan), #8b5cf6, var(--emerald), var(--cobalt));
+    background-size: 400% 400%;
+    animation: fluidGradient 8s ease infinite;
+    border-radius: 34px;
+    padding: 4px; /* Glowing border thickness */
+    box-shadow: 0 40px 100px rgba(11,33,67,0.25), 0 0 40px rgba(139, 92, 246, 0.2);
+  }
+
+  /* Subtle Blueprint Grid inside the container to utilize white space elegantly */
+  .inner-grid {
+    position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+    background-image: radial-gradient(circle, rgba(11,33,67,0.06) 2px, transparent 2px);
+    background-size: 24px 24px;
+    z-index: 1; pointer-events: none;
+  }
+
+  /* Floating Premium Glass Shapes - Pushed to the edges */
+  @keyframes floatShape {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(8deg); }
+  }
+  @keyframes floatShapeReverse {
+    0%, 100% { transform: translateY(0) rotate(45deg); }
+    50% { transform: translateY(15px) rotate(35deg); }
+  }
+  .glass-shape {
+    position: absolute;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.3));
+    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255,255,255,0.95);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1), inset 0 0 0 2px rgba(255,255,255,0.6);
+    z-index: 2; pointer-events: none;
+  }
+  /* Extreme Edge Positioning to avoid central image overlap */
+  .glass-circle { width: 140px; height: 140px; border-radius: 50%; top: -30px; left: -30px; animation: floatShape 6s ease-in-out infinite; }
+  .glass-pill { width: 220px; height: 80px; border-radius: 40px; bottom: 30px; left: -60px; animation: floatShape 8s ease-in-out infinite 1s; }
+  .glass-diamond { width: 130px; height: 130px; border-radius: 24px; top: -40px; right: 40px; animation: floatShapeReverse 7s ease-in-out infinite 0.5s; }
+  .glass-bubble { width: 90px; height: 90px; border-radius: 50%; bottom: -20px; right: -20px; animation: floatShapeReverse 5s ease-in-out infinite 2s; }
+</style>
+</head>
+<body>
+<div class="slide-container mesh-warm" data-screen-label="08 Computer Vision Pipeline" style="position:relative;width:1920px;height:1080px;overflow:hidden;">
+
+  <div class="grid-tex" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;z-index:1;"></div>
+
+  <!-- Header (F-Pattern) -->
+  <div style="position:absolute;left:96px;top:70px;width:74px;height:8px;z-index:9;border-radius:4px;
+              background:linear-gradient(90deg,var(--cobalt),var(--cyan));box-shadow: 0 0 15px var(--cyan);"></div>
+  <div class="a-float" style="position:absolute;left:96px;top:96px;width:1400px;z-index:10;">
+    <p class="kicker" style="color:var(--cobalt);font-size:20px;margin:0 0 12px;letter-spacing:.1em;text-transform:uppercase;">Section 06 &bull; Computer Vision Pipeline</p>
+    <h1 class="ttl" style="font-size:66px;margin:0 0 12px;color:var(--navy);line-height:1.05;">Discriminative AI: Defect Localization</h1>
+    <p class="body" style="font-size:26px;color:var(--slate);line-height:1.45;margin:0;">Analyzing visual data in real-time to pinpoint and classify minute manufacturing faults.</p>
+  </div>
+
+  <!-- Vertical Glowing Timeline Spine -->
+  <div class="a-bar" style="position:absolute;left:110px;top:390px;width:6px;height:480px;z-index:5;border-radius:3px;
+              background:linear-gradient(180deg, var(--cyan), var(--cobalt) 40%, var(--emerald) 90%);
+              box-shadow:0 0 20px rgba(0,188,212,0.6); transform-origin: top center;">
+    <div class="data-packet"></div>
+  </div>
+
+  <!-- Left Column: Three Stages (No Peer Dimming) -->
+  <div style="position:absolute;left:0;top:0;width:720px;height:1080px;z-index:15;">
+    <!-- Stage 1 -->
+    <div class="creative-card a-float" style="position:absolute;left:140px;top:280px;width:540px;height:220px;padding:36px 44px;box-sizing:border-box;animation-delay:.1s;border-left:4px solid var(--cyan); display:flex; flex-direction:column; justify-content:center;">
+      <div class="timeline-node" style="border: 4px solid var(--cyan); animation-delay: 0s;"></div>
+      <p class="kicker" style="color:var(--cyan-deep);font-size:15px;margin:0 0 8px;text-transform:uppercase;font-weight:700;letter-spacing:1px;">Step 01</p>
+      <p class="ttl" style="font-size:32px;letter-spacing:0;margin:0 0 14px;color:var(--navy);">Deep Learning Analysis</p>
+      <p class="body" style="font-size:22px;line-height:1.5;margin:0;">Utilizes advanced computer vision architectures to analyze part images <strong style="color:var(--navy);">in real-time</strong>.</p>
+    </div>
+
+    <!-- Stage 2 -->
+    <div class="creative-card a-float" style="position:absolute;left:140px;top:520px;width:540px;height:220px;padding:36px 44px;box-sizing:border-box;animation-delay:.25s;border-left:4px solid var(--cobalt); display:flex; flex-direction:column; justify-content:center;">
+      <div class="timeline-node" style="border: 4px solid var(--cobalt); animation-delay: 0.3s;"></div>
+      <p class="kicker" style="color:var(--cobalt);font-size:15px;margin:0 0 8px;text-transform:uppercase;font-weight:700;letter-spacing:1px;">Step 02</p>
+      <p class="ttl" style="font-size:32px;letter-spacing:0;margin:0 0 14px;color:var(--navy);">Localization &amp; Classification</p>
+      <p class="body" style="font-size:22px;line-height:1.5;margin:0;">The system accurately identifies, draws <strong style="color:var(--navy);">bounding boxes</strong> around, and classifies various manufacturing faults.</p>
+    </div>
+
+    <!-- Stage 3 -->
+    <div class="creative-card a-float" style="position:absolute;left:140px;top:760px;width:540px;height:220px;padding:36px 44px;box-sizing:border-box;animation-delay:.4s;border-left:4px solid var(--emerald); display:flex; flex-direction:column; justify-content:center;">
+      <div class="timeline-node" style="border: 4px solid var(--emerald); animation-delay: 0.6s;"></div>
+      <p class="kicker" style="color:var(--emerald);font-size:15px;margin:0 0 8px;text-transform:uppercase;font-weight:700;letter-spacing:1px;">Step 03</p>
+      <p class="ttl" style="font-size:32px;letter-spacing:0;margin:0 0 14px;color:var(--navy);">Pattern Recognition</p>
+      <p class="body" style="font-size:21px;line-height:1.5;margin:0;">Unlike rigid rule-based systems, this AI-driven approach learns intricate defect patterns from large datasets seamlessly.</p>
+    </div>
+  </div>
+
+  <!-- Right Column: Premium Fluid Gradient Border Container -->
+  <div class="a-zoom floating-icon premium-border-container" style="position:absolute;left:740px;top:280px;width:1080px;height:700px;z-index:10;animation-delay:.3s;">
+    
+    <!-- Inner Frosted Glass Layer -->
+    <div style="width:100%;height:100%;background:rgba(252,254,255,0.95); border-radius:30px; position:relative; overflow:hidden;
+                display:flex;align-items:center;justify-content:center;padding:40px;box-sizing:border-box;">
+      
+      <!-- Subtle Grid to utilize white space cleanly -->
+      <div class="inner-grid"></div>
+
+      <!-- Edge-Hugging Floating Glass Shapes -->
+      <div class="glass-shape glass-circle"></div>
+      <div class="glass-shape glass-pill"></div>
+      <div class="glass-shape glass-diamond"></div>
+      <div class="glass-shape glass-bubble"></div>
+
+      <!-- Flowchart Image (multiply blend removes white background perfectly) -->
+      <img src="../assets/flowchart.png" alt="Computer vision pipeline flowchart" 
+           style="width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;opacity:0.95;position:relative;z-index:5;">
+           
+    </div>
+  </div>
+
+  <!-- Uniform Slide Number -->
+  <div style="position:absolute;left:1760px;top:1012px;width:64px;z-index:10;text-align:right;">
+    <p class="num" style="font-size:22px;color:var(--slate-light);margin:0;">08</p>
+  </div>
+
+</div>
+<script src="../assets/scaler.js"></script>
+</body>
+</html>

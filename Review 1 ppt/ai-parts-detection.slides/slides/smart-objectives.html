@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SMART Objectives</title>
+<link rel="stylesheet" href="../assets/theme.css">
+<style>
+  html,body{margin:0;padding:0;overflow:hidden;}
+
+  /* Ultra-Premium Laser Spine Animation */
+  .energy-spine {
+    position: absolute; left: 256px; top: 410px; width: 1408px; height: 4px;
+    z-index: 2; border-radius: 2px;
+    background: rgba(11,33,67,0.06);
+    overflow: hidden;
+  }
+  .energy-spine::before {
+    content: '';
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(90deg, var(--cyan), var(--cobalt), var(--emerald), var(--amber), var(--coral));
+    transform-origin: left;
+    opacity: 0.8;
+    animation: drawSpine 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .energy-spine::after {
+    content: '';
+    position: absolute; top: 0; left: 0; width: 200px; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,1), transparent);
+    box-shadow: 0 0 20px rgba(255,255,255,0.9);
+    animation: traceBeam 4s cubic-bezier(0.4, 0, 0.2, 1) infinite 1.4s;
+    opacity: 0;
+  }
+  @keyframes drawSpine {
+    0% { transform: scaleX(0); }
+    100% { transform: scaleX(1); }
+  }
+  @keyframes traceBeam {
+    0% { transform: translateX(-200px); opacity: 0; }
+    15% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { transform: translateX(1408px); opacity: 0; }
+  }
+
+  /* Ultra-Smooth Focus Mode (Wrapper Based) */
+  .focus-card {
+    transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.1), 
+                opacity 0.5s ease, 
+                box-shadow 0.6s ease,
+                background 0.5s ease !important;
+    will-change: transform, opacity;
+  }
+  
+  .focus-group:hover .focus-card {
+    opacity: 0.35 !important;
+    transform: scale(0.96) !important;
+  }
+  
+  .focus-group .focus-card:hover {
+    opacity: 1 !important;
+    transform: scale(1.05) translateY(-16px) !important;
+    background: rgba(255,255,255,1) !important;
+    z-index: 30 !important;
+    box-shadow: 0 45px 100px rgba(0,0,0,0.18), 0 0 0 2px rgba(255,255,255,0.8) inset !important;
+  }
+</style>
+</head>
+<body>
+<div class="slide-container mesh-light" data-screen-label="05 SMART Objectives" style="position:relative;width:1920px;height:1080px;overflow:hidden;">
+
+  <div class="grid-tex" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;z-index:1;"></div>
+
+  <div style="position:absolute;left:96px;top:70px;width:74px;height:8px;z-index:9;border-radius:4px;
+              background:linear-gradient(90deg,var(--emerald),var(--cyan));box-shadow: 0 0 15px var(--emerald);"></div>
+  <div class="a-float" style="position:absolute;left:96px;top:96px;width:1200px;z-index:10;">
+    <p class="kicker" style="color:var(--emerald);font-size:20px;margin:0 0 12px;letter-spacing:.1em;text-transform:uppercase;">Section 03</p>
+    <h1 class="ttl" style="font-size:66px;margin:0 0 12px;color:var(--navy);line-height:1.05;">SMART Objectives</h1>
+    <p class="body" style="font-size:26px;color:var(--slate);line-height:1.45;margin:0;">Five commitments that make the outcome specific, measurable and reviewable.</p>
+  </div>
+
+  <!-- connective spine (Behind cards to create frosted glass blur effect) -->
+  <div class="energy-spine"></div>
+
+  <!-- Cards Wrapper for Peer Hover -->
+  <div class="focus-group" style="position:absolute;left:96px;top:310px;width:1728px;height:620px;z-index:10;">
+    
+    <!-- S -->
+    <div class="creative-card focus-card a-float rail-cyan" style="position:absolute;left:0px;top:0px;width:320px;height:620px;animation-delay:.08s;display:flex;flex-direction:column;align-items:center;text-align:center;padding:44px 24px;box-sizing:border-box;">
+      <div class="a-pop" style="width:78px;height:78px;border-radius:22px;background:linear-gradient(150deg,rgba(0,188,212,.18),rgba(0,188,212,.06));border:1.5px solid rgba(0,188,212,.38);display:flex;align-items:center;justify-content:center;animation-delay:.28s;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0098B3" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="#0098B3" stroke="none"/></svg>
+      </div>
+      <p class="num a-fade" style="font-size:66px;color:rgba(0,188,212,.30);line-height:1;margin:24px 0 10px;animation-delay:.32s;">S</p>
+      <p class="ttl a-fade" style="font-size:28px;letter-spacing:.06em;color:var(--cyan-deep);margin:0 0 18px;animation-delay:.34s;">Specific</p>
+      <p class="body a-fade" style="font-size:24px;line-height:1.52;animation-delay:.36s;">Design a <strong style="color:var(--navy);">computer vision pipeline</strong> to accurately localize and classify manufacturing defects while integrating Generative AI for root cause analysis.</p>
+    </div>
+
+    <!-- M -->
+    <div class="creative-card focus-card a-float rail-cobalt" style="position:absolute;left:352px;top:0px;width:320px;height:620px;animation-delay:.23s;display:flex;flex-direction:column;align-items:center;text-align:center;padding:44px 24px;box-sizing:border-box;">
+      <div class="a-pop" style="width:78px;height:78px;border-radius:22px;background:linear-gradient(150deg,rgba(29,78,216,.15),rgba(29,78,216,.05));border:1.5px solid rgba(29,78,216,.34);display:flex;align-items:center;justify-content:center;animation-delay:.43s;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="1.9" stroke-linecap="round">
+          <path d="M4 20V13M10 20V8M16 20v-5M22 20V4"/></svg>
+      </div>
+      <p class="num a-fade" style="font-size:66px;color:rgba(29,78,216,.26);line-height:1;margin:24px 0 10px;animation-delay:.47s;">M</p>
+      <p class="ttl a-fade" style="font-size:28px;letter-spacing:.06em;color:var(--cobalt);margin:0 0 18px;animation-delay:.49s;">Measurable</p>
+      <p class="body a-fade" style="font-size:24px;line-height:1.52;animation-delay:.51s;">Automate the creation of comprehensive <strong style="color:var(--navy);">quality inspection reports</strong> to track defect metrics and reduce administrative burden.</p>
+    </div>
+
+    <!-- A -->
+    <div class="creative-card focus-card a-float rail-emerald" style="position:absolute;left:704px;top:0px;width:320px;height:620px;animation-delay:.38s;display:flex;flex-direction:column;align-items:center;text-align:center;padding:44px 24px;box-sizing:border-box;">
+      <div class="a-pop" style="width:78px;height:78px;border-radius:22px;background:linear-gradient(150deg,rgba(14,159,110,.16),rgba(14,159,110,.05));border:1.5px solid rgba(14,159,110,.34);display:flex;align-items:center;justify-content:center;animation-delay:.58s;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0E9F6E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2.6" y="3.4" width="18.8" height="13.4" rx="2"/><path d="M8 20.6h8M12 16.8v3.8M6 13.2l3.2-3.6 2.6 2.4 4.2-4.6"/></svg>
+      </div>
+      <p class="num a-fade" style="font-size:66px;color:rgba(14,159,110,.28);line-height:1;margin:24px 0 10px;animation-delay:.62s;">A</p>
+      <p class="ttl a-fade" style="font-size:28px;letter-spacing:.06em;color:var(--emerald);margin:0 0 18px;animation-delay:.64s;">Achievable</p>
+      <p class="body a-fade" style="font-size:24px;line-height:1.52;animation-delay:.66s;">Develop a <strong style="color:var(--navy);">centralized dashboard</strong> with an interactive natural language chatbot for real-time production statistics.</p>
+    </div>
+
+    <!-- R -->
+    <div class="creative-card focus-card a-float rail-amber" style="position:absolute;left:1056px;top:0px;width:320px;height:620px;animation-delay:.53s;display:flex;flex-direction:column;align-items:center;text-align:center;padding:44px 24px;box-sizing:border-box;">
+      <div class="a-pop" style="width:78px;height:78px;border-radius:22px;background:linear-gradient(150deg,rgba(232,133,60,.18),rgba(232,133,60,.06));border:1.5px solid rgba(232,133,60,.36);display:flex;align-items:center;justify-content:center;animation-delay:.73s;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E8853C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="8.6"/><path d="M12 3.4v3.2M12 17.4v3.2M3.4 12h3.2M17.4 12h3.2"/><circle cx="12" cy="12" r="3.3"/></svg>
+      </div>
+      <p class="num a-fade" style="font-size:66px;color:rgba(232,133,60,.30);line-height:1;margin:24px 0 10px;animation-delay:.77s;">R</p>
+      <p class="ttl a-fade" style="font-size:28px;letter-spacing:.06em;color:var(--amber);margin:0 0 18px;animation-delay:.79s;">Relevant</p>
+      <p class="body a-fade" style="font-size:24px;line-height:1.52;animation-delay:.81s;">Target <strong style="color:var(--navy);">high-criticality automobile parts</strong> to prevent defects from reaching the assembly line, ensuring quality assurance.</p>
+    </div>
+
+    <!-- T -->
+    <div class="creative-card focus-card a-float rail-coral" style="position:absolute;left:1408px;top:0px;width:320px;height:620px;animation-delay:.68s;display:flex;flex-direction:column;align-items:center;text-align:center;padding:44px 24px;box-sizing:border-box;">
+      <div class="a-pop" style="width:78px;height:78px;border-radius:22px;background:linear-gradient(150deg,rgba(239,107,87,.16),rgba(239,107,87,.05));border:1.5px solid rgba(239,107,87,.34);display:flex;align-items:center;justify-content:center;animation-delay:.88s;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#EF6B57" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12.6" r="8.2"/><path d="M12 8.2v4.4l3 2.2M8.4 2.6 5.6 4.8M15.6 2.6l2.8 2.2"/></svg>
+      </div>
+      <p class="num a-fade" style="font-size:66px;color:rgba(239,107,87,.28);line-height:1;margin:24px 0 10px;animation-delay:.92s;">T</p>
+      <p class="ttl a-fade" style="font-size:28px;letter-spacing:.055em;color:var(--coral);margin:0 0 18px;animation-delay:.94s;">Time-bound</p>
+      <p class="body a-fade" style="font-size:24px;line-height:1.52;animation-delay:.96s;">Complete data collection, model training, dashboard development and system validation <strong style="color:var(--navy);">within the allotted academic timeline</strong>.</p>
+    </div>
+
+  </div>
+
+  <!-- Uniform Slide Number -->
+  <div style="position:absolute;left:1760px;top:1012px;width:64px;z-index:10;text-align:right;">
+    <p class="num" style="font-size:22px;color:var(--slate-light);margin:0;">05</p>
+  </div>
+
+</div>
+<script src="../assets/scaler.js"></script>
+</body>
+</html>

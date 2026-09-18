@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0",
+  "format": "html",
+  "metadata": {
+    "title": "AI Based Parts Detection System — Capstone Review 1",
+    "description": "PCCOE Department of Computer Engineering (Regional Language) capstone project review presentation: AI based parts detection system combining computer vision defect localization with a Generative AI diagnostic layer.",
+    "author": "Atharva Zope, Om Kawad, Viraj Deshmukh"
+  },
+  "canvas": {"width": 1920, "height": 1080},
+  "playlist": [
+    "title.html",
+    "agenda.html",
+    "problem-identification.html",
+    "literature-review.html",
+    "smart-objectives.html",
+    "project-scope.html",
+    "system-methodology.html",
+    "vision-pipeline.html",
+    "genai-root-cause.html",
+    "architecture-reporting.html",
+    "feasibility-plan.html",
+    "work-plan-timeline.html",
+    "expected-outcomes.html",
+    "references.html"
+  ]
+}

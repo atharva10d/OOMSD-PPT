@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Project Scope &amp; Boundaries</title>
+<link rel="stylesheet" href="../assets/theme.css">
+<style>
+  html,body{margin:0;padding:0;overflow:hidden;}
+  
+  /* Physical Boundary Styling */
+  .boundary-zone {
+    position: absolute; right: 0; top: 0; width: 620px; height: 1080px;
+    background: linear-gradient(180deg, rgba(11,33,67,0.92) 0%, #070C18 100%);
+    border-left: 2px dashed rgba(239,107,87,0.5);
+    box-shadow: -40px 0 80px rgba(0,0,0,0.15);
+    z-index: 1;
+    backdrop-filter: blur(12px);
+  }
+
+  /* Warning stripe in the boundary zone */
+  .boundary-zone::before {
+    content: '';
+    position: absolute; left: 0; top: 0; width: 4px; height: 100%;
+    background: linear-gradient(180deg, var(--amber), var(--coral));
+    box-shadow: 0 0 20px rgba(239,107,87,0.4);
+  }
+  
+  /* Holographic Tags */
+  .chip { 
+    padding: 8px 20px; border-radius: 8px; font-weight: 600; font-size: 18px; 
+    backdrop-filter: blur(8px); transition: all 0.3s ease; cursor: default;
+  }
+  .chip-blue { 
+    background: rgba(0,188,212,0.06); border: 1px solid rgba(0,188,212,0.4); 
+    color: var(--navy); box-shadow: 0 4px 12px rgba(0,188,212,0.05);
+  }
+  .chip-blue:hover {
+    background: rgba(0,188,212,0.15); border: 1px solid rgba(0,188,212,0.8);
+    box-shadow: 0 0 15px rgba(0,188,212,0.2); transform: translateY(-2px);
+  }
+  
+  .chip-red { 
+    background: rgba(239,107,87,0.06); border: 1px solid rgba(239,107,87,0.4); 
+    color: var(--navy); box-shadow: 0 4px 12px rgba(239,107,87,0.05);
+  }
+  .chip-red:hover {
+    background: rgba(239,107,87,0.15); border: 1px solid rgba(239,107,87,0.8);
+    box-shadow: 0 0 15px rgba(239,107,87,0.2); transform: translateY(-2px);
+  }
+</style>
+</head>
+<body>
+<div class="slide-container mesh-warm" data-screen-label="06 Project Scope" style="position:relative;width:1920px;height:1080px;overflow:hidden;">
+
+  <div class="grid-tex" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;z-index:1;"></div>
+
+  <!-- Physical Boundary Overlay -->
+  <div class="boundary-zone a-fade" style="animation-delay: 0.1s;"></div>
+
+  <!-- Header (F-Pattern) -->
+  <div style="position:absolute;left:96px;top:70px;width:74px;height:8px;z-index:9;border-radius:4px;
+              background:linear-gradient(90deg,var(--amber),var(--coral));box-shadow: 0 0 15px var(--amber);"></div>
+  <div class="a-float" style="position:absolute;left:96px;top:96px;width:1100px;z-index:10;">
+    <p class="kicker" style="color:var(--amber);font-size:20px;margin:0 0 12px;letter-spacing:.1em;text-transform:uppercase;">Section 04</p>
+    <h1 class="ttl" style="font-size:66px;margin:0 0 12px;color:var(--navy);line-height:1.05;">Project Scope &amp; Boundaries</h1>
+    <p class="body" style="font-size:26px;color:var(--slate);line-height:1.45;margin:0;">What the system will inspect — and what is deliberately left out of this phase.</p>
+  </div>
+
+  <!-- IN SCOPE ZONE (Left Side) -->
+  
+  <!-- Q1 Target Components -->
+  <div class="creative-card a-float rail-cyan" style="position:absolute;left:96px;top:260px;width:560px;height:420px;z-index:10;padding:44px;animation-delay:.08s;box-sizing:border-box;display:flex;flex-direction:column;">
+    <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px;">
+      <div class="a-pop" style="width:68px;height:68px;border-radius:18px;background:linear-gradient(150deg,rgba(0,188,212,.18),rgba(0,188,212,.05));border:1.5px solid rgba(0,188,212,.36);display:flex;align-items:center;justify-content:center;animation-delay:.3s;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0098B3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3.2"/><path d="M12 2.4v2.6M12 19v2.6M2.4 12h2.6M19 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/><circle cx="12" cy="12" r="8.4" stroke-dasharray="3 3"/></svg>
+      </div>
+      <div class="a-fade" style="animation-delay:.34s;">
+        <p class="kicker" style="color:var(--cyan-deep);font-size:14px;margin:0 0 4px;text-transform:uppercase;letter-spacing:1px;font-weight:700;">In Scope</p>
+        <p class="ttl" style="font-size:28px;margin:0;color:var(--navy);">Target Components</p>
+      </div>
+    </div>
+    
+    <div class="a-fade" style="flex:1;display:flex;flex-direction:column;animation-delay:.4s;">
+      <p class="body" style="font-size:22px;line-height:1.5;margin:0 0 24px;">Inspection focuses on <strong style="color:var(--navy);">high-criticality automobile parts</strong> within the main assembly block.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:auto;">
+        <span class="body chip chip-blue">Gears</span>
+        <span class="body chip chip-blue">Brake Discs</span>
+        <span class="body chip chip-blue">Pistons</span>
+        <span class="body chip chip-blue">Engine Blocks</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q2 Defect Categories -->
+  <div class="creative-card a-float rail-cobalt" style="position:absolute;left:686px;top:260px;width:560px;height:420px;z-index:10;padding:44px;animation-delay:.2s;box-sizing:border-box;display:flex;flex-direction:column;">
+    <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px;">
+      <div class="a-pop" style="width:68px;height:68px;border-radius:18px;background:linear-gradient(150deg,rgba(29,78,216,.15),rgba(29,78,216,.05));border:1.5px solid rgba(29,78,216,.32);display:flex;align-items:center;justify-content:center;animation-delay:.42s;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="10.4" cy="10.4" r="6.8"/><path d="M15.4 15.4 21 21"/><path d="M8 11.4l1.8-2.2 1.6 1.6 2-2.4"/></svg>
+      </div>
+      <div class="a-fade" style="animation-delay:.46s;">
+        <p class="kicker" style="color:var(--cobalt);font-size:14px;margin:0 0 4px;text-transform:uppercase;letter-spacing:1px;font-weight:700;">In Scope</p>
+        <p class="ttl" style="font-size:28px;margin:0;color:var(--navy);">Defect Categories</p>
+      </div>
+    </div>
+    
+    <div class="a-fade" style="flex:1;display:flex;flex-direction:column;animation-delay:.52s;">
+      <p class="body" style="font-size:22px;line-height:1.5;margin:0 0 24px;">Identifies diverse <strong style="color:var(--navy);">physical manufacturing faults</strong> using surface analysis.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:auto;">
+        <span class="body chip chip-red">Cracks</span>
+        <span class="body chip chip-red">Dents</span>
+        <span class="body chip chip-red">Scratches</span>
+        <span class="body chip chip-red">Rust</span>
+        <span class="body chip chip-red">Dimensional Faults</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q3 Operational Environment -->
+  <div class="creative-card a-float rail-emerald" style="position:absolute;left:96px;top:710px;width:1150px;height:220px;z-index:10;padding:44px;animation-delay:.32s;box-sizing:border-box;">
+    <!-- Faint watermark -->
+    <svg style="position:absolute;right:40px;top:40px;width:140px;height:140px;opacity:0.04;z-index:1;" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 20h20M4 20V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12M12 20v-8M8 20v-4M16 20v-6" />
+    </svg>
+
+    <div style="position:relative;z-index:10;display:flex;align-items:center;gap:24px;height:100%;">
+      <div class="a-pop" style="width:80px;height:80px;flex-shrink:0;border-radius:18px;background:linear-gradient(150deg,rgba(14,159,110,.16),rgba(14,159,110,.05));border:1.5px solid rgba(14,159,110,.34);display:flex;align-items:center;justify-content:center;animation-delay:.54s;">
+        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#0E9F6E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2.6 20.4V10l5.4 3.2V10l5.4 3.2V10l5.9 3.4v7H2.6Z"/><path d="M2.6 20.4h18.7M7 17h2.4M13 17h2.4"/></svg>
+      </div>
+      <div class="a-fade" style="animation-delay:.58s;flex:1;">
+        <p class="kicker" style="color:var(--emerald);font-size:14px;margin:0 0 8px;text-transform:uppercase;letter-spacing:1px;font-weight:700;">In Scope &bull; Operational Environment</p>
+        <p class="body" style="font-size:24px;line-height:1.52;margin:0;">Designed to simulate <strong style="color:var(--navy);">real-time production line operations</strong>, analyzing images actively without disrupting the overall manufacturing workflow.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- OUT OF SCOPE ZONE (Right Side) -->
+  
+  <!-- Q4 Exclusions -->
+  <div class="a-float" style="position:absolute;left:1350px;top:260px;width:490px;height:670px;z-index:10;border-radius:26px;
+              background:rgba(255,255,255,0.03); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+              box-shadow:0 30px 60px rgba(0,0,0,.4); border:1px solid rgba(239,107,87,0.3); border-top: 4px solid var(--amber); 
+              animation-delay:.44s;padding:50px 40px;box-sizing:border-box;display:flex;flex-direction:column;">
+    
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:20px;margin-bottom:30px;">
+      <div class="a-pop" style="width:72px;height:72px;border-radius:18px;background:rgba(239,107,87,.12);border:1.5px solid rgba(239,107,87,.4);display:flex;align-items:center;justify-content:center;animation-delay:.66s;">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F0A868" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="12" cy="12" r="8.6"/><path d="M6.4 17.6 17.6 6.4"/></svg>
+      </div>
+      <div class="a-fade" style="animation-delay:.7s;">
+        <p class="kicker" style="color:#F0A868;font-size:16px;margin:0 0 6px;text-transform:uppercase;letter-spacing:1px;font-weight:700;">Out of Scope</p>
+        <p class="ttl" style="font-size:36px;color:#FFFFFF;margin:0;">Exclusions</p>
+      </div>
+    </div>
+    
+    <div class="a-fade" style="animation-delay:.74s;flex:1;">
+      <p class="body" style="font-size:24px;line-height:1.6;color:rgba(255,255,255,.86);margin:0 0 24px;">The current phase is heavily focused on vision modeling and is intentionally limited to <strong style="color:#FFFFFF;">static image captures</strong>.</p>
+      
+      <p class="body" style="font-size:22px;line-height:1.6;color:rgba(255,255,255,.6);margin:0;">
+        <span style="display:flex;gap:12px;margin-bottom:16px;">
+          <svg style="flex-shrink:0;margin-top:4px;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF6B57" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          Does not process continuous live video feeds.
+        </span>
+        <span style="display:flex;gap:12px;">
+          <svg style="flex-shrink:0;margin-top:4px;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF6B57" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          No integration with robotic hardware for physical part removal.
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Uniform Slide Number -->
+  <div style="position:absolute;left:1760px;top:1012px;width:64px;z-index:10;text-align:right;">
+    <p class="num" style="font-size:22px;color:rgba(255,255,255,0.4);margin:0;">06</p>
+  </div>
+
+</div>
+<script src="../assets/scaler.js"></script>
+</body>
+</html>

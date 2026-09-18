@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>References</title>
+<link rel="stylesheet" href="../assets/theme.css">
+<style>
+  html,body{margin:0;padding:0;overflow:hidden;}
+
+  /* Premium Glass Panel */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    box-shadow: 0 35px 80px rgba(11,33,67,0.1), inset 0 0 0 2px rgba(255,255,255,0.8);
+    border-radius: 32px;
+  }
+
+  /* Spotlight Group Hover Effect */
+  .ref-group:has(.glass-panel:hover) .glass-panel {
+    filter: blur(6px);
+    opacity: 0.4;
+    transform: scale(0.97);
+  }
+  .ref-group .glass-panel:hover {
+    filter: blur(0px) !important;
+    opacity: 1 !important;
+    transform: scale(1.03) translateY(-10px) !important;
+    box-shadow: 0 50px 110px rgba(0,188,212,0.15), inset 0 0 0 2px rgba(255,255,255,1) !important;
+    z-index: 20;
+  }
+  .ref-group .glass-panel {
+    transition: all 0.6s cubic-bezier(0.2,0.8,0.2,1);
+  }
+
+  /* Soft Light Clouds at Top */
+  .top-clouds {
+    position: absolute;
+    top: -150px; left: -10%; width: 120%; height: 400px;
+    background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 70%);
+    filter: blur(60px);
+    z-index: 2;
+    opacity: 0.7;
+    pointer-events: none;
+    animation: cloudDrift 30s linear infinite alternate;
+  }
+  @keyframes cloudDrift {
+    0% { transform: translateX(-5%); }
+    100% { transform: translateX(5%); }
+  }
+
+  /* Premium Javascript Rain Effect */
+  .rain {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+  }
+  .rain.back-row {
+      z-index: 1;
+      bottom: 60px;
+      opacity: 0.5;
+  }
+  .drop {
+      position: absolute;
+      bottom: 100%;
+      width: 15px;
+      height: 120px;
+      pointer-events: none;
+      animation: drop 0.5s linear infinite;
+  }
+  @keyframes drop {
+    0% { transform: translateY(0vh); }
+    75% { transform: translateY(110vh); }
+    100% { transform: translateY(110vh); }
+  }
+  .stem {
+      width: 2px;
+      height: 60%;
+      margin-left: 7px;
+      background: linear-gradient(to bottom, rgba(0, 188, 212, 0), rgba(0, 188, 212, 0.4));
+      animation: stem 0.5s linear infinite;
+  }
+  @keyframes stem {
+    0% { opacity: 1; }
+    65% { opacity: 1; }
+    75% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+  .splat {
+      width: 15px;
+      height: 10px;
+      border-top: 2px dotted rgba(0, 188, 212, 0.5);
+      border-radius: 50%;
+      opacity: 1;
+      transform: scale(0);
+      animation: splat 0.5s linear infinite;
+  }
+  @keyframes splat {
+    0% { opacity: 1; transform: scale(0); }
+    80% { opacity: 1; transform: scale(0); }
+    90% { opacity: 0.5; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.5); }
+  }
+
+  /* Floating Animation for Cards */
+  .float-card-1 { animation: gentleFloat 6s ease-in-out infinite; }
+  .float-card-2 { animation: gentleFloat 7s ease-in-out infinite reverse; }
+  .float-card-3 { animation: gentleFloat 8s ease-in-out infinite 1s; }
+  
+  @keyframes gentleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  /* Premium Thank You Finale */
+  .thank-you-pill {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+    border: 2px solid rgba(255, 255, 255, 1);
+    padding: 16px 80px;
+    border-radius: 100px;
+    box-shadow: 0 20px 40px rgba(0,188,212,0.15), inset 0 0 20px rgba(255,255,255,0.8);
+    animation: pulsePill 3s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .thank-you-pill:hover {
+    transform: scale(1.08) translateY(-10px) !important;
+    box-shadow: 0 40px 80px rgba(0,188,212,0.3), inset 0 0 30px rgba(255,255,255,1);
+    background: rgba(255, 255, 255, 0.7);
+  }
+  .thank-you-text {
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, var(--cyan-deep), var(--emerald), var(--cobalt), var(--cyan-deep));
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shineText 5s linear infinite;
+  }
+  @keyframes pulsePill {
+    0% { transform: translateY(0); box-shadow: 0 10px 30px rgba(0,188,212,0.1); }
+    100% { transform: translateY(-6px); box-shadow: 0 25px 50px rgba(0,188,212,0.25); }
+  }
+  @keyframes shineText {
+    to { background-position: 300% center; }
+  }
+</style>
+</head>
+<body>
+<div class="slide-container mesh-light" data-screen-label="14 References" style="position:relative;width:1920px;height:1080px;overflow:hidden;">
+
+  <div class="grid-tex" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;z-index:1;"></div>
+
+  <!-- Weather Effects -->
+  <div class="top-clouds"></div>
+  <div class="top-clouds" style="left: 20%; animation-duration: 25s; animation-direction: alternate-reverse;"></div>
+  <div class="rain front-row"></div>
+  <div class="rain back-row"></div>
+
+  <!-- Header -->
+  <div style="position:absolute;left:96px;top:78px;width:74px;height:8px;z-index:9;border-radius:4px;
+              background:linear-gradient(90deg,var(--cyan),var(--cobalt));"></div>
+  <div class="a-float" style="position:absolute;left:96px;top:104px;width:1300px;z-index:10;">
+    <p class="kicker" style="color:var(--cyan-deep);font-size:20px;margin:0 0 12px;letter-spacing:2px;text-transform:uppercase;">Key Citations</p>
+    <h1 class="ttl" style="font-size:78px;color:var(--navy);">References</h1>
+  </div>
+
+  <!-- References Group -->
+  <div class="ref-group" style="position:absolute;left:96px;top:240px;width:1728px;display:flex;flex-direction:column;gap:24px;z-index:15;">
+    
+    <!-- ref 01 -->
+    <div class="glass-panel a-float rail-cyan float-card-1" style="width:100%;padding:30px 40px;box-sizing:border-box;animation-delay:.1s;">
+      <div style="display:flex;align-items:flex-start;gap:30px;">
+        <p class="num" style="font-size:52px;color:var(--cyan-deep);min-width:80px;line-height:1;margin:0;">01</p>
+        <div>
+          <p class="body" style="font-size:28px;color:var(--navy);font-weight:700;line-height:1.36;margin:0 0 10px;">
+            Assad, S., et al. (2026). "Hybrid CNN-Transformer Models for Industrial Defect Detection: A Systematic Review."</p>
+          <p class="body" style="font-size:22px;color:var(--slate);margin:0;">Referenced for hybrid architecture performance and edge-deployment cost limitations.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ref 02 -->
+    <div class="glass-panel a-float rail-cobalt float-card-2" style="width:100%;padding:30px 40px;box-sizing:border-box;animation-delay:.25s;">
+      <div style="display:flex;align-items:flex-start;gap:30px;">
+        <p class="num" style="font-size:52px;color:var(--cobalt);min-width:80px;line-height:1;margin:0;">02</p>
+        <div>
+          <p class="body" style="font-size:28px;color:var(--navy);font-weight:700;line-height:1.36;margin:0 0 10px;">
+            Zheng, L., et al. (2026). "A Lightweight Steel Surface Defect Detection Model for Automotive Manufacturing Production Lines."</p>
+          <p class="body" style="font-size:22px;color:var(--slate);margin:0;">Referenced for lightweight YOLOv8-based detection and its steel-dataset evaluation scope.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ref 03 -->
+    <div class="glass-panel a-float rail-emerald float-card-3" style="width:100%;padding:30px 40px;box-sizing:border-box;animation-delay:.4s;">
+      <div style="display:flex;align-items:flex-start;gap:30px;">
+        <p class="num" style="font-size:52px;color:var(--emerald);min-width:80px;line-height:1;margin:0;">03</p>
+        <div>
+          <p class="body" style="font-size:28px;color:var(--navy);font-weight:700;line-height:1.36;margin:0 0 10px;">
+            Nahar, L., et al. (2026). "AI-enabled Defect Detection in Industrial Products: A Comprehensive Survey, Key Insights and&hellip;"</p>
+          <p class="body" style="font-size:22px;color:var(--slate);margin:0;">Referenced for dataset-dependency and pixel-level annotation cost across AI methods.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- closing line / Q&A CTA -->
+  <div class="a-fade" style="position:absolute;left:0;top:920px;width:1920px;z-index:20;display:flex;justify-content:center;animation-delay:1.2s;">
+    <div class="thank-you-pill">
+      <span class="thank-you-text">Thank You!!!</span>
+    </div>
+  </div>
+
+  <!-- Uniform Slide Number -->
+  <div style="position:absolute;left:1760px;top:1012px;width:64px;z-index:10;text-align:right;">
+    <p class="num" style="font-size:22px;color:var(--slate-light);margin:0;">14</p>
+  </div>
+
+</div>
+<script src="../assets/scaler.js"></script>
+<script>
+  function makeItRain() {
+      var frontRow = document.querySelector('.rain.front-row');
+      var backRow = document.querySelector('.rain.back-row');
+      frontRow.innerHTML = '';
+      backRow.innerHTML = '';
+
+      var increment = 0;
+      var drops = "";
+      var backDrops = "";
+
+      while (increment < 100) {
+        var randoHundo = (Math.floor(Math.random() * (98 - 1 + 1) + 1));
+        var randoFiver = (Math.floor(Math.random() * (5 - 2 + 1) + 2));
+        increment += randoFiver;
+        
+        drops += '<div class="drop" style="left: ' + increment + '%; bottom: ' + (randoFiver + randoFiver - 1 + 100) + '%; animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"><div class="stem" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div><div class="splat" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div></div>';
+        backDrops += '<div class="drop" style="right: ' + increment + '%; bottom: ' + (randoFiver + randoFiver - 1 + 100) + '%; animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"><div class="stem" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div><div class="splat" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div></div>';
+      }
+
+      frontRow.innerHTML = drops;
+      backRow.innerHTML = backDrops;
+  }
+  // Initialize the rain effect
+  makeItRain();
+</script>
+</body>
+</html>

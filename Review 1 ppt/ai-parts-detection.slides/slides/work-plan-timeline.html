@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Project Work Plan &amp; Timeline</title>
+<link rel="stylesheet" href="../assets/theme.css">
+<style>
+  html,body{margin:0;padding:0;overflow:hidden;}
+
+  /* Premium Glass Panel */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    box-shadow: 0 35px 80px rgba(11,33,67,0.1), inset 0 0 0 2px rgba(255,255,255,0.8);
+    border-radius: 32px;
+  }
+
+  /* Spotlight Group Hover Effect */
+  .timeline-group:has(.glass-panel:hover) .glass-panel:not(:hover) {
+    filter: blur(6px);
+    opacity: 0.35;
+    transform: scale(0.92);
+  }
+  .timeline-group .glass-panel:hover {
+    transform: scale(1.1) translateY(-15px) !important;
+    box-shadow: 0 50px 110px rgba(11,33,67,0.2), inset 0 0 0 2px rgba(255,255,255,1) !important;
+    z-index: 30;
+  }
+  .timeline-group .glass-panel {
+    transition: all 0.5s cubic-bezier(0.2,0.8,0.2,1);
+    position: relative;
+  }
+
+  /* Ambient Orbs */
+  @keyframes orb-float {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(80px, -60px) scale(1.1); }
+    66% { transform: translate(-40px, 60px) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
+  }
+
+  /* Laser Stream Animation */
+  .laser-track {
+    background: linear-gradient(90deg, var(--cyan), var(--cobalt), var(--emerald), var(--amber));
+    position: relative;
+    overflow: hidden;
+  }
+  .laser-track::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+    background-size: 200% 100%;
+    animation: laserShoot 3s linear infinite;
+  }
+  @keyframes laserShoot {
+    0% { background-position: 200% 0; }
+    100% { background-position: -100% 0; }
+  }
+
+  /* Node Hover Pulse */
+  .timeline-node {
+    transition: transform 0.4s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.4s ease;
+  }
+  .timeline-node:hover {
+    transform: scale(1.2) !important;
+    box-shadow: 0 0 40px currentColor !important;
+  }
+  /* Sprint Badges */
+  .sprint-badge {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    border-radius: 999px;
+    padding: 8px 20px;
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 10px 20px rgba(11,33,67,0.1);
+    z-index: 25;
+    animation: badgeBob 4s ease-in-out infinite;
+  }
+  @keyframes badgeBob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  /* Telemetry Animations */
+  @keyframes spin { 100% { transform: rotate(360deg); } }
+  @keyframes pulseBar { 0% { height: 40%; } 100% { height: 90%; } }
+</style>
+</head>
+<body>
+<div class="slide-container mesh-light" data-screen-label="12 Project Work Plan &amp; Timeline" style="position:relative;width:1920px;height:1080px;overflow:hidden;">
+
+  <div class="grid-tex" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px;z-index:1;"></div>
+
+  <!-- Header -->
+  <div style="position:absolute;left:96px;top:70px;width:74px;height:8px;z-index:9;border-radius:4px;
+              background:linear-gradient(90deg,var(--cyan),var(--cobalt));box-shadow: 0 0 15px var(--cyan);"></div>
+  <div class="a-float" style="position:absolute;left:96px;top:96px;width:1300px;z-index:10;">
+    <p class="kicker" style="color:var(--cyan-deep);font-size:20px;margin:0 0 12px;letter-spacing:.1em;text-transform:uppercase;">Section 07 &bull; Roadmap</p>
+    <h1 class="ttl" style="font-size:56px;color:var(--navy);margin:0;line-height:1.1;">Project Work Plan &amp; Timeline</h1>
+  </div>
+  
+  <!-- Live Telemetry Widget -->
+  <div class="glass-panel a-fade" style="position:absolute;left:1350px;top:80px;width:480px;padding:24px;z-index:10;animation-delay:.3s;display:flex;align-items:center;gap:24px;">
+    <!-- Spinning Radar/Loader -->
+    <div style="position:relative;width:60px;height:60px;border-radius:50%;border:4px solid rgba(0,188,212,0.2);display:flex;align-items:center;justify-content:center;">
+      <div style="position:absolute;width:100%;height:100%;border-radius:50%;border:4px solid transparent;border-top-color:var(--cyan);animation:spin 2s linear infinite;"></div>
+      <span style="font-family:var(--font-head);font-size:14px;font-weight:800;color:var(--navy);">Q3</span>
+    </div>
+    
+    <!-- Data Bars -->
+    <div style="flex:1;">
+      <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+        <span class="kicker" style="color:var(--navy);font-size:13px;">Timeline Status</span>
+        <span class="kicker" style="color:var(--cyan);font-size:13px;animation:pulseBar 2s steps(2, jump-none) infinite;">ACTIVE</span>
+      </div>
+      <div style="display:flex;gap:6px;height:16px;align-items:flex-end;">
+        <div style="width:20%;background:var(--cyan);height:100%;border-radius:3px;"></div>
+        <div style="width:20%;background:var(--cobalt);height:100%;border-radius:3px;"></div>
+        <div style="width:20%;background:var(--emerald);height:60%;border-radius:3px;animation:pulseBar 1s infinite alternate;"></div>
+        <div style="width:20%;background:rgba(11,33,67,0.1);height:30%;border-radius:3px;"></div>
+        <div style="width:20%;background:rgba(11,33,67,0.1);height:30%;border-radius:3px;"></div>
+      </div>
+      <p style="margin:8px 0 0;font-family:var(--font-body);font-size:15px;color:var(--slate-light);">Estimated Completion: Dec 2024</p>
+    </div>
+  </div>
+
+  <!-- Ambient Background Orbs -->
+  <div style="position:absolute;left:200px;top:400px;width:600px;height:600px;background:rgba(0,188,212,0.12);filter:blur(80px);border-radius:50%;z-index:1;animation:orb-float 15s ease-in-out infinite alternate;pointer-events:none;"></div>
+  <div style="position:absolute;left:1100px;top:300px;width:500px;height:500px;background:rgba(14,159,110,0.12);filter:blur(80px);border-radius:50%;z-index:1;animation:orb-float 18s ease-in-out infinite alternate-reverse;pointer-events:none;"></div>
+
+  <!-- Horizontal Timeline Connector (Laser Track) -->
+  <div class="a-wipe laser-track" style="position:absolute;left:280px;top:480px;width:1320px;height:12px;z-index:5;border-radius:6px;animation-delay:.2s;"></div>
+
+  <!-- NODE 1 -->
+  <div class="sprint-badge a-float" style="left:215px;top:370px;color:var(--cyan);animation-delay:.3s;">Sprint 1</div>
+  <div class="timeline-node a-pop" style="position:absolute;left:240px;top:440px;width:80px;height:80px;z-index:15;border-radius:50%;
+              background:var(--cyan);color:var(--cyan);border:6px solid #fff;box-shadow:0 0 24px rgba(0,188,212,.5);
+              display:flex;align-items:center;justify-content:center;animation-delay:.3s;">
+    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+  </div>
+
+  <!-- NODE 2 -->
+  <div class="sprint-badge a-float" style="left:655px;top:370px;color:var(--cobalt);animation-delay:.45s;">Sprint 2</div>
+  <div class="timeline-node a-pop" style="position:absolute;left:680px;top:440px;width:80px;height:80px;z-index:15;border-radius:50%;
+              background:var(--cobalt);color:var(--cobalt);border:6px solid #fff;box-shadow:0 0 24px rgba(29,78,216,.5);
+              display:flex;align-items:center;justify-content:center;animation-delay:.45s;">
+    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+  </div>
+
+  <!-- NODE 3 -->
+  <div class="sprint-badge a-float" style="left:1095px;top:370px;color:var(--emerald);animation-delay:.6s;">Sprint 3</div>
+  <div class="timeline-node a-pop" style="position:absolute;left:1120px;top:440px;width:80px;height:80px;z-index:15;border-radius:50%;
+              background:var(--emerald);color:var(--emerald);border:6px solid #fff;box-shadow:0 0 24px rgba(14,159,110,.5);
+              display:flex;align-items:center;justify-content:center;animation-delay:.6s;">
+    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  </div>
+
+  <!-- NODE 4 -->
+  <div class="sprint-badge a-float" style="left:1535px;top:370px;color:var(--amber);animation-delay:.75s;">Sprint 4</div>
+  <div class="timeline-node a-pop" style="position:absolute;left:1560px;top:440px;width:80px;height:80px;z-index:15;border-radius:50%;
+              background:var(--amber);color:var(--amber);border:6px solid #fff;box-shadow:0 0 24px rgba(232,133,60,.5);
+              display:flex;align-items:center;justify-content:center;animation-delay:.75s;">
+    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+  </div>
+
+  <!-- Timeline Cards Group (Flexbox + Spotlight) -->
+  <div class="timeline-group" style="position:absolute;left:100px;top:560px;width:1680px;display:flex;justify-content:space-between;z-index:10;">
+    
+    <!-- Phase 1 -->
+    <div class="glass-panel a-float rail-cyan" style="width:360px;padding:36px 32px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;text-align:center;animation-delay:.35s;">
+      <div style="position:absolute;top:10px;right:15px;font-size:100px;font-weight:900;color:var(--cyan);opacity:0.06;pointer-events:none;font-family:var(--font-head);">P1</div>
+      <p class="kicker" style="color:var(--cyan-deep);font-size:16px;margin:0 0 12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Phase 1</p>
+      <p class="ttl" style="font-size:28px;color:var(--navy);letter-spacing:.02em;margin:0 0 16px;">Research &amp; Data Acquisition</p>
+      <p class="body" style="font-size:21px;color:var(--slate);line-height:1.46;margin:0;">Finalize problem statement, complete literature review, gather the dataset of defective and normal parts.</p>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="glass-panel a-float rail-cobalt" style="width:360px;padding:36px 32px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;text-align:center;animation-delay:.5s;">
+      <div style="position:absolute;top:10px;right:15px;font-size:100px;font-weight:900;color:var(--cobalt);opacity:0.04;pointer-events:none;font-family:var(--font-head);">P2</div>
+      <p class="kicker" style="color:var(--cobalt);font-size:16px;margin:0 0 12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Phase 2</p>
+      <p class="ttl" style="font-size:28px;color:var(--navy);letter-spacing:.02em;margin:0 0 16px;">Vision Model Development</p>
+      <p class="body" style="font-size:21px;color:var(--slate);line-height:1.46;margin:0;">Image preprocessing, training object detection algorithms, tuning for accurate defect localization.</p>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="glass-panel a-float rail-emerald" style="width:360px;padding:36px 32px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;text-align:center;animation-delay:.65s;">
+      <div style="position:absolute;top:10px;right:15px;font-size:100px;font-weight:900;color:var(--emerald);opacity:0.06;pointer-events:none;font-family:var(--font-head);">P3</div>
+      <p class="kicker" style="color:var(--emerald);font-size:16px;margin:0 0 12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Phase 3</p>
+      <p class="ttl" style="font-size:28px;color:var(--navy);letter-spacing:.02em;margin:0 0 16px;">GenAI &amp; Chatbot Integration</p>
+      <p class="body" style="font-size:21px;color:var(--slate);line-height:1.46;margin:0;">Develop root cause analysis logic and integrate the natural language interface for operators.</p>
+    </div>
+
+    <!-- Phase 4 -->
+    <div class="glass-panel a-float rail-amber" style="width:360px;padding:36px 32px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;text-align:center;animation-delay:.8s;">
+      <div style="position:absolute;top:10px;right:15px;font-size:100px;font-weight:900;color:var(--amber);opacity:0.06;pointer-events:none;font-family:var(--font-head);">P4</div>
+      <p class="kicker" style="color:var(--amber);font-size:16px;margin:0 0 12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Phase 4</p>
+      <p class="ttl" style="font-size:28px;color:var(--navy);letter-spacing:.02em;margin:0 0 16px;">Dashboard &amp; Final Testing</p>
+      <p class="body" style="font-size:21px;color:var(--slate);line-height:1.46;margin:0;">Construct the real-time UI, implement automated PDF reports, conduct end-to-end validation.</p>
+    </div>
+
+  </div>
+
+  <!-- Uniform Slide Number -->
+  <div style="position:absolute;left:1760px;top:1012px;width:64px;z-index:10;text-align:right;">
+    <p class="num" style="font-size:22px;color:var(--slate-light);margin:0;">12</p>
+  </div>
+
+</div>
+<script src="../assets/scaler.js"></script>
+</body>
+</html>
